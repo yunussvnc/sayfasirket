@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -6,7 +7,15 @@ export default function Footer() {
       <div className="container mx-auto max-w-6xl">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div>
-            <h3 className="text-xl font-bold mb-4">Secesta</h3>
+            <Link href="/" className="block mb-4">
+              <Image 
+                src="/images/secesta-vector-logo.svg" 
+                alt="Secesta Logo" 
+                width={150} 
+                height={50}
+                className="h-10 w-auto brightness-0 invert"
+              />
+            </Link>
             <p className="text-gray-400 text-sm">
               Secesta Software Solutions, dijital pazarlama, yazılım geliştirme ve web çözümleri alanında yenilikçi ve güvenilir hizmetler sunan Türkiye merkezli bir teknoloji şirketidir.
             </p>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Testimonials() {
   return (
@@ -8,7 +9,8 @@ export default function Testimonials() {
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Sizden Gelen Gerçek Yorumlar
           </h2>
-          <div className="flex items-center justify-center gap-2 mb-4">
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <span className="text-2xl font-bold text-gray-400">G</span>
             <span className="text-3xl font-bold text-gray-900">4.9/5</span>
             <span className="text-gray-600">247 Yorum Üzerinden</span>
           </div>

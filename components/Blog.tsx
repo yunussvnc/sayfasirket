@@ -1,24 +1,25 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const blogPosts = [
   {
     title: "Secesta Ne Demek?",
-    image: "/blog/secesta-ne-demek.jpg",
+    image: "/images/Secesta-Ne-Demek-300x300.webp",
     link: "/secesta-ne-demek.html"
   },
   {
     title: "Android Cihazlara Eposta Kurulumu",
-    image: "/blog/android-email.jpg",
+    image: "/images/android-cihazlara-email-kurulumu-e1739873636382.jpg",
     link: "/android-cihazlara-eposta-kurulumu.html"
   },
   {
     title: "iPhone için E-Posta Kurulumu",
-    image: "/blog/iphone-email.jpg",
+    image: "/images/1-e1739873616973.jpg",
     link: "/iphone-icin-e-posta-kurulumu.html"
   },
   {
     title: "Secesta Mail Yapılandırması",
-    image: "/blog/mail-config.jpg",
+    image: "/images/Mail-Yapilandirmasi.png",
     link: "/secesta-mail-yapilandirmasi.html"
   }
 ];
@@ -36,13 +37,19 @@ export default function Blog() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {blogPosts.map((post, index) => (
-            <Link 
+            <Link
               key={index}
               href={post.link}
               className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow group"
             >
-              <div className="h-48 bg-gray-200 flex items-center justify-center">
-                <span className="text-gray-400">Blog Görseli</span>
+              <div className="relative h-48 w-full">
+                <Image
+                  src={post.image}
+                  alt={post.title}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                />
               </div>
               <div className="p-6">
                 <h3 className="text-lg font-semibold text-gray-900 group-hover:text-blue-600">
