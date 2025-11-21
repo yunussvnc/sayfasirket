@@ -87,7 +87,7 @@ export default function Vision() {
               }}
             >
               <Image
-                src="/images/küo.jpg"
+                src="/images/kuo.jpg"
                 alt="Decorative Cube"
                 width={120}
                 height={120}

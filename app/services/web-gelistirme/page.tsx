@@ -101,7 +101,7 @@ export default function WebGelistirme() {
         <div className="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none z-20">
           <div className="relative w-48 h-48 lg:w-64 lg:h-64">
             <Image
-              src="/images/küo.jpg"
+              src="/images/kuo.jpg"
               alt=""
               fill
               className="object-contain"

@@ -214,6 +214,24 @@ export default function Header() {
                 {/* Hero Section */}
                 < section className="relative z-10 h-[600px] lg:h-[720px] pt-10" >
 
+                    {/* Acorn Image - Left Side */}
+                    <div className="absolute left-6 top-1/2 -translate-y-1/2 pointer-events-none z-20">
+                        <motion.div
+                            initial={{ opacity: 0, x: -50, scale: 0.8 }}
+                            animate={{ opacity: 1, x: 0, scale: 1 }}
+                            transition={{ duration: 0.8, delay: 0.3 }}
+                            className="relative w-48 h-48 lg:w-64 lg:h-64"
+                        >
+                            <Image
+                                src="/images/fındık.jpg"
+                                alt=""
+                                fill
+                                className="object-contain drop-shadow-2xl"
+                                sizes="(max-width: 768px) 192px, 256px"
+                            />
+                        </motion.div>
+                    </div>
+
                     {/* Cube Image - Right Side */}
                     < div className="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none z-20" >
                         <motion.div
@@ -223,7 +241,7 @@ export default function Header() {
                             className="relative w-48 h-48 lg:w-64 lg:h-64"
                         >
                             <Image
-                                src="/images/küo.jpg"
+                                src="/images/küp.jpg"
                                 alt=""
                                 fill
                                 className="object-contain"
