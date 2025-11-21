@@ -8,7 +8,7 @@ export default function Referanslar() {
   return (
     <main className="min-h-screen">
       <PageNavbar activePage="referanslar" />
-      <section className="relative pt-32 pb-20 px-4 overflow-hidden">
+      <section className="relative pt-32 pb-20 px-4 overflow-hidden page-hero">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0">
             <Image

@@ -41,7 +41,7 @@ export default function Iletisim() {
     <main className="min-h-screen">
       <PageNavbar activePage="iletisim" />
 
-      <section className="relative pt-32 pb-20 px-4 overflow-hidden">
+      <section className="relative pt-32 pb-20 px-4 overflow-hidden page-hero">
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/seo.webp"

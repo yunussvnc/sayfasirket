@@ -25,10 +25,10 @@ export default function Vision() {
               repeatType: "reverse"
             }}
           >
-            <Image 
-              src="/images/h6_deco-1.png" 
-              alt="Decor" 
-              width={430} 
+            <Image
+              src="/images/h6_deco-1.png"
+              alt="Decor"
+              width={430}
               height={430}
               className="w-[430px] h-[430px] object-contain"
             />
@@ -50,12 +50,13 @@ export default function Vision() {
               transition={{ duration: 0.3 }}
               className="relative h-full w-full"
             >
-              <Image 
-                src="/images/ab-img1.png" 
-                alt="Team Member" 
+              <Image
+                src="/images/vision-thinking.jpg"
+                alt="Düşünen Profesyonel"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
+                priority
               />
             </motion.div>
           </motion.div>
@@ -114,7 +115,7 @@ export default function Vision() {
               ></motion.div>
               <span className="text-[#636EDF] font-medium text-sm uppercase tracking-wide">Vizyonumuz</span>
             </motion.div>
-            
+
             <motion.h2
               className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight"
               initial={{ opacity: 0, y: 20 }}
@@ -124,7 +125,7 @@ export default function Vision() {
             >
               Güçlü Markalar ve Eşsiz<br />Deneyimler Yaratıyoruz
             </motion.h2>
-            
+
             <motion.p
               className="text-lg md:text-xl text-gray-600 leading-relaxed"
               initial={{ opacity: 0, y: 20 }}
@@ -134,7 +135,7 @@ export default function Vision() {
             >
               Deneyimli tasarımcılar, geliştiriciler ve dijital pazarlama uzmanlarından oluşan ekibimizle, dijital başarıyı mümkün kılıyoruz. Müşterilerimizin markalarını ileriye taşıyan yaratıcı ve sonuç odaklı çözümler üretiyoruz.
             </motion.p>
-            
+
             <motion.p
               className="text-lg font-medium text-[#636EDF] mt-6"
               initial={{ opacity: 0, y: 20 }}

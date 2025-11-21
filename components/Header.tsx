@@ -51,17 +51,17 @@ export default function Header() {
     return (
         <>
             <motion.header
-                className="fixed top-0 left-0 right-0 z-50 bg-[#0d1b2a] backdrop-blur-sm border-b border-gray-800"
+                className="fixed top-0 left-0 right-0 z-50 bg-[#050a1f] shadow-[0_15px_45px_rgba(2,6,15,0.9)]"
                 initial={{ y: -100 }}
                 animate={{ y: 0 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
             >
                 <nav className="container mx-auto px-4 py-4">
-                    <div className="flex items-center justify-between">
+                    <div className="flex items-center justify-between bg-[radial-gradient(circle_at_top,#1a2b8a,#0a0f2b)] border border-white/10 rounded-full px-4 py-3 shadow-[0_10px_40px_rgba(4,9,20,0.6)] backdrop-blur">
                         <motion.div
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="flex items-center gap-3"
+                            className="flex items-center gap-3 bg-white/10 px-4 py-2 rounded-full"
                         >
                             <Link href="/" className="flex items-center gap-3">
                                 <div className="flex items-center gap-2">
@@ -86,18 +86,18 @@ export default function Header() {
                         </motion.div>
 
                         {/* Desktop Menu */}
-                        <div className="hidden md:flex items-center gap-2">
+                        <div className="hidden md:flex items-center gap-1 text-white text-sm">
                             <motion.div whileHover={{ y: -2 }} whileTap={{ y: 0 }}>
-                                <Link href="/" className="text-white hover:text-blue-400 transition-colors px-3 py-2">Anasayfa</Link>
+                                <Link href="/" className="px-4 py-2 rounded-full hover:bg-white/10 transition-colors">Anasayfa</Link>
                             </motion.div>
-                            <span className="text-white/40">•</span>
+                            <span className="text-white/30">•</span>
                             <div
                                 className="relative"
                                 onMouseEnter={() => setIsKurumsalOpen(true)}
                                 onMouseLeave={() => setIsKurumsalOpen(false)}
                             >
                                 <motion.button
-                                    className="text-white hover:text-blue-400 transition-colors px-3 py-2"
+                                    className="px-4 py-2 rounded-full hover:bg-white/10 transition-colors"
                                     whileHover={{ y: -2 }}
                                 >
                                     Kurumsal
@@ -109,46 +109,48 @@ export default function Header() {
                                             animate={{ opacity: 1, y: 0 }}
                                             exit={{ opacity: 0, y: -10 }}
                                             transition={{ duration: 0.2 }}
-                                            className="absolute top-full left-0 mt-2 w-48 bg-[#1a1a3e] rounded-lg shadow-lg overflow-hidden border border-gray-700"
+                                            className="absolute top-full left-0 mt-2 w-48 bg-[#040a16] rounded-2xl shadow-lg overflow-hidden border border-white/10"
                                         >
                                             <motion.div whileHover={{ x: 5 }}>
-                                                <Link href="/ekibimiz" className="block px-4 py-2 text-white hover:bg-gray-700/50 transition-colors">Ekibimiz</Link>
+                                                <Link href="/ekibimiz" className="block px-4 py-2 text-white hover:bg-white/10 transition-colors">Ekibimiz</Link>
                                             </motion.div>
                                             <motion.div whileHover={{ x: 5 }}>
-                                                <Link href="/hakkimizda" className="block px-4 py-2 text-white hover:bg-gray-700/50 transition-colors">Hakkımızda</Link>
+                                                <Link href="/hakkimizda" className="block px-4 py-2 text-white hover:bg-white/10 transition-colors">Hakkımızda</Link>
                                             </motion.div>
                                             <motion.div whileHover={{ x: 5 }}>
-                                                <Link href="/degerlerimiz" className="block px-4 py-2 text-white hover:bg-gray-700/50 transition-colors">Değerlerimiz</Link>
+                                                <Link href="/degerlerimiz" className="block px-4 py-2 text-white hover:bg-white/10 transition-colors">Değerlerimiz</Link>
                                             </motion.div>
                                         </motion.div>
                                     )}
                                 </AnimatePresence>
                             </div>
-                            <span className="text-white/40">•</span>
+                            <span className="text-white/30">•</span>
                             <motion.div whileHover={{ y: -2 }}>
-                                <Link href="/hizmetlerimiz" className="text-white hover:text-blue-400 transition-colors px-3 py-2">Hizmetlerimiz</Link>
+                                <Link href="/hizmetlerimiz" className="px-4 py-2 rounded-full hover:bg-white/10 transition-colors">Hizmetlerimiz</Link>
                             </motion.div>
-                            <span className="text-white/40">•</span>
+                            <span className="text-white/30">•</span>
                             <motion.div whileHover={{ y: -2 }}>
-                                <Link href="/referanslar" className="text-white hover:text-blue-400 transition-colors px-3 py-2">Referanslar</Link>
+                                <Link href="/referanslar" className="px-4 py-2 rounded-full hover:bg-white/10 transition-colors">Referanslar</Link>
                             </motion.div>
-                            <span className="text-white/40">•</span>
+                            <span className="text-white/30">•</span>
                             <motion.div whileHover={{ y: -2 }}>
-                                <Link href="/iletisim" className="text-white hover:text-blue-400 transition-colors px-3 py-2">İletişim</Link>
+                                <Link href="/iletisim" className="px-4 py-2 rounded-full hover:bg-white/10 transition-colors">İletişim</Link>
                             </motion.div>
                             <motion.div
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
-                                className="ml-4"
+                                className="ml-4 bg-linear-to-r from-[#008DFF] to-[#00D1FF] p-1 rounded-full"
                             >
                                 <Link
                                     href="/seo-analiz"
-                                    className="bg-[#00b4d8] text-white px-6 py-2 rounded-full hover:bg-[#0096c7] transition-colors inline-flex items-center gap-2"
+                                    className="bg-white text-[#0c164e] px-5 py-2 rounded-full font-semibold inline-flex items-center gap-3"
                                 >
-                                    <span>Ücretsiz Seo Analiz</span>
-                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                    </svg>
+                                    <span>Ücretsiz Seo Analizi</span>
+                                    <span className="inline-flex w-7 h-7 rounded-full bg-[#0c164e] text-white items-center justify-center">
+                                        <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                        </svg>
+                                    </span>
                                 </Link>
                             </motion.div>
                         </div>
@@ -250,7 +252,7 @@ export default function Header() {
                 </div>
 
                 {/* Hero Section */}
-                <section className="relative z-10 h-[600px] lg:h-[720px]">
+                <section className="relative z-10 h-[600px] lg:h-[720px] pt-10">
                     {/* Acorn Image - Left Side */}
                     <div className="absolute left-6 top-1/2 -translate-y-1/2 pointer-events-none z-20">
                         <motion.div
