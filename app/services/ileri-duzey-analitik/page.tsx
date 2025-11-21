@@ -1,6 +1,5 @@
 "use client";
 
-import type { Metadata } from "next";
 import PageNavbar from "@/components/PageNavbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
@@ -40,58 +39,58 @@ export const metadata: Metadata = {
 
 const features = [
   {
-    title: "Quality & Reliable",
-    description: "We provide all types of business & financial consultations."
+    title: "Kesintisiz Veri Kalitesi",
+    description: "Tüm veri kaynaklarını tekilleştirerek hatalı kayıtları temizler, güvenilir paneller kurarız."
   },
   {
-    title: "Licensed & Insured",
-    description: "Our dynamic resourcing calibration can replicate any solution for a much larger playing ground."
+    title: "Tahmine Dayalı Modeller",
+    description: "Makine öğrenmesi temelli modeller ile satış, talep ve kampanya dönüşlerini önceden görürsünüz."
   },
   {
-    title: "Skilled Staff",
-    description: "Cognitive capabilities and data analytics bring efficiency and competitive edge."
+    title: "Gerçek Zamanlı İzleme",
+    description: "Pazarlama, satış ve operasyon metriklerini canlı olarak takip edip eşik değerlerini otomatik uyarırız."
   },
   {
-    title: "Warranty & Maintance",
-    description: "Our quick time and proactive approach assist our clients to rehearse the future."
+    title: "Stratejik Raporlama",
+    description: "Üst yönetime özel hikâyeleştirilmiş raporlarla içgörüleri aksiyona dönüştürmenizi kolaylaştırırız."
   }
 ];
 
 const problems = [
   {
-    title: "Launching a New Product",
-    items: ["Fast project turnaround time", "Substantial cost savings", "International quality standards", "Customized project"]
+    title: "Yeni Ürün ve Kampanya Lansmanı",
+    items: ["Öngörüsel talep tahminleri", "Hızlı A/B test kurulumları", "Gerçek zamanlı kanal optimizasyonu", "Tahsis edilen uzman proje ekibi"]
   },
   {
-    title: "Incremental eCommerce Sales",
-    items: ["A dedicated Project Management", "Strategic delivery locations", "Basic social media strategy", "Quarterly performance reports"]
+    title: "E-ticarette Büyüme Baskısı",
+    items: ["Davranış segmentasyonu", "Yaşam boyu değer modellemesi", "Kâr marjı odaklı bütçe dağılımı", "Haftalık etki analizleri"]
   },
   {
-    title: "Database Growth",
-    items: ["Press release drafting and distribution", "Increase in business revenue", "Substantial cost savings", "Strategic delivery locations"]
+    title: "Veri Tabanının Olgunlaşması",
+    items: ["Veri yönetişimi kılavuzları", "Dönüşüm hunisi görünürlüğü", "Çok kaynaklı atribüsyon", "Kritik KPI’lar için alarm mekanizmaları"]
   }
 ];
 
 const faqs = [
   {
-    question: "How to soft launch your business?",
-    answer: "A digital marketing agency can help businesses of all sizes and industries to improve their online visibility, generate leads, and increase sales. By leveraging the latest digital marketing strategies and technologies, a digital marketing agency can help businesses to stay ahead of the competition"
+    question: "İleri analitik projeleri ne kadar sürede canlıya alınır?",
+    answer: "Analiz kapsamına göre 4-6 haftalık keşif ve veri temizlik aşamasının ardından panelleri yayına alır, eş zamanlı olarak tahmine dayalı modelleri eğitiriz. Her sprint sonunda ölçülebilir çıktıları paylaşırız."
   },
   {
-    question: "What is the transfer application process?",
-    answer: "A digital marketing agency can help businesses of all sizes and industries to improve their online visibility, generate leads, and increase sales. By leveraging the latest digital marketing strategies and technologies, a digital marketing agency can help businesses to stay ahead of the competition"
+    question: "Hangi veri kaynaklarıyla entegre olabiliyorsunuz?",
+    answer: "Google Analytics 4, Meta, TikTok, CRM, e-ticaret platformları, çağrı merkezi yazılımları ve muhasebe sistemleri dahil olmak üzere API veya dosya bazlı tüm kaynaklarla entegre oluruz."
   },
   {
-    question: "Where should I incorporate my business?",
-    answer: "A digital marketing agency can help businesses of all sizes and industries to improve their online visibility, generate leads, and increase sales. By leveraging the latest digital marketing strategies and technologies, a digital marketing agency can help businesses to stay ahead of the competition"
+    question: "Ekibimizde veri uzmanı yok, yine de çalışabilir miyiz?",
+    answer: "Evet. Teknik kurulum, veri modelleme ve dashboard yönetimi tamamen ekibimiz tarafından yürütülür. İç ekibinizden stratejik karar vericilerin katılımı yeterlidir."
   },
   {
-    question: "How can SEO optimization help my business?",
-    answer: "A digital marketing agency can help businesses of all sizes and industries to improve their online visibility, generate leads, and increase sales. By leveraging the latest digital marketing strategies and technologies, a digital marketing agency can help businesses to stay ahead of the competition"
+    question: "Yatırımın geri dönüşünü nasıl raporluyorsunuz?",
+    answer: "Her ay kanal bazında gelir katkısı, maliyet tasarrufu ve operasyonel kazanımları hesaplayan etki analizlerini raporlar, OKR’larınızla ilişkilendiririz."
   },
   {
-    question: "Why should I make branding strategies for startups?",
-    answer: "A digital marketing agency can help businesses of all sizes and industries to improve their online visibility, generate leads, and increase sales. By leveraging the latest digital marketing strategies and technologies, a digital marketing agency can help businesses to stay ahead of the competition"
+    question: "Veri güvenliği ve KVKK uyumu nasıl sağlanıyor?",
+    answer: "Veri yerelliği, erişim logları ve maskeleme politikaları için KVKK ve ISO 27001 standartlarında süreçler uygular, gerekli olduğunda anonimleştirilmiş veri katmanları kurarız."
   }
 ];
 
@@ -101,7 +100,7 @@ export default function IleriDuzeyAnalitik() {
   return (
     <main className="min-h-screen">
       <PageNavbar />
-      
+
       {/* Hero Section with Background */}
       <section className="relative pt-32 pb-20 px-4 overflow-hidden rounded-b-3xl">
         {/* Background Image */}
@@ -174,7 +173,7 @@ export default function IleriDuzeyAnalitik() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                A digital marketing agency can help businesses of all sizes and industries to improve their online visibility, generate leads, and increase sales. Strengthen your team in strategy, marketing & operations.
+                Veri odaklı büyümenin temeli doğru soruları sormak ve bu sorulara destekleyecek güvenilir kaynaklar oluşturmaktır. Kanal performansından operasyonel verimliliğe kadar tüm süreçleri tek panelde toplayarak karar alma hızınızı artırıyoruz.
               </motion.h5>
 
               {/* Service Image */}
@@ -202,9 +201,9 @@ export default function IleriDuzeyAnalitik() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
-                <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Service features</h3>
+                <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Hizmet Özellikleri</h3>
                 <p className="text-gray-600 mb-8 leading-relaxed">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+                  Stratejik hedeflerinizi veriyle ilişkilendirip ölçülebilir KPI’lara dönüştürür, farklı kaynaklardan gelen ham veriyi standartlaştırarak analitik katmanlar inşa ederiz. Böylece pazarlama, satış ve ürün ekipleri ortak bir doğruda buluşur.
                 </p>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
@@ -219,7 +218,7 @@ export default function IleriDuzeyAnalitik() {
                       whileHover={{ x: 5, scale: 1.02 }}
                     >
                       <motion.div
-                        className="w-12 h-12 rounded-full bg-[#636EDF] flex items-center justify-center flex-shrink-0"
+                        className="w-12 h-12 rounded-full bg-[#636EDF] flex items-center justify-center shrink-0"
                         whileHover={{ rotate: 360, scale: 1.1 }}
                         transition={{ duration: 0.5 }}
                       >
@@ -238,9 +237,9 @@ export default function IleriDuzeyAnalitik() {
 
               {/* Problems We Solve */}
               <div className="mb-12">
-                <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Problems we solve</h3>
+                <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Çözdüğümüz Ana Problemler</h3>
                 <p className="text-gray-600 mb-8 leading-relaxed">
-                  From content creation and partnership brokering to dynamic content optimisation and sponsorship, we do a lot more in the world of content than you would imagine from a media agency.
+                  Performans odaklı ekiplerin veri karmaşası yüzünden ortak dil oluşturamadığı durumlarda devreye gireriz. İş hedeflerinizi, ölçüm altyapınızı ve aksiyon planınızı tek çatı altında toplayarak ekipler arası senkron kaybını ortadan kaldırırız.
                 </p>
 
                 <div className="space-y-6">
@@ -253,7 +252,7 @@ export default function IleriDuzeyAnalitik() {
                       <ul className="space-y-2">
                         {problem.items.map((item, itemIndex) => (
                           <li key={itemIndex} className="text-gray-600 flex items-start gap-2">
-                            <div className="w-2 h-2 bg-[#636EDF] rounded-full mt-2 flex-shrink-0"></div>
+                            <div className="w-2 h-2 bg-[#636EDF] rounded-full mt-2 shrink-0"></div>
                             <span>{item}</span>
                           </li>
                         ))}
@@ -266,9 +265,9 @@ export default function IleriDuzeyAnalitik() {
               {/* Popular Questions with Accordion */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
                 <div>
-                  <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Popular questions</h3>
+                  <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Sık Sorulan Sorular</h3>
                   <p className="text-gray-600 mb-6 leading-relaxed">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+                    İleri analitik süreçlerinin kapsamı, veri güvenliği koşulları ve ekip içi sorumlulukları hakkında en çok aldığımız soruları aşağıda özetledik. Projenize özel detaylar için dilediğiniz zaman bize ulaşabilirsiniz.
                   </p>
                 </div>
                 <div className="relative hidden lg:block">
@@ -368,17 +367,17 @@ export default function IleriDuzeyAnalitik() {
                 <path d="M56.5117 28.2559C56.5117 12.6753 43.8364 0 28.2559 0C12.6753 0 0 12.6753 0 28.2559C0 33.3337 1.35159 38.2776 3.91815 42.6181L0.103882 56.4073L13.8936 52.5936C18.2341 55.1601 23.1781 56.5117 28.2559 56.5117C43.8364 56.5117 56.5117 43.8364 56.5117 28.2559ZM23.9199 21.6797H19.584C19.584 16.8977 23.4739 13.0078 28.2559 13.0078C33.0378 13.0078 36.9277 16.8977 36.9277 21.6797C36.9277 24.1068 35.9002 26.4396 34.1077 28.0792L30.4238 31.4508V34.832H26.0879V29.5414L31.1804 24.8803C32.0905 24.0475 32.5918 22.911 32.5918 21.6797C32.5918 19.2887 30.6468 17.3438 28.2559 17.3438C25.8649 17.3438 23.9199 19.2887 23.9199 21.6797ZM26.0879 39.168H30.4238V43.5039H26.0879V39.168Z" fill="#636EDF"></path>
               </g>
             </svg>
-            <h4 className="text-2xl font-bold text-gray-900">Do you need any help?</h4>
+            <h4 className="text-2xl font-bold text-gray-900">Analitiğin gücünü keşfetmek ister misiniz?</h4>
           </div>
           <div className="mb-6">
-            <p className="text-lg text-gray-700 mb-2">support@example.com</p>
-            <p className="text-gray-600">+ (406) 555-0120</p>
+            <p className="text-lg text-gray-700 mb-2">analitik@secesta.com</p>
+            <p className="text-gray-600">+90 (216) 123 45 67</p>
           </div>
           <Link
             href="/bize-ulasin"
             className="inline-flex items-center gap-2 bg-[#636EDF] text-white px-8 py-3 rounded-lg hover:bg-[#5963C8] transition-colors font-medium"
           >
-            get an appointment
+            Randevu Al
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 32 32" className="w-4 h-4">
               <path d="M15.52 4.953c-.47.155-.904.523-1.125.956-.109.213-.128.327-.128.758 0 .43.019.546.131.773.101.206.87 1.009 3.384 3.533l3.253 3.266-7.438.014-7.437.014-.267.141a2.097 2.097 0 0 0-.831.834c-.109.213-.129.328-.129.758 0 .431.02.544.129.759.165.323.523.68.845.845l.253.129 7.437.014 7.438.014-3.253 3.266c-2.514 2.524-3.283 3.327-3.384 3.533-.112.227-.131.343-.131.773 0 .594.104.858.489 1.244.386.386.65.49 1.244.49.429 0 .547-.02.773-.131.391-.191 9.972-9.772 10.163-10.163.111-.226.131-.344.131-.773 0-.429-.02-.547-.131-.773-.103-.211-1.155-1.293-4.986-5.129-5.414-5.42-5.101-5.143-5.87-5.172-.235-.009-.487.003-.56.027" fill="currentColor" />
             </svg>
