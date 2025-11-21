@@ -12,7 +12,7 @@ export default function Referanslar() {
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0">
             <Image
-              src="/images/testi_bc.webp"
+              src="/images/testi_bc.jpg"
               alt="Referanslarımız Kapak"
               fill
               className="object-cover"
