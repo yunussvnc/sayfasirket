@@ -8,10 +8,10 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div>
             <Link href="/" className="block mb-4">
-              <Image 
-                src="/images/secesta-vector-logo.svg" 
-                alt="Secesta Logo" 
-                width={150} 
+              <Image
+                src="/images/secesta-vector-logo.svg"
+                alt="Secesta Logo"
+                width={150}
                 height={50}
                 className="h-10 w-auto brightness-0 invert"
               />
@@ -54,7 +54,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gray-800 pt-8 text-center text-gray-400 text-sm">
-          <p>Copyright © 2025 Secesta Lider Markaların Dijital Pazarlama & SEO Ajansı | Secesta Software Solutions®</p>
+          <p>Copyright © 2025 NeoKreatif Ajans | Dijital Pazarlama ve Web Çözümleri</p>
         </div>
       </div>
     </footer>
