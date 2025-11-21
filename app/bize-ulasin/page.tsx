@@ -49,7 +49,7 @@ export default function BizeUlasin() {
   return (
     <main className="min-h-screen">
       <PageNavbar />
-
+      
       {/* Breadcrumb Navigation */}
       <section className="pt-32 pb-6 px-4">
         <div className="container mx-auto max-w-6xl">
