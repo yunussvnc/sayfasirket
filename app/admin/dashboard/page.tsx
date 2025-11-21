@@ -6,16 +6,18 @@ import Link from "next/link";
 
 export default function AdminDashboard() {
     const router = useRouter();
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const isAuthenticated = useState(() => {
+        if (typeof window !== "undefined") {
+            return sessionStorage.getItem("adminAuth") === "true";
+        }
+        return false;
+    })[0];
 
     useEffect(() => {
-        const auth = sessionStorage.getItem("adminAuth");
-        if (auth !== "true") {
+        if (!isAuthenticated) {
             router.push("/admin/login");
-        } else {
-            setIsAuthenticated(true);
         }
-    }, [router]);
+    }, [isAuthenticated, router]);
 
     const handleLogout = () => {
         sessionStorage.removeItem("adminAuth");
