@@ -53,6 +53,42 @@ export default function AdminDashboard() {
             href: "/admin/images",
             icon: "🖼️",
         },
+        {
+            title: "Blog/Haber Yönetimi",
+            description: "Blog yazılarını düzenle, ekle veya sil",
+            href: "/admin/blog",
+            icon: "📝",
+        },
+        {
+            title: "SEO Yönetimi",
+            description: "Meta tag'ler ve SEO ayarları",
+            href: "/admin/seo",
+            icon: "🔍",
+        },
+        {
+            title: "Menü Yönetimi",
+            description: "Header menüsünü düzenle",
+            href: "/admin/menu",
+            icon: "📋",
+        },
+        {
+            title: "Banner/Slider",
+            description: "Ana sayfa slider'larını yönet",
+            href: "/admin/slider",
+            icon: "🎠",
+        },
+        {
+            title: "İletişim Mesajları",
+            description: "Gelen mesajları görüntüle ve yanıtla",
+            href: "/admin/messages",
+            icon: "📧",
+        },
+        {
+            title: "Site Ayarları",
+            description: "Genel site ayarlarını düzenle",
+            href: "/admin/settings",
+            icon: "⚙️",
+        },
     ];
 
     return (

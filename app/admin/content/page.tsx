@@ -48,7 +48,7 @@ export default function ContentManagement() {
       <div className="max-w-7xl mx-auto">
         <div className="mb-8">
           <Link href="/admin/dashboard" className="text-white/70 hover:text-white mb-4 inline-block">
-            ← Dashboard'a Dön
+            ← Dashboard&apos;a Dön
           </Link>
           <h1 className="text-4xl font-bold text-white mb-2">İçerik Yönetimi</h1>
           <p className="text-white/70">Sayfa içeriklerini düzenle</p>

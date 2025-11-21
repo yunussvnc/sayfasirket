@@ -100,7 +100,7 @@ export default function ServicesManagement() {
         <div className="flex justify-between items-center mb-8">
           <div>
             <Link href="/admin/dashboard" className="text-white/70 hover:text-white mb-4 inline-block">
-              ← Dashboard'a Dön
+              ← Dashboard&apos;a Dön
             </Link>
             <h1 className="text-4xl font-bold text-white mb-2">Hizmet Yönetimi</h1>
             <p className="text-white/70">Hizmetleri düzenle, ekle veya sil</p>
