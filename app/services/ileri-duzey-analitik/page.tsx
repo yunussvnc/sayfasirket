@@ -7,6 +7,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ServiceSidebar from "@/components/ServiceSidebar";
+import GradientBG from "@/components/GradientBG";
 
 // Note: This is a client component, metadata should be in layout.tsx or a parent server component
 // For now, we'll add it as a comment for documentation purposes
@@ -98,7 +99,8 @@ export default function IleriDuzeyAnalitik() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   return (
-    <main className="min-h-screen">
+    <main className="relative min-h-screen overflow-hidden">
+      <GradientBG />
       <PageNavbar />
 
       {/* Hero Section with Background */}

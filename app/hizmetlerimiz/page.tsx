@@ -2,6 +2,7 @@ import PageNavbar from "@/components/PageNavbar";
 import Footer from "@/components/Footer";
 import Image from "next/image";
 import Link from "next/link";
+import GradientBG from "@/components/GradientBG";
 
 const services = [
   {
@@ -57,7 +58,8 @@ const services = [
 
 export default function Hizmetlerimiz() {
   return (
-    <main className="min-h-screen">
+    <main className="relative min-h-screen overflow-hidden">
+      <GradientBG />
       <PageNavbar activePage="hizmetlerimiz" />
 
       {/* Hero Section with Background */}
