@@ -5,7 +5,6 @@ import Values from "@/components/Values";
 import Projects from "@/components/Projects";
 import Process from "@/components/Process";
 import Partners from "@/components/Partners";
-import Blog from "@/components/Blog";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -20,7 +19,6 @@ export default function Home() {
       <Process />
       <Partners />
       {/* Testimonials removed */}
-      <Blog />
       <Footer />
     </main>
   );
