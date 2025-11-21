@@ -4,42 +4,67 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-const projects = [
+const references = [
+  // Web Yazılım Referansları
   {
-    title: "PRADO Hospitality",
-    category: "Web Tasarım",
-    link: "/projects/pradoo-hospitality",
-    image: "/images/Isimsiz-2-600x360.jpg.webp"
+    title: "Web Yazılım Projesi 1",
+    image: "https://www.neokreatif.com/wp-content/uploads/2022/03/28.png",
+    icon: "https://www.neokreatif.com/wp-content/uploads/2022/03/28.png",
+    link: "#",
+    categories: [
+      { name: "Web Yazılım", link: "/services/web-gelistirme" },
+      { name: "Web Tasarım", link: "/services/web-gelistirme" }
+    ]
   },
   {
-    title: "Kuvings",
-    category: "E-Ticaret Çözümleri, Google Reklamları, Grafik Tasarım, Meta Reklamları, SEO, Sosyal Medya Yönetimi, Web Tasarım",
-    link: "/projects/kuvings",
-    image: "/images/Isimsiz-2-600x360.jpg.webp"
+    title: "Web Yazılım Projesi 2",
+    image: "https://www.neokreatif.com/wp-content/uploads/2022/03/27.png",
+    icon: "https://www.neokreatif.com/wp-content/uploads/2022/03/27.png",
+    link: "#",
+    categories: [
+      { name: "Web Yazılım", link: "/services/web-gelistirme" },
+      { name: "Web Tasarım", link: "/services/web-gelistirme" }
+    ]
   },
   {
-    title: "Sahipleniyorum",
-    category: "SEO",
-    link: "/projects/sahipleniyorum",
-    image: "/images/Isimsiz-2-600x360.jpg.webp"
+    title: "Web Yazılım Projesi 3",
+    image: "https://www.neokreatif.com/wp-content/uploads/2022/03/4-1.png",
+    icon: "https://www.neokreatif.com/wp-content/uploads/2022/03/4-1.png",
+    link: "#",
+    categories: [
+      { name: "Web Yazılım", link: "/services/web-gelistirme" },
+      { name: "Web Tasarım", link: "/services/web-gelistirme" }
+    ]
   },
   {
-    title: "İstanbul Festivali",
-    category: "Grafik Tasarım, Sosyal Medya Yönetimi",
-    link: "/projects/istanbul-festivali",
-    image: "/images/Isimsiz-2-600x360.jpg.webp"
+    title: "Web Yazılım Projesi 4",
+    image: "https://www.neokreatif.com/wp-content/uploads/2022/03/16.png",
+    icon: "https://www.neokreatif.com/wp-content/uploads/2022/03/16.png",
+    link: "#",
+    categories: [
+      { name: "Web Yazılım", link: "/services/web-gelistirme" },
+      { name: "Web Tasarım", link: "/services/web-gelistirme" }
+    ]
   },
   {
-    title: "New Home in Turkey",
-    category: "Web Tasarım",
-    link: "/projects/new-home-in-turkey",
-    image: "/images/Isimsiz-2-600x360.jpg.webp"
+    title: "Web Yazılım Projesi 5",
+    image: "https://www.neokreatif.com/wp-content/uploads/2022/03/19.png",
+    icon: "https://www.neokreatif.com/wp-content/uploads/2022/03/19.png",
+    link: "#",
+    categories: [
+      { name: "Web Yazılım", link: "/services/web-gelistirme" },
+      { name: "Web Tasarım", link: "/services/web-gelistirme" }
+    ]
   },
   {
-    title: "Tamsan",
-    category: "Web Tasarım",
-    link: "/projects/tamsan",
-    image: "/images/Isimsiz-2-600x360.jpg.webp"
+    title: "Web Yazılım Projesi 6",
+    image: "https://www.neokreatif.com/wp-content/uploads/2022/03/26.png",
+    icon: "https://www.neokreatif.com/wp-content/uploads/2022/03/26.png",
+    link: "#",
+    categories: [
+      { name: "Web Yazılım", link: "/services/web-gelistirme" },
+      { name: "Web Tasarım", link: "/services/web-gelistirme" }
+    ]
   }
 ];
 
@@ -93,7 +118,7 @@ export default function Projects() {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
         >
-          {projects.map((project, index) => (
+          {references.map((project, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
@@ -121,7 +146,16 @@ export default function Projects() {
                   <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
                     {project.title}
                   </h3>
-                  <p className="text-gray-600 text-sm">{project.category}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.categories.map((category, catIndex) => (
+                      <span
+                        key={catIndex}
+                        className="text-xs px-3 py-1 bg-gray-100 text-gray-700 rounded-full"
+                      >
+                        {category.name}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </Link>
             </motion.div>

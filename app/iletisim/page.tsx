@@ -9,19 +9,7 @@ import Image from "next/image";
 const offices = [
   {
     city: "İstanbul",
-    address: "Seba Office Boulevard, Ayazağa, Mimar Sinan Sk. No:21 D:2, Sarıyer/İstanbul"
-  },
-  {
-    city: "Eskişehir",
-    address: "Esentepe Mahallesi, Çifteler Sokak, No: 8 Tepebaşı / ESKİŞEHİR"
-  },
-  {
-    city: "İzmir",
-    address: "Kazım Dirik Mahallesi Fatih Sultan Mehmet caddesi no: 28 kat 3 Bornova / İzmir"
-  },
-  {
-    city: "Almanya",
-    address: "Königstraße 10C, Stuttgart, Almanya"
+    address: "19 Mayıs Mah. 19 Mayıs Cad. Golden Plaza No:3 K:9, 34363 Şişli/İstanbul"
   }
 ];
 
@@ -228,8 +216,8 @@ export default function Iletisim() {
                       <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                     </svg>
                     <div>
-                      <a href="tel:+905539826700" className="hover:text-blue-600 transition-colors">
-                        +90 553 982 6700
+                      <a href="tel:+905441904447" className="hover:text-blue-600 transition-colors">
+                        +90 544 190 44 47
                       </a>
                     </div>
                   </div>
@@ -250,8 +238,8 @@ export default function Iletisim() {
                       <polyline points="22,6 12,13 2,6"></polyline>
                     </svg>
                     <div>
-                      <a href="mailto:info@secesta.com" className="hover:text-blue-600 transition-colors">
-                        info@secesta.com
+                      <a href="mailto:neokreatiff@gmail.com" className="hover:text-blue-600 transition-colors">
+                        neokreatiff@gmail.com
                       </a>
                     </div>
                   </div>

@@ -121,7 +121,7 @@ export default function Ekibimiz() {
 
               {/* Button */}
               <Link
-                href="/kariyer"
+                href="/iletisim"
                 className="inline-flex items-center gap-2 bg-[#636EDF] text-white px-6 py-3 rounded-lg hover:bg-[#5963C8] transition-colors font-medium"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 32 32" className="w-4 h-4">

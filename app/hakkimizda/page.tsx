@@ -4,67 +4,72 @@ import Image from "next/image";
 import Link from "next/link";
 
 const stats = [
-  { number: "22", suffix: "+", label: "Yıllık Deneyim" },
-  { number: "17", suffix: "+", label: "Aktif Proje" },
-  { number: "18", suffix: "+", label: "Kazanılan Yarışmalar" },
-  { number: "875", suffix: "+", label: "Tamamlanan Projeler" }
+  { number: "12", suffix: "+", label: "Yıllık Deneyim" },
+  { number: "100", suffix: "+", label: "Tamamlanan Proje" },
+  { number: "10", suffix: "+", label: "Profesyonel Hizmet" },
+  { number: "24", suffix: "/7", label: "Profesyonel Destek" }
 ];
 
 const principles = [
   {
     number: "01.",
-    title: "Vizyonumuz",
-    description: "Daha hızlı ve daha akıllı çözümler geliştirerek, dijital pazarda sürdürülebilir rekabet avantajı sağlıyoruz.",
-    link: "/bize-ulasin",
-    linkText: "Bize Ulaşın"
+    title: "Etkin Çalışma Alanlarımız",
+    description: "Profesyonel web tasarım & yazılım çözümleri, SEO & Google Ads uzmanlığı, sosyal medya yönetimi ve içerik stratejisi, hızlı, şeffaf ve sürdürülebilir hizmet anlayışı ile markalarınıza değer katıyoruz.",
+    link: "/hizmetlerimiz",
+    linkText: "Hizmetlerimiz"
   },
   {
     number: "02.",
-    title: "Neler Yapıyoruz?",
-    description: "İşinizi dijitalleştiriyor, kullanıcı deneyimi odaklı yazılımlar ve performans bazlı çözümlerle büyümenizi destekliyoruz.",
-    link: "/referanslarimiz",
+    title: "Hedef ve Amaçlarımız",
+    description: "Markaların dijital dünyada doğru kitleye ulaşmasını sağlamak, müşteri odaklı ve ölçülebilir pazarlama stratejileri geliştirmek, yaratıcı tasarımlar ve güçlü yazılım çözümleriyle fark yaratmak, uzun vadeli iş ortaklıkları kurarak sürdürülebilir başarıya katkı sağlamak.",
+    link: "/referanslar",
     linkText: "Referanslarımız"
   },
   {
     number: "03.",
-    title: "Temel Değerlerimiz",
-    description: "Güvenilir altyapı, şeffaf hizmet ve bütünsel yaklaşım ile dijital dönüşümünüzü geleceğe taşıyoruz.",
-    link: "/degerlerimiz",
-    linkText: "Değerlerimiz"
+    title: "Müşteri Memnuniyeti",
+    description: "Her projede müşteri beklentilerini en üst seviyede karşılamak, şeffaf iletişim ve düzenli raporlama ile güven sağlamak, hızlı geri dönüş ve çözüm odaklı destek sunmak, uzun vadeli memnuniyet için sürekli gelişim ve yenilikçi hizmet vermek.",
+    link: "/iletisim",
+    linkText: "İletişim"
   }
 ];
 
 const values = [
   {
     icon: "report",
-    title: "Sonuç Odaklı Yaklaşım",
-    subtitle: "Her dakikanın değeri var.",
-    description: "Projelerinizi zamanında ve hedef odaklı teslim ediyor, hızlı aksiyon kabiliyetiyle maksimum dönüşüm elde etmenizi sağlıyoruz. Başarıyı tahmin etmiyor, planlıyoruz."
+    title: "Vizyonumuz",
+    subtitle: "Dijital pazarlama ve web çözümlerinde sektörde öncü olmak",
+    description: "Türkiye'de dijital pazarlama ve web çözümleri alanında en güvenilen ajanslardan biri olmak, yenilikçi fikirlerimiz ve güçlü referanslarımızla sektörün gelişimine öncülük etmektir. Bizim için başarı sadece proje teslimi değil, iş ortaklarımızın uzun vadeli büyümesine destek olmaktır."
   },
   {
     icon: "growth",
-    title: "İşinizi Büyütmek İçin Teknoloji",
-    subtitle: "Büyüme vizyonunuz bizim rehberimiz.",
-    description: "Kullandığımız her satır kod, işletmenizin hedeflerine hizmet eder. İster e-ticaret, ister kurumsal site, ister SaaS ürünü… Her çözümümüz ölçeklenebilir, güvenli ve kullanıcı dostudur."
+    title: "Hedefimiz",
+    subtitle: "Markaların dijital dünyada akılda kalıcı olmalarını sağlamak",
+    description: "Markaların dijital dünyada sadece görünür değil, aynı zamanda akılda kalıcı olmalarını sağlamaktır. Doğru analiz, etkili strateji ve yaratıcı tasarımlarla işletmelerin satışlarını ve bilinirliklerini artırmayı amaçlıyoruz."
   },
   {
     icon: "exclusive",
-    title: "Mükemmel Müşteri Deneyimi",
-    subtitle: "Yalnızca ürün değil, deneyim sunarız.",
-    description: "İletişimde şeffaflık, teslimatta dakiklik ve destek süreçlerinde sürdürülebilirlik önceliğimizdir. Secesta ile çalıştığınızda yalnızca yazılım değil, iş ortağı kazanırsınız."
+    title: "Memnuniyet",
+    subtitle: "Müşteri memnuniyetini merkezimize koyuyoruz",
+    description: "Müşteri memnuniyetini merkezimize koyuyoruz. Projelerimizde hız, performans, estetik ve güvenilirliği bir arada sunuyoruz. Amacımız sadece bir proje teslim etmek değil; markaların uzun vadeli dijital başarılarına ortak olmaktır."
   }
 ];
 
 const testimonials = [
   {
-    quote: "Profesyonel ekibinizin gösterdiği özveri ve işbirliği için minnettarız. Sorularımıza ve ihtiyaçlarımıza hızlı ve etkili bir şekilde yanıt verdiğiniz için teşekkür ederiz. Sizlerle çalışmak gerçekten keyifliydi",
-    author: "Bayram B.",
-    company: "Kusva Terlik ve Buklet"
+    quote: "Just For Pizza olarak 12'den fazla şubemizle Türkiye'nin birçok noktasında müşterilerimize hizmet veriyoruz. Bu büyüme yolculuğumuzda dijitalde en büyük destekçimiz NeoKreatif Ajansı oldu. NeoKreatif ekibi; tüm şubelerimizin Instagram hesaplarını profesyonel şekilde yönetti, görsel ve içerik stratejimizi geliştirdi.",
+    author: "Just For Pizza",
+    company: "Just For Pizza Marka Sahibi"
   },
   {
-    quote: "20 Yıllık turizim şirketimizi internete taşımaya karar verdikten sonra bir çok firma ile çalıştık. Ancak hiç bir verim alamadık. Emre bey ve ekibi ile tanıştıktan sonra şirketimiz gerçekten internet üzerinde 24 saat açık bir ofis haline geldi. Herkese güvenle tavsiye ediyorum.",
-    author: "Hakan Ö.",
-    company: "Easybook Tours"
+    quote: "Neokreatif, markamız Başkent Door için dijital pazarlama anlamında tam bir çözüm ortağı oldu. Sosyal medya yönetimi, Meta reklamları, Google Ads kampanyaları ve SEO hizmetleriyle firmamızın dijital görünürlüğünü üst seviyelere taşıdı. İletişim sayfalarımız düzenlendi, müşteri dönüşlerimiz hızlandı.",
+    author: "Başkent Door",
+    company: "Başkent Door Firma Sahibi"
+  },
+  {
+    quote: "BiMoss markası olarak Neokreatif ile çalışmak bizim için çok doğru bir karar oldu. Web sitemizin profesyonelce hazırlanmasının yanı sıra Instagram hesaplarımızın yönetimi ve pazaryeri entegrasyonlarımız kusursuz bir şekilde yapıldı. Ayrıca aldığımız e-ticaret danışmanlığı sayesinde satışlarımızı artırdık.",
+    author: "Bi'Moss Ağaç ve Çiçekçilik",
+    company: "Bi'Moss Marka Sahibi"
   }
 ];
 
@@ -114,10 +119,10 @@ export default function Hakkimizda() {
           {/* Page Header Content */}
           <div className="max-w-4xl text-white">
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-              Biz SECESTA&apos;yız
+              Kalıcı Başarı Sürekli Gelişimle Mümkündür
             </h1>
             <p className="text-lg md:text-xl text-white/90 leading-relaxed max-w-3xl">
-              22 yıllık deneyimimizle, tasarım, yazılım ve dijital pazarlama alanlarında markaların dijital başarısını inşa ediyoruz.
+              NeoKreatif Ajans, 12 yılı aşkın tecrübesiyle markaların dijital dünyada güçlü bir şekilde var olmasını sağlayan kreatif bir dijital ajanstır.
             </p>
           </div>
         </div>
@@ -147,13 +152,16 @@ export default function Hakkimizda() {
             {/* Right Side - Text Content */}
             <div className="space-y-6">
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-                Dijital Fikirlerinizi Hayata Geçiriyoruz
+                NEOKREATİF HAKKINDA
               </h2>
               <p className="text-lg text-gray-600 leading-relaxed">
-                İşletmelerin dijital dönüşüm yolculuğunu hızlandırmasına yardımcı olurken, verimlilik, ölçeklenebilirlik ve maliyet avantajı sağlıyoruz.
+                NeoKreatif Ajans, 12 yılı aşkın tecrübesiyle markaların dijital dünyada güçlü bir şekilde var olmasını sağlayan kreatif bir dijital ajanstır. Kurulduğumuz günden bu yana web tasarım, yazılım geliştirme, SEO, Google Ads & Meta Reklam Yönetimi, sosyal medya yönetimi, kurumsal kimlik ve grafik tasarım alanlarında yüzlerce projeye imza attık.
               </p>
               <p className="text-lg text-gray-600 leading-relaxed">
-                İş modelinizi yeniden şekillendirmek veya dijital yetkinliklerinizi artırmak istiyorsanız, size özel stratejilerle fark yaratmanıza yardımcı olabiliriz. Ekibimiz en yeni teknolojilerle işinizi geleceğe taşır.
+                Amacımız; markaların hedef kitleleriyle doğru stratejilerle buluşmasını sağlamak, dijital dünyada sürdürülebilir başarı elde etmelerine destek olmak ve yenilikçi çözümlerle fark yaratmaktır. 12 yıl boyunca farklı sektörlerde edindiğimiz deneyimle, her markanın kendine özgü ihtiyaçlarını analiz ediyor, modern teknolojiler ve kreatif fikirlerle birleştirerek ölçülebilir sonuçlar üretiyoruz.
+              </p>
+              <p className="text-lg text-gray-600 leading-relaxed">
+                Bizim için başarı; yalnızca estetik tasarımlar ya da tıklanma oranları değil, markalarımızın büyümesine katkı sağlayan kalıcı çözümler üretmektir. NeoKreatif ekibi olarak; yenilikçi, dinamik ve çözüm odaklı bakış açımızla, işinizi dijital dünyada bir adım öne taşıyoruz.
               </p>
             </div>
           </div>
@@ -162,9 +170,9 @@ export default function Hakkimizda() {
           <div className="bg-gray-50 rounded-lg p-8 md:p-12 relative mb-20">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-2 h-2 bg-[#636EDF] rounded-full"></div>
-              <span className="text-[#636EDF] font-medium text-sm uppercase tracking-wide">Secesta Software Solutions</span>
+              <span className="text-[#636EDF] font-medium text-sm uppercase tracking-wide">NeoKreatif Ajans</span>
             </div>
-            <h4 className="text-2xl font-semibold text-gray-900 mb-8">Şirket Sunumu</h4>
+            <h4 className="text-2xl font-semibold text-gray-900 mb-8">NeoKreatif Hakkında</h4>
             <div className="relative h-64 w-64 mx-auto mb-8">
               <Image
                 src="/images/ab-img2.png"
@@ -240,7 +248,7 @@ export default function Hakkimizda() {
                 >
                   {principle.linkText}
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 32 32" className="w-4 h-4">
-                    <path d="M15.52 4.953c-.47.155-.904.523-1.125.956-.109.213-.128.327-.128.758 0 .43.019.546.131.773.101.206.87 1.009 3.384 3.533l3.253 3.266-7.438.014-7.437.014-.267.141a2.097 2.097 0 0 0-.831.834c-.109.213-.129.328-.129.758 0 .431.02.544.129.759.165.323.523.68.845.845l.253.129 7.437.014 7.438.014-3.253 3.266c-2.514 2.524-3.283 3.327-3.384 3.533-.112.227-.131.343-.131.773 0 .594.104.858.489 1.244.386.386.65.49 1.244.49.429 0 .547-.02.773-.131.391-.191 9.972-9.772 10.163-10.163.111-.226.131-.344.131-.773 0-.429-.02-.547-.131-.773-.103-.211-1.155-1.293-4.986-5.129-5.414-5.42-5.101-5.143-5.87-5.172-.235-.009-.487.003-.56.027" fill="currentColor"/>
+                    <path d="M15.52 4.953c-.47.155-.904.523-1.125.956-.109.213-.128.327-.128.758 0 .43.019.546.131.773.101.206.87 1.009 3.384 3.533l3.253 3.266-7.438.014-7.437.014-.267.141a2.097 2.097 0 0 0-.831.834c-.109.213-.129.328-.129.758 0 .431.02.544.129.759.165.323.523.68.845.845l.253.129 7.437.014 7.438.014-3.253 3.266c-2.514 2.524-3.283 3.327-3.384 3.533-.112.227-.131.343-.131.773 0 .594.104.858.489 1.244.386.386.65.49 1.244.49.429 0 .547-.02.773-.131.391-.191 9.972-9.772 10.163-10.163.111-.226.131-.344.131-.773 0-.429-.02-.547-.131-.773-.103-.211-1.155-1.293-4.986-5.129-5.414-5.42-5.101-5.143-5.87-5.172-.235-.009-.487.003-.56.027" fill="currentColor" />
                   </svg>
                 </Link>
               </div>
@@ -267,7 +275,7 @@ export default function Hakkimizda() {
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="text-white text-center">
                 <svg className="w-20 h-20 mx-auto mb-4 opacity-50" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M8 5v14l11-7z"/>
+                  <path d="M8 5v14l11-7z" />
                 </svg>
                 <p className="text-lg opacity-75">Video İçerik</p>
               </div>
@@ -290,21 +298,21 @@ export default function Hakkimizda() {
             {/* Right - Quote and Content */}
             <div className="space-y-6">
               <h5 className="text-2xl font-semibold text-gray-900 italic">
-                &quot;Kod yazmak kolay. Doğru problemi çözmek ustalık ister.&quot;
+                &quot;NeoKreatif Ajans, 12 yılı aşkın deneyimiyle dijital dünyada markalara yenilikçi çözümler sunan profesyonel bir ekiptir.&quot;
               </h5>
-              <p className="text-gray-600 font-medium">Secesta Ekibi</p>
+              <p className="text-gray-600 font-medium">NeoKreatif Ekibi</p>
               <div className="space-y-4 text-gray-700 leading-relaxed">
                 <p>
-                  <strong>Secesta olarak stratejiyi, yaratıcılığı ve yazılım gücünü bir araya getiriyoruz.</strong>
+                  <strong>Web tasarım, yazılım geliştirme, SEO, Google Ads, Meta Ads ve sosyal medya yönetimi alanlarında uzmanlaşarak işletmelerin dijitalde büyümesine katkı sağlıyoruz.</strong>
                 </p>
                 <p>
-                  İşinizi dijitalde büyütmek için sadece kod değil; doğru vizyon, kullanıcı odaklı deneyim ve veriyle şekillenen kararlar sunuyoruz. Her projeye özgü planlama yaparak, ölçeklenebilir web çözümleri, yüksek performanslı mobil uygulamalar ve maksimum etkileşim sağlayan dijital kampanyalar geliştiriyoruz.
+                  Her projeye özel strateji geliştiriyor, markaların ihtiyaçlarını en doğru şekilde analiz ederek etkili çözümler üretiyoruz. 12 yıllık deneyimimizle, farklı sektörlerden edindiğimiz bilgi birikimini her projeye aktarıyoruz.
                 </p>
                 <p>
-                  Karmaşık sorunları yalın çözümlerle ele alıyor; hem kullanıcılarınızın hem de iş hedeflerinizin dilinden anlayan ürünler tasarlıyoruz.
+                  Modern teknolojiler ve kreatif fikirlerle birleştirerek ölçülebilir sonuçlar üretiyoruz. Bizim için başarı; yalnızca estetik tasarımlar ya da tıklanma oranları değil, markalarımızın büyümesine katkı sağlayan kalıcı çözümler üretmektir.
                 </p>
                 <p>
-                  İster yeni bir girişim olun ister köklü bir marka, Secesta olarak size özel teknolojik stratejilerle dijital başarıyı sürdürülebilir hale getiriyoruz.
+                  NeoKreatif ekibi olarak; yenilikçi, dinamik ve çözüm odaklı bakış açımızla, işinizi dijital dünyada bir adım öne taşıyoruz.
                 </p>
               </div>
             </div>
@@ -341,7 +349,7 @@ export default function Hakkimizda() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
               <div key={index} className="bg-white rounded-lg p-8 border border-gray-200">
                 <div className="flex gap-1 mb-4">
