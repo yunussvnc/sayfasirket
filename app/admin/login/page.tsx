@@ -41,7 +41,7 @@ export default function AdminLogin() {
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
                             className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                            placeholder="admin"
+                            placeholder="Kullanıcı adınızı girin"
                             required
                         />
                     </div>
@@ -75,9 +75,6 @@ export default function AdminLogin() {
                     </button>
                 </form>
 
-                <div className="mt-6 text-center text-white/60 text-sm">
-                    <p>Kullanıcı: admin</p>
-                </div>
             </div>
         </div>
     );
