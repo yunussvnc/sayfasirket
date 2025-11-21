@@ -61,27 +61,18 @@ export default function Header() {
                         <motion.div
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="flex items-center gap-3 bg-white/10 px-4 py-2 rounded-full"
+                            className="flex items-center gap-3 bg-white px-4 py-2 rounded-full"
                         >
                             <Link href="/" className="flex items-center gap-3">
-                                <div className="flex items-center gap-2">
-                                    <Image
-                                        src="/images/secesta-vector-logo.svg"
-                                        alt="NeoKreatif Ajans Logo"
-                                        width={150}
-                                        height={50}
-                                        className="h-8 w-auto"
-                                        priority
-                                    />
-                                    <Image
-                                        src="/images/Secesta-Fistik.webp"
-                                        alt="NeoKreatif Ajans"
-                                        width={32}
-                                        height={32}
-                                        className="w-8 h-8 object-contain"
-                                    />
-                                </div>
-                                <span className="text-xs text-white/70 hidden lg:block">SOFTWARE SOLUTIONS</span>
+                                <Image
+                                    src="/images/neokreatif-logo.png"
+                                    alt="NeoKreatif Ajans Logo"
+                                    width={150}
+                                    height={50}
+                                    className="h-8 w-auto"
+                                    priority
+                                />
+
                             </Link>
                         </motion.div>
 
@@ -188,14 +179,14 @@ export default function Header() {
                         )}
                     </AnimatePresence>
                 </nav>
-            </motion.header>
+            </motion.header >
 
             {/* Hero Cover Section with Services Background */}
-            <div className="relative w-full mt-[73px] overflow-hidden">
+            < div className="relative w-full mt-[73px] overflow-hidden" >
                 {/* Background Images - Covering both Hero and Services */}
-                <div className="absolute inset-0 w-full h-full">
+                < div className="absolute inset-0 w-full h-full" >
                     {/* First Cover Image - Base Layer */}
-                    <div className="absolute inset-0 w-full h-full">
+                    < div className="absolute inset-0 w-full h-full" >
                         <Image
                             src="/images/kapak1.jpg"
                             alt=""
@@ -203,10 +194,10 @@ export default function Header() {
                             className="object-cover"
                             priority
                         />
-                    </div>
+                    </div >
 
                     {/* Second Cover Image - Overlay Layer */}
-                    <div className="absolute inset-0 w-full h-full">
+                    < div className="absolute inset-0 w-full h-full" >
                         <Image
                             src="/images/kapak 2.jpg"
                             alt=""
@@ -214,34 +205,17 @@ export default function Header() {
                             className="object-cover opacity-80 mix-blend-overlay"
                             priority
                         />
-                    </div>
+                    </div >
 
                     {/* Overlay Gradient - Lighter at top for hero, darker at bottom for services */}
-                    <div className="absolute inset-0 bg-linear-to-b from-black/40 via-black/30 to-black/70" />
-                </div>
+                    < div className="absolute inset-0 bg-linear-to-b from-black/40 via-black/30 to-black/70" />
+                </div >
 
                 {/* Hero Section */}
-                <section className="relative z-10 h-[600px] lg:h-[720px] pt-10">
-                    {/* Acorn Image - Left Side */}
-                    <div className="absolute left-6 top-1/2 -translate-y-1/2 pointer-events-none z-20">
-                        <motion.div
-                            initial={{ opacity: 0, x: -50, scale: 0.8 }}
-                            animate={{ opacity: 1, x: 0, scale: 1 }}
-                            transition={{ duration: 0.8, delay: 0.3 }}
-                            className="relative w-48 h-48 lg:w-64 lg:h-64"
-                        >
-                            <Image
-                                src="/images/Secesta-Fistik.webp"
-                                alt="NeoKreatif Ajans"
-                                fill
-                                className="object-contain drop-shadow-2xl"
-                                sizes="(max-width: 768px) 192px, 256px"
-                            />
-                        </motion.div>
-                    </div>
+                < section className="relative z-10 h-[600px] lg:h-[720px] pt-10" >
 
                     {/* Cube Image - Right Side */}
-                    <div className="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none z-20">
+                    < div className="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none z-20" >
                         <motion.div
                             initial={{ opacity: 0, x: 50, rotate: -15 }}
                             animate={{ opacity: 1, x: 0, rotate: 0 }}
@@ -256,10 +230,10 @@ export default function Header() {
                                 sizes="(max-width: 768px) 192px, 256px"
                             />
                         </motion.div>
-                    </div>
+                    </div >
 
                     {/* Hero Text Content */}
-                    <div className="relative z-10 h-full flex items-center justify-center">
+                    < div className="relative z-10 h-full flex items-center justify-center" >
                         <div className="container mx-auto px-4">
                             <motion.div
                                 className="text-center max-w-5xl mx-auto text-white"
@@ -300,11 +274,11 @@ export default function Header() {
                                 </motion.p>
                             </motion.div>
                         </div>
-                    </div>
-                </section>
+                    </div >
+                </section >
 
                 {/* Services Cards Section - Overlay on background */}
-                <section className="relative z-10 py-20 px-4">
+                < section className="relative z-10 py-20 px-4" >
                     <div className="container mx-auto max-w-6xl">
                         <motion.div
                             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
@@ -373,8 +347,8 @@ export default function Header() {
                             ))}
                         </motion.div>
                     </div>
-                </section>
-            </div>
+                </section >
+            </div >
         </>
     );
 }

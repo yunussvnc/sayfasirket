@@ -32,7 +32,7 @@ export default function Iletisim() {
       <section className="relative pt-32 pb-20 px-4 overflow-hidden page-hero">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/seo.webp"
+            src="/images/contact-bg.jpg"
             alt="NeoKreatif Ajans iletişim arka planı"
             fill
             className="object-cover"
@@ -70,15 +70,6 @@ export default function Iletisim() {
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 mt-4">
                 NeoKreatif Ajans - İletişim
               </h1>
-              <div className="space-y-4 text-lg text-white/90 leading-relaxed">
-                <p>
-                  NeoKreatif Ajans, 12 yılı aşkın tecrübesiyle markaların dijital dünyada güçlü bir şekilde var olmasını sağlayan kreatif bir dijital ajanstır. Kurulduğumuz günden bu yana web tasarım, yazılım geliştirme, SEO, Google Ads & Meta Reklam Yönetimi, sosyal medya yönetimi, kurumsal kimlik ve grafik tasarım alanlarında yüzlerce projeye imza attık.
-                </p>
-                <p>
-                  Amacımız; markaların hedef kitleleriyle doğru stratejilerle buluşmasını sağlamak, dijital dünyada sürdürülebilir başarı elde etmelerine destek olmak ve yenilikçi çözümlerle fark yaratmaktır.
-                </p>
-                <p>NeoKreatif Ajans olarak yenilikçi, dinamik ve çözüm odaklı bakış açımızla, işinizi dijital dünyada bir adım öne taşıyoruz.</p>
-              </div>
             </div>
           </div>
         </div>
@@ -248,9 +239,9 @@ export default function Iletisim() {
                 <div className="flex items-center justify-between mb-6">
                   <div>
                     <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-500">
-                      Ofislerimiz
+
                     </p>
-                    <h2 className="text-2xl font-bold text-gray-900">Dünya Genelinde</h2>
+                    <h2 className="text-2xl font-bold text-gray-900">Ofisimiz</h2>
                   </div>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">

@@ -30,23 +30,14 @@ export default function PageNavbar({ activePage }: PageNavbarProps) {
             className="flex items-center gap-3"
           >
             <Link href="/" className="flex items-center gap-3">
-              <div className="flex items-center gap-2">
-                <Image
-                  src="/images/secesta-vector-logo.svg"
-                  alt="NeoKreatif Ajans Logo"
-                  width={150}
-                  height={50}
-                  className="h-10 w-auto"
-                  priority
-                />
-                <Image
-                  src="/images/Secesta-Fistik.webp"
-                  alt="NeoKreatif Ajans"
-                  width={40}
-                  height={40}
-                  className="w-10 h-10 object-contain"
-                />
-              </div>
+              <Image
+                src="/images/neokreatif-logo.png"
+                alt="NeoKreatif Ajans Logo"
+                width={150}
+                height={50}
+                className="h-10 w-auto"
+                priority
+              />
               <span className="text-sm font-medium text-gray-600 hidden lg:block">SOFTWARE SOLUTIONS</span>
             </Link>
           </motion.div>

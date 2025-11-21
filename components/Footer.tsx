@@ -9,7 +9,7 @@ export default function Footer() {
           <div>
             <Link href="/" className="block mb-4">
               <Image
-                src="/images/secesta-vector-logo.svg"
+                src="/images/neokreatif-logo.png"
                 alt="NeoKreatif Ajans Logo"
                 width={150}
                 height={50}
