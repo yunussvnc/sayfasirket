@@ -1,34 +1,81 @@
+import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import Image from "next/image";
+import { FaCheck } from "react-icons/fa";
+import { FiArrowRight } from "react-icons/fi";
+import FAQItem from "@/components/FAQItem";
+import ServiceSidebar from "@/components/ServiceSidebar";
+import ServiceHero from "@/components/ServiceHero";
+
+export const metadata: Metadata = {
+  title: "Web Geliştirme - Secesta Lider Markaların Dijital Pazarlama & SEO Ajansı",
+  description: "Modern, hızlı ve mobil uyumlu web siteleri ile dijital varlığınızı güçlendirir. Kurumsal web sitelerinden e-ticaret platformlarına kadar geniş bir yelpazede hizmet sunuyoruz.",
+  openGraph: {
+    title: "Web Geliştirme - Secesta",
+    description: "Modern, hızlı ve mobil uyumlu web siteleri ile dijital varlığınızı güçlendirir.",
+    images: [
+      {
+        url: "/images/service_3-768x512.webp",
+        width: 768,
+        height: 512,
+        alt: "Web Geliştirme",
+      },
+    ],
+    type: "article",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Web Geliştirme - Secesta",
+    description: "Modern, hızlı ve mobil uyumlu web siteleri ile dijital varlığınızı güçlendirir.",
+    images: ["/images/service_3-768x512.webp"],
+  },
+};
 
 const features = [
   {
-    title: "Modern Web Teknolojileri",
-    description: "En güncel web teknolojilerini kullanarak, hızlı, güvenli ve performanslı web siteleri geliştiriyoruz. React, Next.js, Vue.js gibi modern framework'ler ile projelerinizi hayata geçiriyoruz."
+    title: "Performansa Odaklı Altyapı",
+    description: "Kullandığımız teknolojiler yüksek trafik altında bile hızlı çalışan, optimize edilmiş sistemler sunar. Sayfa açılış hızları, mobil uyumluluk ve veri yönetimi önceliğimizdir."
   },
   {
-    title: "Mobil Uyumlu Tasarım",
-    description: "Tüm cihazlarda mükemmel görünen, responsive tasarımlarla kullanıcı deneyimini optimize ediyoruz. Mobil-first yaklaşımıyla projelerinizi geliştiriyoruz."
+    title: "Güvenli ve Güncel Kodlama",
+    description: "Web siteniz dış tehditlere karşı korumalı olur. SSL, veri şifreleme, spam filtreleme ve düzenli yedekleme sistemlerini projelere entegre ediyoruz."
   },
   {
-    title: "SEO Optimizasyonu",
-    description: "Arama motorlarında üst sıralarda yer almanızı sağlayan, SEO uyumlu web siteleri geliştiriyoruz. Teknik SEO ve içerik optimizasyonu hizmetleri sunuyoruz."
+    title: "Esnek ve Ölçeklenebilir Mimari",
+    description: "İşletmenizin büyümesiyle birlikte web altyapınız da gelişebilir. Modüler yapılar ve API entegrasyonları ile esnek bir temel sunuyoruz."
   },
   {
-    title: "Hızlı ve Güvenli",
-    description: "Yükleme hızını optimize eden, güvenlik standartlarına uygun web siteleri geliştiriyoruz. SSL sertifikaları, güvenlik önlemleri ve performans optimizasyonları ile sitenizi güçlendiriyoruz."
+    title: "Tam Destek ve Eğitim",
+    description: "Web sitenizi teslim etmekle kalmaz, kullanım eğitimi, teknik destek ve gerektiğinde bakım hizmetleriyle süreci sahipleniriz."
   }
 ];
 
-const relatedServices = [
-  { title: "İleri Düzey Analitik", link: "/services/ileri-duzey-analitik" },
-  { title: "Pazarlama Stratejisi", link: "/services/marketing-strategy" },
-  { title: "Sistem ve Yazılım", link: "/services/sistem-ve-yazilim" },
-  { title: "Dijital Strateji", link: "/services/dijital-strateji" },
-  { title: "Marka Kimliği", link: "/services/marka-kimligi" },
-  { title: "UX/UI Tasarımı", link: "/services/ux-ui-tasarimi" }
+const faqs = [
+  {
+    question: "Web geliştirme süreciniz nasıl ilerliyor?",
+    answer: "Sürecimiz şu adımlardan oluşur: İhtiyaç ve hedef analizi, Tasarım veya mevcut yapının değerlendirilmesi, Kodlama ve test aşamaları, Yayına alma ve optimizasyon, Eğitim ve teknik destek. Her proje, detaylı planlama ve sürekli iletişimle yürütülür.",
+    defaultOpen: true
+  },
+  {
+    question: "Hangi teknolojileri kullanıyorsunuz?",
+    answer: "Projeye göre ASP.NET Core, C#, PHP, Laravel, JavaScript, Vue.js ve WordPress gibi farklı teknolojiler kullanıyoruz. Geliştirme dili ve altyapı, projenin hedefleri, ölçeği ve bütçesine göre belirlenir."
+  },
+  {
+    question: "Mobil uyumlu (responsive) siteler geliştiriyor musunuz?",
+    answer: "Evet. Geliştirdiğimiz tüm web siteleri mobil, tablet ve masaüstü cihazlarda sorunsuz çalışacak şekilde responsive olarak tasarlanır ve test edilir. Google'ın mobil öncelikli indeksleme standartlarına da tam uyumludur."
+  },
+  {
+    question: "SEO uyumlu web sitesi yapıyor musunuz?",
+    answer: "Kesinlikle. Web siteleri, arama motorlarının anlayabileceği yapıda semantik HTML, hızlı yükleme süreleri, temiz URL yapısı, meta etiketler ve açık grafik verileri ile SEO dostu olarak geliştirilir. İsteğe bağlı olarak temel içerik SEO ayarlarını da yapıyoruz."
+  },
+  {
+    question: "Site yayına alındıktan sonra destek veriyor musunuz?",
+    answer: "Evet. Web sitesi yayına alındıktan sonra belirli bir süre ücretsiz destek sunuyoruz. Ayrıca teknik bakım, güncelleme, yedekleme ve performans izleme gibi konularda uzun vadeli destek paketlerimiz de mevcut."
+  }
 ];
+
 
 export default function WebGelistirme() {
   return (
@@ -64,31 +111,30 @@ export default function WebGelistirme() {
         </div>
       </section>
 
+      <ServiceHero title="Web Geliştirme" />
+
       {/* Page Header */}
       <section className="pb-12 px-4 bg-white">
         <div className="container mx-auto max-w-6xl">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-            Web Geliştirme
-          </h1>
-          <p className="text-lg text-gray-600 leading-relaxed max-w-3xl">
-            Modern, hızlı ve mobil uyumlu web siteleri ile dijital varlığınızı güçlendirir. Web geliştirme hizmetimizle, işletmenizin dijital kimliğini oluşturuyor, kullanıcı dostu ve performanslı web siteleri geliştiriyoruz. Kurumsal web sitelerinden e-ticaret platformlarına kadar geniş bir yelpazede hizmet sunuyoruz.
-          </p>
-        </div>
-      </section>
-
-      {/* Related Services Navigation */}
-      <section className="py-8 px-4 bg-gray-50">
-        <div className="container mx-auto max-w-6xl">
-          <div className="flex flex-wrap gap-4">
-            {relatedServices.map((service, index) => (
-              <Link
-                key={index}
-                href={service.link}
-                className="text-sm text-gray-600 hover:text-[#636EDF] transition-colors"
-              >
-                {service.title}
-              </Link>
-            ))}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div>
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+                Web Geliştirme
+              </h2>
+              <p className="text-lg text-gray-600 leading-relaxed">
+                İşlevsel, hızlı ve güvenli web çözümleriyle fark yaratın. Web siteniz, dijital dünyadaki ilk izleniminizdir. Modern kullanıcılar sadece estetik değil; hız, güvenlik ve kullanılabilirlik de bekliyor. Web geliştirme hizmetimizle size özel, performansı yüksek ve mobil uyumlu çözümler sunuyoruz. İster kurumsal site, ister e-ticaret altyapısı, ister özel yazılım tabanlı sistemler… Her projeyi detaylı analizle başlatır, sağlam mimariyle tamamlarız.
+              </p>
+            </div>
+            <div className="relative">
+              <Image
+                src="/images/service_3-768x512.webp"
+                alt="Web Geliştirme"
+                width={768}
+                height={512}
+                className="rounded-lg shadow-lg w-full h-auto"
+                priority
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -96,45 +142,107 @@ export default function WebGelistirme() {
       {/* Features Section */}
       <section className="py-20 px-4 bg-white">
         <div className="container mx-auto max-w-6xl">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <ServiceSidebar currentService="/services/web-gelistirme" />
+            
+            <div className="lg:col-span-9">
           <div className="flex items-center gap-3 mb-8">
             <div className="w-2 h-2 bg-[#636EDF] rounded-full"></div>
             <span className="text-[#636EDF] font-medium text-sm uppercase tracking-wide">Hizmet Özellikleri</span>
           </div>
 
+          <p className="text-gray-600 leading-relaxed mb-12 max-w-4xl">
+            Web geliştirme sadece "kod yazmak" değildir; kullanıcıyı anlayarak, iş hedeflerine uygun dijital platformlar üretmektir. ASP.NET Core, PHP, Laravel, WordPress gibi teknolojilerle platforma özel çözümler sunuyoruz. SEO uyumlu yapılar, yüksek performans, güvenlik katmanları ve kolay yönetim paneli gibi detayları standart olarak kabul ediyoruz. Her proje, sürdürülebilir ve genişletilebilir yapıdadır.
+          </p>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {features.map((feature, index) => (
-              <div key={index} className="bg-gray-50 rounded-lg p-8 border border-gray-200 hover:shadow-md transition-shadow">
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">{feature.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+              <div key={index} className="flex gap-4 bg-gray-50 rounded-lg p-8 border border-gray-200 hover:shadow-md transition-shadow">
+                <div className="shrink-0">
+                  <div className="w-10 h-10 rounded-full bg-[#636EDF] flex items-center justify-center">
+                    <FaCheck className="text-white text-sm" />
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-4">{feature.title}</h3>
+                  <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+                </div>
               </div>
             ))}
+          </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20 px-4 bg-gray-50">
+        <div className="container mx-auto max-w-6xl">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                Sıkça Sorulan Sorular
+              </h2>
+              <div className="space-y-4">
+                {faqs.map((faq, index) => (
+                  <FAQItem
+                    key={index}
+                    question={faq.question}
+                    answer={faq.answer}
+                    defaultOpen={faq.defaultOpen || false}
+                  />
+                ))}
+              </div>
+            </div>
+            <div className="relative hidden lg:block">
+              <Image
+                src="/images/service-detail.jpg"
+                alt="Web Geliştirme Hizmetleri"
+                width={525}
+                height={650}
+                className="w-full h-auto rounded-lg shadow-lg"
+              />
+            </div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 bg-gray-50">
-        <div className="container mx-auto max-w-4xl text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Bir sorunuz mu var?
-          </h2>
+      <section className="py-20 px-4 bg-linear-to-br from-[#636EDF] to-[#5963C8] relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <Image
+            src="/images/service-detail_deco.png"
+            alt=""
+            fill
+            className="object-cover"
+            sizes="100vw"
+          />
+        </div>
+        <div className="container mx-auto max-w-4xl text-center relative z-10">
+          <div className="flex items-center justify-center gap-3 mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" width="74" height="74" viewBox="0 0 74 74" fill="none" className="w-12 h-12 text-white">
+              <path opacity="0.2" d="M74.0004 50.0795C74.0004 40.8967 68.7323 32.7013 60.8424 28.7148C60.5974 46.3217 46.3227 60.5964 28.7158 60.8414C32.7023 68.7314 40.8977 73.9994 50.0805 73.9994C54.3859 73.9994 58.5728 72.8528 62.2516 70.6741L73.896 73.895L70.675 62.2506C72.8537 58.5718 74.0004 54.3849 74.0004 50.0795Z" fill="white"/>
+              <path d="M56.5117 28.2559C56.5117 12.6753 43.8364 0 28.2559 0C12.6753 0 0 12.6753 0 28.2559C0 33.3337 1.35159 38.2776 3.91815 42.6181L0.103882 56.4073L13.8936 52.5936C18.2341 55.1601 23.1781 56.5117 28.2559 56.5117C43.8364 56.5117 56.5117 43.8364 56.5117 28.2559ZM23.9199 21.6797H19.584C19.584 16.8977 23.4739 13.0078 28.2559 13.0078C33.0378 13.0078 36.9277 16.8977 36.9277 21.6797C36.9277 24.1068 35.9002 26.4396 34.1077 28.0792L30.4238 31.4508V34.832H26.0879V29.5414L31.1804 24.8803C32.0905 24.0475 32.5918 22.911 32.5918 21.6797C32.5918 19.2887 30.6468 17.3438 28.2559 17.3438C25.8649 17.3438 23.9199 19.2887 23.9199 21.6797ZM26.0879 39.168H30.4238V43.5039H26.0879V39.168Z" fill="white"/>
+            </svg>
+            <h2 className="text-3xl md:text-4xl font-bold text-white">
+              Bir sorunuz mu var?
+            </h2>
+          </div>
           <div className="flex flex-col md:flex-row items-center justify-center gap-6 mb-8">
-            <a href="mailto:info@secesta.com" className="text-gray-600 hover:text-[#636EDF] transition-colors">
+            <a href="mailto:info@secesta.com" className="text-white hover:text-gray-200 transition-colors text-lg">
               info@secesta.com
             </a>
-            <span className="text-gray-400 hidden md:inline">•</span>
-            <a href="tel:+905539826700" className="text-gray-600 hover:text-[#636EDF] transition-colors">
+            <span className="text-white/50 hidden md:inline">•</span>
+            <a href="tel:+905539826700" className="text-white hover:text-gray-200 transition-colors text-lg">
               +90 553 982 6700
             </a>
           </div>
           <Link
             href="/bize-ulasin"
-            className="inline-flex items-center gap-2 bg-[#636EDF] text-white px-8 py-3 rounded-lg hover:bg-[#5963C8] transition-colors font-medium"
+            className="inline-flex items-center gap-2 bg-white text-[#636EDF] px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors font-medium"
           >
             Bize Ulaşın
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 32 32" className="w-4 h-4">
-              <path d="M15.52 4.953c-.47.155-.904.523-1.125.956-.109.213-.128.327-.128.758 0 .43.019.546.131.773.101.206.87 1.009 3.384 3.533l3.253 3.266-7.438.014-7.437.014-.267.141a2.097 2.097 0 0 0-.831.834c-.109.213-.129.328-.129.758 0 .431.02.544.129.759.165.323.523.68.845.845l.253.129 7.437.014 7.438.014-3.253 3.266c-2.514 2.524-3.283 3.327-3.384 3.533-.112.227-.131.343-.131.773 0 .594.104.858.489 1.244.386.386.65.49 1.244.49.429 0 .547-.02.773-.131.391-.191 9.972-9.772 10.163-10.163.111-.226.131-.344.131-.773 0-.429-.02-.547-.131-.773-.103-.211-1.155-1.293-4.986-5.129-5.414-5.42-5.101-5.143-5.87-5.172-.235-.009-.487.003-.56.027" fill="currentColor" />
-            </svg>
+            <FiArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </section>

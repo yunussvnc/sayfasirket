@@ -1,21 +1,43 @@
 "use client";
 
+import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import ServiceSidebar from "@/components/ServiceSidebar";
+import ServiceHero from "@/components/ServiceHero";
 
-const servicesList = [
-  { title: "İleri Düzey Analitik", link: "/services/ileri-duzey-analitik", current: true },
-  { title: "Pazarlama Stratejisi", link: "/services/marketing-strategy", current: false },
-  { title: "Sistem ve Yazılım", link: "/services/sistem-ve-yazilim", current: false },
-  { title: "Dijital Strateji", link: "/services/dijital-strateji", current: false },
-  { title: "Web Geliştirme", link: "/services/web-gelistirme", current: false },
-  { title: "Marka Kimliği", link: "/services/marka-kimligi", current: false },
-  { title: "UX/UI Tasarımı", link: "/services/ux-ui-tasarimi", current: false }
-];
+// Note: This is a client component, metadata should be in layout.tsx or a parent server component
+// For now, we'll add it as a comment for documentation purposes
+/*
+export const metadata: Metadata = {
+  title: "İleri Düzey Analitik - Secesta Lider Markaların Dijital Pazarlama & SEO Ajansı",
+  description: "Veri odaklı kararlar için gelişmiş analiz yöntemleriyle stratejik içgörüler sunar. Google Analytics, Meta verileri ve CRM analizleri ile sürekli optimizasyon sağlarız.",
+  openGraph: {
+    title: "İleri Düzey Analitik - Secesta",
+    description: "Veri odaklı kararlar için gelişmiş analiz yöntemleriyle stratejik içgörüler sunar.",
+    images: [
+      {
+        url: "/images/service_7-768x432.webp",
+        width: 768,
+        height: 432,
+        alt: "İleri Düzey Analitik",
+      },
+    ],
+    type: "article",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "İleri Düzey Analitik - Secesta",
+    description: "Veri odaklı kararlar için gelişmiş analiz yöntemleriyle stratejik içgörüler sunar.",
+    images: ["/images/service_7-768x432.webp"],
+  },
+};
+*/
+
 
 const features = [
   {
@@ -105,91 +127,13 @@ export default function IleriDuzeyAnalitik() {
         </div>
       </section>
 
+      <ServiceHero title="İleri Düzey Analitik" />
+
       {/* Main Content */}
       <section className="py-12 px-4 bg-white">
         <div className="container mx-auto max-w-6xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            {/* Left Sidebar - Services List (Hidden on mobile/tablet, visible on desktop) */}
-            <div className="hidden lg:block lg:col-span-3">
-              <div className="bg-gray-50 rounded-lg p-6 sticky top-32">
-                <div className="space-y-2">
-                  {servicesList.map((service, index) => (
-                    <Link
-                      key={index}
-                      href={service.link}
-                      className={`block p-3 rounded-lg transition-colors ${
-                        service.current
-                          ? "bg-[#636EDF] text-white"
-                          : "text-gray-700 hover:bg-gray-200"
-                      }`}
-                    >
-                      <div className="flex items-center justify-between">
-                        <span className="font-medium">{service.title}</span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="16"
-                          height="16"
-                          viewBox="0 0 32 32"
-                          className={`w-4 h-4 ${service.current ? "text-white" : "text-gray-400"}`}
-                        >
-                          <path d="M15.52 4.953c-.47.155-.904.523-1.125.956-.109.213-.128.327-.128.758 0 .43.019.546.131.773.101.206.87 1.009 3.384 3.533l3.253 3.266-7.438.014-7.437.014-.267.141a2.097 2.097 0 0 0-.831.834c-.109.213-.129.328-.129.758 0 .431.02.544.129.759.165.323.523.68.845.845l.253.129 7.437.014 7.438.014-3.253 3.266c-2.514 2.524-3.283 3.327-3.384 3.533-.112.227-.131.343-.131.773 0 .594.104.858.489 1.244.386.386.65.49 1.244.49.429 0 .547-.02.773-.131.391-.191 9.972-9.772 10.163-10.163.111-.226.131-.344.131-.773 0-.429-.02-.547-.131-.773-.103-.211-1.155-1.293-4.986-5.129-5.414-5.42-5.101-5.143-5.87-5.172-.235-.009-.487.003-.56.027" fill="currentColor" />
-                        </svg>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-
-                {/* "Just starting out?" Section */}
-                <div className="mt-8 pt-8 border-t border-gray-200">
-                  <div className="flex items-center gap-2 mb-4">
-                    <div className="w-2 h-2 bg-[#636EDF] rounded-full"></div>
-                    <span className="text-sm text-gray-600 font-medium">Just starting out?</span>
-                  </div>
-                  <h4 className="text-lg font-semibold text-gray-900 mb-4">Download a company brochure</h4>
-                  
-                  {/* Decorative Image */}
-                  <motion.div
-                    className="relative mb-4"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5 }}
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    <Image
-                      src="/images/service-detail_sidebar.png"
-                      alt="Service Detail Sidebar"
-                      width={265}
-                      height={266}
-                      className="w-full h-auto"
-                    />
-                  </motion.div>
-
-                  <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <Link
-                      href="/bize-ulasin"
-                      className="inline-flex items-center gap-2 bg-[#636EDF] text-white px-4 py-2 rounded-lg hover:bg-[#5963C8] transition-colors text-sm font-medium w-full justify-center"
-                    >
-                      Get a copy
-                      <motion.svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        viewBox="0 0 32 32"
-                        className="w-4 h-4"
-                        animate={{ x: [0, 3, 0] }}
-                        transition={{ duration: 1.5, repeat: Infinity }}
-                      >
-                        <path d="M15.52 4.953c-.47.155-.904.523-1.125.956-.109.213-.128.327-.128.758 0 .43.019.546.131.773.101.206.87 1.009 3.384 3.533l3.253 3.266-7.438.014-7.437.014-.267.141a2.097 2.097 0 0 0-.831.834c-.109.213-.129.328-.129.758 0 .431.02.544.129.759.165.323.523.68.845.845l.253.129 7.437.014 7.438.014-3.253 3.266c-2.514 2.524-3.283 3.327-3.384 3.533-.112.227-.131.343-.131.773 0 .594.104.858.489 1.244.386.386.65.49 1.244.49.429 0 .547-.02.773-.131.391-.191 9.972-9.772 10.163-10.163.111-.226.131-.344.131-.773 0-.429-.02-.547-.131-.773-.103-.211-1.155-1.293-4.986-5.129-5.414-5.42-5.101-5.143-5.87-5.172-.235-.009-.487.003-.56.027" fill="currentColor" />
-                      </motion.svg>
-                    </Link>
-                  </motion.div>
-                </div>
-              </div>
-            </div>
+            <ServiceSidebar currentService="/services/ileri-duzey-analitik" />
 
             {/* Main Content Area */}
             <div className="lg:col-span-9">
