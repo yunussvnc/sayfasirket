@@ -146,7 +146,7 @@ export default function UXUITasarimi() {
       </section>
 
       {/* Page Header */}
-      <section className="pb-12 px-4 bg-white">
+      <section className="pb-12 px-4">
         <div className="container mx-auto max-w-6xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div>
@@ -172,7 +172,7 @@ export default function UXUITasarimi() {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 px-4 bg-white">
+      <section className="py-20 px-4">
         <div className="container mx-auto max-w-6xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
             <ServiceSidebar currentService="/services/ux-ui-tasarimi" />
@@ -208,7 +208,7 @@ export default function UXUITasarimi() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 px-4 bg-gray-50">
+      <section className="py-20 px-4">
         <div className="container mx-auto max-w-6xl">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             <div className="lg:col-span-2">

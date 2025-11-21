@@ -20,7 +20,13 @@
 }
 
 body {
-  background: var(--background);
+  background-image:
+    url("/images/puzzle.webp"),
+    url("/images/background.jpg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }

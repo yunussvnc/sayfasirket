@@ -139,14 +139,14 @@ export default function SistemVeYazilim() {
       </section>
 
       {/* Page Header */}
-      <section className="pb-12 px-4 bg-white">
+      <section className="pb-12 px-4">
         <div className="container mx-auto max-w-6xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
                 Sistem ve Yazılım
               </h2>
-              <p className="text-lg text-gray-600 leading-relaxed">
+              <p className="text-lg text-white/90 leading-relaxed">
                 İhtiyacınıza özel, güvenilir ve ölçeklenebilir yazılım çözümleri. Hazır sistemler her zaman ihtiyaçlarınıza cevap vermez. Özgün, güvenli ve iş süreçlerinize tam uyumlu yazılımlar; verimliliği artırır, operasyonel maliyetleri düşürür ve rekabet avantajı sağlar.
               </p>
             </div>
@@ -165,7 +165,7 @@ export default function SistemVeYazilim() {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 px-4 bg-white">
+      <section className="py-20 px-4">
         <div className="container mx-auto max-w-6xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
             <ServiceSidebar currentService="/services/sistem-ve-yazilim" />
@@ -176,21 +176,21 @@ export default function SistemVeYazilim() {
                 <span className="text-[#636EDF] font-medium text-sm uppercase tracking-wide">Hizmet Özellikleri</span>
               </div>
 
-              <p className="text-gray-600 leading-relaxed mb-12 max-w-4xl">
+              <p className="text-white/90 leading-relaxed mb-12 max-w-4xl">
                 Sistem ve yazılım geliştirme, sadece bir uygulama inşa etmekten çok daha fazlasıdır. İhtiyaç analizi, veri güvenliği, kullanıcı deneyimi ve sürdürülebilirlik gibi birçok bileşeni kapsar. ASP.NET Core, C#, PHP ve modern framework&apos;lerle geliştirdiğimiz özel çözümler; uzun vadede hem teknik performans hem de operasyonel başarı sunar. Tüm sistemler ölçeklenebilir, çok katmanlı ve güncellenebilir yapıdadır.
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {features.map((feature, index) => (
-                  <div key={index} className="flex gap-4 bg-gray-50 rounded-lg p-8 border border-gray-200 hover:shadow-md transition-shadow">
+                  <div key={index} className="flex gap-4 bg-white/10 backdrop-blur-sm rounded-lg p-8 border border-white/20 hover:shadow-md transition-shadow">
                     <div className="shrink-0">
                       <div className="w-10 h-10 rounded-full bg-[#636EDF] flex items-center justify-center">
                         <FaCheck className="text-white text-sm" />
                       </div>
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold text-gray-900 mb-4">{feature.title}</h3>
-                      <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+                      <h3 className="text-xl font-semibold text-white mb-4">{feature.title}</h3>
+                      <p className="text-white/80 leading-relaxed">{feature.description}</p>
                     </div>
                   </div>
                 ))}
@@ -201,11 +201,11 @@ export default function SistemVeYazilim() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 px-4 bg-gray-50">
+      <section className="py-20 px-4">
         <div className="container mx-auto max-w-6xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
                 Sıkça Sorulan Sorular
               </h2>
               <div className="space-y-4">

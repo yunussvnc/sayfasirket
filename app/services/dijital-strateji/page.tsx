@@ -139,14 +139,14 @@ export default function DijitalStrateji() {
       </section>
 
       {/* Page Header */}
-      <section className="pb-12 px-4 bg-white">
+      <section className="pb-12 px-4">
         <div className="container mx-auto max-w-6xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
                 Dijital Strateji
               </h2>
-              <p className="text-lg text-gray-600 leading-relaxed">
+              <p className="text-lg text-white/90 leading-relaxed">
                 Dijitalde güçlü olmak tesadüf değil, stratejidir. Dijital dünyada rekabet her geçen gün artıyor. Sizi öne çıkaracak şey ise plansız çabalar değil, hedefe yönelik stratejik adımlardır. Dijital strateji hizmetimizle markanızın online varlığını planlı, ölçülebilir ve sürdürülebilir hale getiriyoruz. Pazarlama, içerik, reklam ve kullanıcı deneyimi gibi tüm alanlarda sizi başarıya götürecek yol haritasını birlikte oluşturuyoruz.
               </p>
             </div>
@@ -165,7 +165,7 @@ export default function DijitalStrateji() {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 px-4 bg-white">
+      <section className="py-20 px-4">
         <div className="container mx-auto max-w-6xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
             <ServiceSidebar currentService="/services/dijital-strateji" />
@@ -176,21 +176,21 @@ export default function DijitalStrateji() {
                 <span className="text-[#636EDF] font-medium text-sm uppercase tracking-wide">Hizmet Özellikleri</span>
               </div>
 
-              <p className="text-gray-600 leading-relaxed mb-12 max-w-4xl">
+              <p className="text-white/90 leading-relaxed mb-12 max-w-4xl">
                 Dijital strateji, markanızın dijital dünyadaki tüm temas noktalarını bir bütün olarak planlamayı gerektirir. Sadece sosyal medya yönetmek ya da reklam vermek değil; hangi platformlarda, hangi mesajlarla ve ne zaman görünür olacağınızı netleştirmek gerekir. Biz bu süreci veriye dayalı analizlerle başlatır, içerik, reklam, SEO, kullanıcı deneyimi ve dönüşüm optimizasyonu gibi alanlarla tamamlarız. Amaç? Daha fazla etkileşim, daha fazla dönüşüm, daha fazla başarı.
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {features.map((feature, index) => (
-                  <div key={index} className="flex gap-4 bg-gray-50 rounded-lg p-8 border border-gray-200 hover:shadow-md transition-shadow">
+                  <div key={index} className="flex gap-4 bg-white/10 backdrop-blur-sm rounded-lg p-8 border border-white/20 hover:shadow-md transition-shadow">
                     <div className="shrink-0">
                       <div className="w-10 h-10 rounded-full bg-[#636EDF] flex items-center justify-center">
                         <FaCheck className="text-white text-sm" />
                       </div>
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold text-gray-900 mb-4">{feature.title}</h3>
-                      <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+                      <h3 className="text-xl font-semibold text-white mb-4">{feature.title}</h3>
+                      <p className="text-white/80 leading-relaxed">{feature.description}</p>
                     </div>
                   </div>
                 ))}
@@ -201,11 +201,11 @@ export default function DijitalStrateji() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 px-4 bg-gray-50">
+      <section className="py-20 px-4">
         <div className="container mx-auto max-w-6xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
                 Sıkça Sorulan Sorular
               </h2>
               <div className="space-y-4">

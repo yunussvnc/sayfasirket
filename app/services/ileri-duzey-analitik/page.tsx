@@ -161,7 +161,7 @@ export default function IleriDuzeyAnalitik() {
       </section>
 
       {/* Main Content */}
-      <section className="py-12 px-4 bg-white">
+      <section className="py-12 px-4">
         <div className="container mx-auto max-w-6xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
             <ServiceSidebar currentService="/services/ileri-duzey-analitik" />
@@ -351,7 +351,7 @@ export default function IleriDuzeyAnalitik() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 bg-gray-50 relative overflow-hidden">
+      <section className="py-20 px-4 relative overflow-hidden">
         <div className="absolute top-0 right-0 opacity-10 hidden lg:block">
           <Image
             src="/images/service-detail_deco.png"

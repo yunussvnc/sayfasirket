@@ -59,7 +59,7 @@ export default function Ekibimiz() {
       </section>
 
       {/* Team Section */}
-      <section className="py-20 px-4 bg-gray-50 relative overflow-hidden">
+      <section className="py-20 px-4 relative overflow-hidden">
         <div className="container mx-auto max-w-6xl">
           {/* Label */}
           <div className="flex items-center gap-3 mb-4">
@@ -92,7 +92,7 @@ export default function Ekibimiz() {
       </section>
 
       {/* NeoKreatif Ajans'a Katıl Section */}
-      <section className="py-20 px-4 bg-white relative overflow-hidden">
+      <section className="py-20 px-4 relative overflow-hidden">
         <div className="container mx-auto max-w-6xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative">
             {/* Decorative Image - Hidden on mobile/tablet */}
@@ -135,7 +135,7 @@ export default function Ekibimiz() {
       </section>
 
       {/* İşinizi Birlikte Büyütelim Section */}
-      <section className="py-20 px-4 bg-gray-50 relative overflow-hidden">
+      <section className="py-20 px-4 relative overflow-hidden">
         <div className="container mx-auto max-w-6xl">
           {/* Decorative Images - Hidden on mobile/tablet */}
           <div className="absolute top-0 right-0 hidden lg:block opacity-20">

@@ -49,12 +49,12 @@ export default function BizeUlasin() {
   return (
     <main className="min-h-screen">
       <PageNavbar />
-      
+
       {/* Breadcrumb Navigation */}
-      <section className="pt-32 pb-6 px-4 bg-white">
+      <section className="pt-32 pb-6 px-4">
         <div className="container mx-auto max-w-6xl">
           <nav aria-label="Breadcrumb" className="mb-8">
-            <ul className="flex items-center gap-2 text-sm text-gray-600">
+            <ul className="flex items-center gap-2 text-sm text-white/80">
               <li>
                 <Link href="/" className="hover:text-[#636EDF] transition-colors">
                   Anasayfa
@@ -64,7 +64,7 @@ export default function BizeUlasin() {
                 <span className="text-gray-400">/</span>
               </li>
               <li>
-                <span className="text-gray-900" aria-current="page">Bize Ulaşın</span>
+                <span className="text-white" aria-current="page">Bize Ulaşın</span>
               </li>
             </ul>
           </nav>
@@ -72,7 +72,7 @@ export default function BizeUlasin() {
       </section>
 
       {/* Page Header */}
-      <section className="pb-12 px-4 bg-white">
+      <section className="pb-12 px-4">
         <div className="container mx-auto max-w-6xl">
           {/* Label */}
           <div className="flex items-center gap-3 mb-4">
@@ -81,12 +81,12 @@ export default function BizeUlasin() {
           </div>
 
           {/* Heading */}
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
             NeoKreatif Ajans - İletişim
           </h1>
 
           {/* Description */}
-          <div className="space-y-4 text-lg text-gray-600 leading-relaxed max-w-3xl">
+          <div className="space-y-4 text-lg text-white/90 leading-relaxed max-w-3xl">
             <p>
               NeoKreatif Ajans, 12 yılı aşkın tecrübesiyle markaların dijital dünyada güçlü bir şekilde var olmasını sağlayan kreatif bir dijital ajanstır. Kurulduğumuz günden bu yana web tasarım, yazılım geliştirme, SEO, Google Ads & Meta Reklam Yönetimi, sosyal medya yönetimi, kurumsal kimlik ve grafik tasarım alanlarında yüzlerce projeye imza attık.
             </p>
@@ -101,7 +101,7 @@ export default function BizeUlasin() {
       </section>
 
       {/* Contact Form Section */}
-      <section className="py-20 px-4 bg-gray-50">
+      <section className="py-20 px-4">
         <div className="container mx-auto max-w-6xl">
           <form onSubmit={handleSubmit} className="bg-white rounded-lg p-8 md:p-12 shadow-sm border border-gray-100">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
@@ -227,7 +227,7 @@ export default function BizeUlasin() {
       </section>
 
       {/* Contact Info Section */}
-      <section className="py-20 px-4 bg-white">
+      <section className="py-20 px-4">
         <div className="container mx-auto max-w-6xl">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             {/* Contact Info */}
@@ -297,7 +297,7 @@ export default function BizeUlasin() {
       </section>
 
       {/* Divider */}
-      <section className="py-8 px-4 bg-white">
+      <section className="py-8 px-4">
         <div className="container mx-auto max-w-6xl">
           <div className="border-t border-gray-200"></div>
         </div>
