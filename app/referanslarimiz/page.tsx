@@ -1,4 +1,4 @@
-import Header from "@/components/Header";
+import PageNavbar from "@/components/PageNavbar";
 import Footer from "@/components/Footer";
 import Image from "next/image";
 import Link from "next/link";
@@ -70,7 +70,7 @@ const references = [
 export default function Referanslarimiz() {
   return (
     <main className="min-h-screen">
-      <Header />
+      <PageNavbar activePage="referanslar" />
       
       {/* Hero Section with Cover Image */}
       <section className="relative pt-32 pb-20 px-4 overflow-hidden">

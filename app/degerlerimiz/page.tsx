@@ -1,6 +1,6 @@
 "use client";
 
-import Header from "@/components/Header";
+import PageNavbar from "@/components/PageNavbar";
 import Footer from "@/components/Footer";
 import Image from "next/image";
 import Link from "next/link";
@@ -124,7 +124,7 @@ function ProgressBar({ title, value }: { title: string; value: number }) {
 export default function Degerlerimiz() {
   return (
     <main className="min-h-screen">
-      <Header />
+      <PageNavbar activePage="degerlerimiz" />
 
       {/* Breadcrumb Navigation */}
       <section className="pt-32 pb-6 px-4 bg-white">

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Header from "@/components/Header";
+import PageNavbar from "@/components/PageNavbar";
 import Footer from "@/components/Footer";
 import FAQItem from "@/components/FAQItem";
 import Link from "next/link";
@@ -79,7 +79,7 @@ const faqs = [
 export default function MarketingStrategy() {
   return (
     <main className="min-h-screen">
-      <Header />
+      <PageNavbar />
 
       {/* Breadcrumb Navigation */}
       <section className="pt-32 pb-6 px-4 bg-white">

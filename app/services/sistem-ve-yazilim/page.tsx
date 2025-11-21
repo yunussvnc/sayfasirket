@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Header from "@/components/Header";
+import PageNavbar from "@/components/PageNavbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import Image from "next/image";
@@ -80,7 +80,7 @@ const faqs = [
 export default function SistemVeYazilim() {
   return (
     <main className="min-h-screen">
-      <Header />
+      <PageNavbar />
 
       {/* Breadcrumb Navigation */}
       <section className="pt-32 pb-6 px-4 bg-white">

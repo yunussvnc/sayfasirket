@@ -1,4 +1,4 @@
-import Header from "@/components/Header";
+import PageNavbar from "@/components/PageNavbar";
 import Footer from "@/components/Footer";
 import Image from "next/image";
 import Link from "next/link";
@@ -71,7 +71,7 @@ const testimonials = [
 export default function Hakkimizda() {
   return (
     <main className="min-h-screen">
-      <Header />
+      <PageNavbar activePage="hakkimizda" />
       
       {/* Breadcrumb Navigation */}
       <section className="pt-32 pb-6 px-4 bg-white">

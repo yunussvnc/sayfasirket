@@ -1,6 +1,6 @@
 "use client";
 
-import Header from "@/components/Header";
+import PageNavbar from "@/components/PageNavbar";
 import Footer from "@/components/Footer";
 import { useState } from "react";
 import Link from "next/link";
@@ -48,7 +48,7 @@ export default function BizeUlasin() {
 
   return (
     <main className="min-h-screen">
-      <Header />
+      <PageNavbar />
       
       {/* Breadcrumb Navigation */}
       <section className="pt-32 pb-6 px-4 bg-white">

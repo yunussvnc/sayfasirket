@@ -1,11 +1,11 @@
-import Header from "@/components/Header";
+import PageNavbar from "@/components/PageNavbar";
 import Footer from "@/components/Footer";
 import Services from "@/components/Services";
 
 export default function ServicesPage() {
   return (
     <main className="min-h-screen">
-      <Header />
+      <PageNavbar />
       <section className="pt-32 pb-20 px-4 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-12">
