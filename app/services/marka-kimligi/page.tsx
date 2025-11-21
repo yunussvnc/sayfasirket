@@ -9,10 +9,10 @@ import FAQItem from "@/components/FAQItem";
 import ServiceSidebar from "@/components/ServiceSidebar";
 
 export const metadata: Metadata = {
-  title: "Marka Kimliği - Secesta Lider Markaların Dijital Pazarlama & SEO Ajansı",
+  title: "Marka Kimliği - NeoKreatif Ajans Lider Markaların Dijital Pazarlama & SEO Ajansı",
   description: "Markanızı tanımlayan görsel ve sözel unsurları profesyonelce tasarlayıp uygular. Güçlü bir marka kimliği ile müşterilerinizde güven oluşturuyoruz.",
   openGraph: {
-    title: "Marka Kimliği - Secesta",
+    title: "Marka Kimliği - NeoKreatif Ajans",
     description: "Markanızı tanımlayan görsel ve sözel unsurları profesyonelce tasarlayıp uygular.",
     images: [
       {
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Marka Kimliği - Secesta",
+    title: "Marka Kimliği - NeoKreatif Ajans",
     description: "Markanızı tanımlayan görsel ve sözel unsurları profesyonelce tasarlayıp uygular.",
     images: ["/images/service_2-768x384.webp"],
   },
@@ -267,8 +267,8 @@ export default function MarkaKimligi() {
             </h2>
           </div>
           <div className="flex flex-col md:flex-row items-center justify-center gap-6 mb-8">
-            <a href="mailto:info@secesta.com" className="text-white hover:text-gray-200 transition-colors text-lg">
-              info@secesta.com
+            <a href="mailto:neokreatiff@gmail.com" className="text-white hover:text-gray-200 transition-colors text-lg">
+              neokreatiff@gmail.com
             </a>
             <span className="text-white/50 hidden md:inline">•</span>
             <a href="tel:+905539826700" className="text-white hover:text-gray-200 transition-colors text-lg">

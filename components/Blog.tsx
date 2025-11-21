@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const blogPosts = [
   {
-    title: "Secesta Ne Demek?",
+    title: "NeoKreatif Ajans Ne Demek?",
     image: "/images/Secesta-Ne-Demek-300x300.webp",
     link: "/secesta-ne-demek.html"
   },
@@ -18,7 +18,7 @@ const blogPosts = [
     link: "/iphone-icin-e-posta-kurulumu.html"
   },
   {
-    title: "Secesta Mail Yapılandırması",
+    title: "NeoKreatif Ajans Mail Yapılandırması",
     image: "/images/Mail-Yapilandirmasi.png",
     link: "/secesta-mail-yapilandirmasi.html"
   }
@@ -31,7 +31,7 @@ export default function Blog() {
         <div className="text-center mb-12">
           <span className="text-blue-600 font-medium mb-2 block">Makaleler ve Bilgilendirmeler</span>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Secesta Blog & Bilgilendirme
+            NeoKreatif Ajans Blog & Bilgilendirme
           </h2>
         </div>
 

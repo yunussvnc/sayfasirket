@@ -86,7 +86,7 @@ export default function Values() {
             >
               <Image
                 src="/images/Secesta-Fistik.webp"
-                alt="Decorative Acorn"
+                alt="NeoKreatif Ajans"
                 width={80}
                 height={80}
                 className="w-16 h-16 md:w-20 md:h-20 object-contain"

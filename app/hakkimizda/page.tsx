@@ -218,7 +218,7 @@ export default function Hakkimizda() {
           <div className="relative z-10 mb-12">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-2 h-2 bg-[#636EDF] rounded-full"></div>
-              <span className="text-[#636EDF] font-medium text-sm uppercase tracking-wide">Secesta&apos;yı Keşfet</span>
+              <span className="text-[#636EDF] font-medium text-sm uppercase tracking-wide">NeoKreatif Ajans&apos;ı Keşfet</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
               Güvenilir Çözüm Ortağınız

@@ -33,7 +33,7 @@ export default function Iletisim() {
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/seo.webp"
-            alt="Secesta iletişim arka planı"
+            alt="NeoKreatif Ajans iletişim arka planı"
             fill
             className="object-cover"
             priority
@@ -68,19 +68,16 @@ export default function Iletisim() {
                 Bilgilendirme ve İletişim
               </p>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 mt-4">
-                Secesta Software Solutions - İletişim
+                NeoKreatif Ajans - İletişim
               </h1>
               <div className="space-y-4 text-lg text-white/90 leading-relaxed">
                 <p>
-                  Secesta web tasarım ve programlama; internet üzerindeki ihtiyaç ve talepleri
-                  karşılayabilmek aynı zamanda danışmanlık hizmetleri vermek için kurulmuştur.
+                  NeoKreatif Ajans, 12 yılı aşkın tecrübesiyle markaların dijital dünyada güçlü bir şekilde var olmasını sağlayan kreatif bir dijital ajanstır. Kurulduğumuz günden bu yana web tasarım, yazılım geliştirme, SEO, Google Ads & Meta Reklam Yönetimi, sosyal medya yönetimi, kurumsal kimlik ve grafik tasarım alanlarında yüzlerce projeye imza attık.
                 </p>
                 <p>
-                  2002 yılından günümüze kadar bir çok kişi ve kurumlara çalışmalar yapmış olup,
-                  2016 yılından itibaren SECESTA SOFTWARE SOLUTIONS çatısı altında tüm çalışmalarını
-                  toplamıştır.
+                  Amacımız; markaların hedef kitleleriyle doğru stratejilerle buluşmasını sağlamak, dijital dünyada sürdürülebilir başarı elde etmelerine destek olmak ve yenilikçi çözümlerle fark yaratmaktır.
                 </p>
-                <p>Secesta dünya standartlarını yakalayan ve sürekli geliştiren süreçleri işler.</p>
+                <p>NeoKreatif Ajans olarak yenilikçi, dinamik ve çözüm odaklı bakış açımızla, işinizi dijital dünyada bir adım öne taşıyoruz.</p>
               </div>
             </div>
           </div>

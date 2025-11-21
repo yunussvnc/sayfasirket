@@ -33,7 +33,7 @@ export default function PageNavbar({ activePage }: PageNavbarProps) {
               <div className="flex items-center gap-2">
                 <Image
                   src="/images/secesta-vector-logo.svg"
-                  alt="Secesta Logo"
+                  alt="NeoKreatif Ajans Logo"
                   width={150}
                   height={50}
                   className="h-10 w-auto"
@@ -41,7 +41,7 @@ export default function PageNavbar({ activePage }: PageNavbarProps) {
                 />
                 <Image
                   src="/images/Secesta-Fistik.webp"
-                  alt="Secesta Fıstık"
+                  alt="NeoKreatif Ajans"
                   width={40}
                   height={40}
                   className="w-10 h-10 object-contain"

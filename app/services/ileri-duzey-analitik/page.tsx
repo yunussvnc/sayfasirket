@@ -13,10 +13,10 @@ import GradientBG from "@/components/GradientBG";
 // For now, we'll add it as a comment for documentation purposes
 /*
 export const metadata: Metadata = {
-  title: "İleri Düzey Analitik - Secesta Lider Markaların Dijital Pazarlama & SEO Ajansı",
+  title: "İleri Düzey Analitik - NeoKreatif Ajans Lider Markaların Dijital Pazarlama & SEO Ajansı",
   description: "Veri odaklı kararlar için gelişmiş analiz yöntemleriyle stratejik içgörüler sunar. Google Analytics, Meta verileri ve CRM analizleri ile sürekli optimizasyon sağlarız.",
   openGraph: {
-    title: "İleri Düzey Analitik - Secesta",
+    title: "İleri Düzey Analitik - NeoKreatif Ajans",
     description: "Veri odaklı kararlar için gelişmiş analiz yöntemleriyle stratejik içgörüler sunar.",
     images: [
       {
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "İleri Düzey Analitik - Secesta",
+    title: "İleri Düzey Analitik - NeoKreatif Ajans",
     description: "Veri odaklı kararlar için gelişmiş analiz yöntemleriyle stratejik içgörüler sunar.",
     images: ["/images/service_7-768x432.webp"],
   },
@@ -372,7 +372,7 @@ export default function IleriDuzeyAnalitik() {
             <h4 className="text-2xl font-bold text-gray-900">Analitiğin gücünü keşfetmek ister misiniz?</h4>
           </div>
           <div className="mb-6">
-            <p className="text-lg text-gray-700 mb-2">analitik@secesta.com</p>
+            <p className="text-lg text-gray-700 mb-2">neokreatiff@gmail.com</p>
             <p className="text-gray-600">+90 (216) 123 45 67</p>
           </div>
           <Link

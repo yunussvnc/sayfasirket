@@ -10,7 +10,7 @@ export default function Footer() {
             <Link href="/" className="block mb-4">
               <Image
                 src="/images/secesta-vector-logo.svg"
-                alt="Secesta Logo"
+                alt="NeoKreatif Ajans Logo"
                 width={150}
                 height={50}
                 className="h-10 w-auto brightness-0 invert"

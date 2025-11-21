@@ -9,10 +9,10 @@ import FAQItem from "@/components/FAQItem";
 import ServiceSidebar from "@/components/ServiceSidebar";
 
 export const metadata: Metadata = {
-  title: "Sistem ve Yazılım - Secesta Lider Markaların Dijital Pazarlama & SEO Ajansı",
+  title: "Sistem ve Yazılım - NeoKreatif Ajans Lider Markaların Dijital Pazarlama & SEO Ajansı",
   description: "İhtiyacınıza özel, güvenilir ve ölçeklenebilir yazılım çözümleri. Özgün, güvenli ve iş süreçlerinize tam uyumlu yazılımlar geliştiririz.",
   openGraph: {
-    title: "Sistem ve Yazılım - Secesta",
+    title: "Sistem ve Yazılım - NeoKreatif Ajans",
     description: "İhtiyacınıza özel, güvenilir ve ölçeklenebilir yazılım çözümleri geliştiririz.",
     images: [
       {
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sistem ve Yazılım - Secesta",
+    title: "Sistem ve Yazılım - NeoKreatif Ajans",
     description: "İhtiyacınıza özel, güvenilir ve ölçeklenebilir yazılım çözümleri geliştiririz.",
     images: ["/images/service_5-768x502.webp"],
   },
@@ -254,8 +254,8 @@ export default function SistemVeYazilim() {
             </h2>
           </div>
           <div className="flex flex-col md:flex-row items-center justify-center gap-6 mb-8">
-            <a href="mailto:info@secesta.com" className="text-white hover:text-gray-200 transition-colors text-lg">
-              info@secesta.com
+            <a href="mailto:neokreatiff@gmail.com" className="text-white hover:text-gray-200 transition-colors text-lg">
+              neokreatiff@gmail.com
             </a>
             <span className="text-white/50 hidden md:inline">•</span>
             <a href="tel:+905539826700" className="text-white hover:text-gray-200 transition-colors text-lg">

@@ -171,7 +171,7 @@ export default function Referanslar() {
               Referanslarımız
             </h1>
             <p className="text-lg md:text-xl text-white/90 leading-relaxed max-w-3xl">
-              Secesta olarak bugüne kadar farklı sektörlerden birçok değerli markaya dijital dünyada fark yaratmaları için çözüm ortaklığı sunduk.
+              NeoKreatif Ajans olarak bugüne kadar farklı sektörlerden birçok değerli markaya dijital dünyada fark yaratmaları için çözüm ortaklığı sunduk.
             </p>
           </div>
         </div>

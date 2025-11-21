@@ -34,9 +34,9 @@ export default function Hero() {
               repeatType: "reverse"
             }}
           >
-            <Image 
-              src="/images/puzzle.webp" 
-              alt="Decorative Shape" 
+            <Image
+              src="/images/puzzle.webp"
+              alt="Decorative Shape"
               width={768}
               height={768}
               className="w-64 h-64 md:w-96 md:h-96 object-contain"
@@ -44,7 +44,7 @@ export default function Hero() {
             />
           </motion.div>
         </motion.div>
-        
+
         {/* Right Top Decorative Shape - h6_deco-1.png */}
         <motion.div
           className="absolute top-0 right-0 -mt-20 -mr-20 hidden md:block opacity-20"
@@ -62,17 +62,17 @@ export default function Hero() {
               repeatType: "reverse"
             }}
           >
-            <Image 
-              src="/images/h6_deco-1.png" 
-              alt="Decor" 
+            <Image
+              src="/images/h6_deco-1.png"
+              alt="Decor"
               width={430}
               height={430}
               className="w-[430px] h-[430px] object-contain"
             />
           </motion.div>
         </motion.div>
-        
-        {/* Right Bottom Decorative Shape - Secesta-Fistik.webp */}
+
+        {/* Right Bottom Decorative Shape */}
         <motion.div
           className="absolute top-1/2 right-0 -translate-y-1/2 opacity-30 hidden md:block"
           initial={{ x: 200, opacity: 0 }}
@@ -89,9 +89,9 @@ export default function Hero() {
               repeatType: "reverse"
             }}
           >
-            <Image 
-              src="/images/Secesta-Fistik.webp" 
-              alt="Secesta Fıstık" 
+            <Image
+              src="/images/Secesta-Fistik.webp"
+              alt="NeoKreatif Ajans"
               width={230}
               height={230}
               className="w-32 h-32 md:w-48 md:h-48 object-contain"
@@ -131,7 +131,7 @@ export default function Hero() {
               Lider Markaların Dijital Çözüm Ortağı
             </p>
           </motion.div>
-          
+
           {/* Main Heading */}
           <motion.h1
             className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight mb-6"
@@ -139,9 +139,9 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            Secesta İle AI, SEO ve Dijital Marketing&apos;de Fark Yaratın
+            NeoKreatif Ajans İle Web Tasarım, SEO ve Dijital Pazarlama&apos;da Fark Yaratın
           </motion.h1>
-          
+
           {/* Description */}
           <motion.p
             className="text-xl md:text-2xl text-white/80 leading-relaxed max-w-4xl mx-auto"
@@ -149,7 +149,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-            Secesta&apos;nın inovatif AI, SEO ve reklam teknolojileriyle dijitalde sürdürülebilir büyüme şimdi çok daha yakın.
+            NeoKreatif Ajans&apos;ın profesyonel web tasarım, yazılım geliştirme, SEO, Google Ads, Meta Ads ve sosyal medya yönetimi hizmetleriyle dijitalde sürdürülebilir büyüme şimdi çok daha yakın.
           </motion.p>
         </motion.div>
       </div>

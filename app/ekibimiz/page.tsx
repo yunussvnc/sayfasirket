@@ -40,7 +40,7 @@ export default function Ekibimiz() {
               </li>
               <li>
                 <span className="bg-white/25 text-white px-4 py-2 rounded-lg text-base font-medium" aria-current="page">
-                  Secesta Ekibimiz
+                  NeoKreatif Ajans Ekibimiz
                 </span>
               </li>
             </ul>
@@ -49,7 +49,7 @@ export default function Ekibimiz() {
           {/* Page Header Content */}
           <div className="max-w-4xl text-white">
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-              Secesta Ekibimiz
+              NeoKreatif Ajans Ekibimiz
             </h1>
             <p className="text-lg md:text-xl text-white/90 leading-relaxed max-w-3xl">
               Ekibimiz, dijital pazarlama, yazılım geliştirme, web tasarım ve SEO alanlarında derin bilgiye ve yılların deneyimine sahip profesyonellerden oluşmaktadır. Yaratıcılıkla teknik mükemmeliyeti birleştirerek inovatif ve güvenilir çözümler sunuyoruz.
@@ -91,7 +91,7 @@ export default function Ekibimiz() {
         </div>
       </section>
 
-      {/* Secesta'ya Katıl Section */}
+      {/* NeoKreatif Ajans'a Katıl Section */}
       <section className="py-20 px-4 bg-white relative overflow-hidden">
         <div className="container mx-auto max-w-6xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative">
@@ -111,7 +111,7 @@ export default function Ekibimiz() {
               {/* Label */}
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-2 h-2 bg-[#636EDF] rounded-full"></div>
-                <span className="text-[#636EDF] font-medium text-sm uppercase tracking-wide">Secesta&apos;ya Katıl</span>
+                <span className="text-[#636EDF] font-medium text-sm uppercase tracking-wide">NeoKreatif Ajans&apos;a Katıl</span>
               </div>
 
               {/* Heading */}

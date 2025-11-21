@@ -67,7 +67,7 @@ export default function Header() {
                                 <div className="flex items-center gap-2">
                                     <Image
                                         src="/images/secesta-vector-logo.svg"
-                                        alt="Secesta Logo"
+                                        alt="NeoKreatif Ajans Logo"
                                         width={150}
                                         height={50}
                                         className="h-8 w-auto"
@@ -75,7 +75,7 @@ export default function Header() {
                                     />
                                     <Image
                                         src="/images/Secesta-Fistik.webp"
-                                        alt="Secesta Fıstık"
+                                        alt="NeoKreatif Ajans"
                                         width={32}
                                         height={32}
                                         className="w-8 h-8 object-contain"
@@ -232,7 +232,7 @@ export default function Header() {
                         >
                             <Image
                                 src="/images/Secesta-Fistik.webp"
-                                alt="Secesta Fıstık"
+                                alt="NeoKreatif Ajans"
                                 fill
                                 className="object-contain drop-shadow-2xl"
                                 sizes="(max-width: 768px) 192px, 256px"

@@ -9,8 +9,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Secesta | Lider Markaların Dijital Pazarlama & SEO Ajansı",
-  description: "Secesta, dünya genelinde lider markalara dijital pazarlama ve SEO çözümleri sunar. Sonuç odaklı yaklaşım ile markanızı öne taşıyoruz.",
+  title: "NeoKreatif Ajans | Lider Markaların Dijital Pazarlama & SEO Ajansı",
+  description: "NeoKreatif Ajans, 12 yılı aşkın tecrübesiyle markaların dijital dünyada güçlü bir şekilde var olmasını sağlayan kreatif bir dijital ajans. Web tasarım, yazılım geliştirme, SEO, Google Ads, Meta Ads ve sosyal medya yönetimi hizmetleri sunar.",
 };
 
 export default function RootLayout({

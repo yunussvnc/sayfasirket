@@ -35,17 +35,17 @@ export default function Partners() {
             Dünya Çapındaki Lider İş Ortaklarımızla Dijital Dönüşümünüzü Hızlandırın
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            En iyi global teknoloji ve pazarlama çözümü sağlayıcılarıyla olan stratejik iş ortaklıklarımız sayesinde markanızı dijital dünyada öne çıkarıyoruz. Secesta ile işinizi büyütmek ve sonuçlarınızı hızla iyileştirmek şimdi çok daha kolay.
+            En iyi global teknoloji ve pazarlama çözümü sağlayıcılarıyla olan stratejik iş ortaklıklarımız sayesinde markanızı dijital dünyada öne çıkarıyoruz. NeoKreatif Ajans ile işinizi büyütmek ve sonuçlarınızı hızla iyileştirmek şimdi çok daha kolay.
           </p>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
           {partners.map((partner, index) => (
-            <div 
+            <div
               key={index}
               className="bg-gray-50 rounded-lg p-4 h-24 flex items-center justify-center border border-gray-200 hover:shadow-md transition-shadow"
             >
-              <Image 
+              <Image
                 src={partner.logo}
                 alt={partner.name}
                 width={120}

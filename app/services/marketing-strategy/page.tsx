@@ -9,10 +9,10 @@ import { FiArrowRight } from "react-icons/fi";
 import ServiceSidebar from "@/components/ServiceSidebar";
 
 export const metadata: Metadata = {
-  title: "Pazarlama Stratejisi - Secesta Lider Markaların Dijital Pazarlama & SEO Ajansı",
+  title: "Pazarlama Stratejisi - NeoKreatif Ajans Lider Markaların Dijital Pazarlama & SEO Ajansı",
   description: "Markanız için sürdürülebilir büyümeyi hedefleyen bütüncül pazarlama planları oluşturur. Hedef odaklı stratejiler ile dijital pazarlama dünyasında fark yaratın.",
   openGraph: {
-    title: "Pazarlama Stratejisi - Secesta",
+    title: "Pazarlama Stratejisi - NeoKreatif Ajans",
     description: "Markanız için sürdürülebilir büyümeyi hedefleyen bütüncül pazarlama planları oluşturur.",
     images: [
       {
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pazarlama Stratejisi - Secesta",
+    title: "Pazarlama Stratejisi - NeoKreatif Ajans",
     description: "Markanız için sürdürülebilir büyümeyi hedefleyen bütüncül pazarlama planları oluşturur.",
     images: ["/images/service_6-768x512.webp"],
   },
@@ -259,8 +259,8 @@ export default function MarketingStrategy() {
           </div>
 
           <div className="flex flex-col md:flex-row items-center justify-center gap-6 mb-8">
-            <a href="mailto:info@secesta.com" className="text-white hover:text-gray-200 transition-colors text-lg">
-              info@secesta.com
+            <a href="mailto:neokreatiff@gmail.com" className="text-white hover:text-gray-200 transition-colors text-lg">
+              neokreatiff@gmail.com
             </a>
             <span className="text-white/50 hidden md:inline">•</span>
             <a href="tel:+905539826700" className="text-white hover:text-gray-200 transition-colors text-lg">

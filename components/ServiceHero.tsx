@@ -22,7 +22,7 @@ export default function ServiceHero({ title, imageSrc = DEFAULT_IMAGE }: Service
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/20" />
           <div className="relative z-10 h-full flex flex-col justify-center px-6 md:px-12">
-            <p className="text-white/70 text-sm uppercase tracking-wide mb-3">Secesta</p>
+            <p className="text-white/70 text-sm uppercase tracking-wide mb-3">NeoKreatif Ajans</p>
             <h1 className="text-3xl md:text-5xl font-bold text-white leading-tight">{title}</h1>
           </div>
         </div>
