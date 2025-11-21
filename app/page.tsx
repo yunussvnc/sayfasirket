@@ -1,5 +1,4 @@
 import Header from "@/components/Header";
-import Services from "@/components/Services";
 import Vision from "@/components/Vision";
 import Stats from "@/components/Stats";
 import Values from "@/components/Values";
@@ -14,7 +13,7 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <Header />
-      <Services />
+      {/* Services is now included in Header */}
       <Vision />
       <Stats />
       <Values />
