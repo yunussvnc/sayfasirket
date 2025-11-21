@@ -7,7 +7,6 @@ import { FaCheck } from "react-icons/fa";
 import { FiArrowRight } from "react-icons/fi";
 import FAQItem from "@/components/FAQItem";
 import ServiceSidebar from "@/components/ServiceSidebar";
-import ServiceHero from "@/components/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Web Geliştirme - Secesta Lider Markaların Dijital Pazarlama & SEO Ajansı",
@@ -82,36 +81,75 @@ export default function WebGelistirme() {
     <main className="min-h-screen">
       <PageNavbar />
       
-      {/* Breadcrumb Navigation */}
-      <section className="pt-32 pb-6 px-4 bg-white">
-        <div className="container mx-auto max-w-6xl">
+      {/* Hero Section with Background */}
+      <section className="relative pt-32 pb-20 px-4 overflow-hidden rounded-b-3xl">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/service-bc.jpg"
+            alt="Services Background"
+            fill
+            className="object-cover"
+            priority
+            sizes="100vw"
+          />
+          {/* Dark Overlay */}
+          <div className="absolute inset-0 bg-black/60"></div>
+        </div>
+
+        {/* Cube Image - Right Side */}
+        <div className="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none z-20">
+          <div className="relative w-48 h-48 lg:w-64 lg:h-64">
+            <Image
+              src="/images/küo.jpg"
+              alt=""
+              fill
+              className="object-contain"
+              sizes="(max-width: 768px) 192px, 256px"
+            />
+          </div>
+        </div>
+
+        <div className="container mx-auto max-w-6xl relative z-10">
+          {/* Breadcrumb Navigation */}
           <nav aria-label="Breadcrumb" className="mb-8">
-            <ul className="flex items-center gap-2 text-sm text-gray-600">
+            <ul className="flex items-center gap-2 text-sm text-white/90">
               <li>
-                <Link href="/" className="hover:text-[#636EDF] transition-colors">
+                <Link href="/" className="hover:text-white transition-colors">
                   Anasayfa
                 </Link>
               </li>
               <li>
-                <span className="text-gray-400">/</span>
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
               </li>
               <li>
-                <Link href="/hizmetlerimiz" className="hover:text-[#636EDF] transition-colors">
+                <Link href="/hizmetlerimiz" className="hover:text-white transition-colors">
                   Hizmetlerimiz
                 </Link>
               </li>
               <li>
-                <span className="text-gray-400">/</span>
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
               </li>
               <li>
-                <span className="text-gray-900" aria-current="page">Web Geliştirme</span>
+                <span className="bg-white/20 text-white px-3 py-1 rounded-lg text-sm" aria-current="page">
+                  Web Geliştirme
+                </span>
               </li>
             </ul>
           </nav>
+
+          {/* Page Header Content */}
+          <div className="max-w-4xl text-white">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+              Web Geliştirme
+            </h1>
+          </div>
         </div>
       </section>
-
-      <ServiceHero title="Web Geliştirme" />
 
       {/* Page Header */}
       <section className="pb-12 px-4 bg-white">

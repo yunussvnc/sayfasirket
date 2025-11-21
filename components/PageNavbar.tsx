@@ -22,7 +22,7 @@ export default function PageNavbar({ activePage }: PageNavbarProps) {
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
-      <nav className="container mx-auto px-4 py-4">
+      <nav className="container mx-auto px-4 py-5">
         <div className="flex items-center justify-between">
           <motion.div
             whileHover={{ scale: 1.05 }}
@@ -36,45 +36,45 @@ export default function PageNavbar({ activePage }: PageNavbarProps) {
                   alt="Secesta Logo"
                   width={150}
                   height={50}
-                  className="h-8 w-auto"
+                  className="h-10 w-auto"
                   priority
                 />
                 <Image
                   src="/images/Secesta-Fistik.webp"
                   alt="Secesta Fıstık"
-                  width={32}
-                  height={32}
-                  className="w-8 h-8 object-contain"
+                  width={40}
+                  height={40}
+                  className="w-10 h-10 object-contain"
                 />
               </div>
-              <span className="text-xs text-gray-600 hidden lg:block">SOFTWARE SOLUTIONS</span>
+              <span className="text-sm font-medium text-gray-600 hidden lg:block">SOFTWARE SOLUTIONS</span>
             </Link>
           </motion.div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-2">
+          <div className="hidden md:flex items-center gap-3">
             <motion.div whileHover={{ y: -2 }} whileTap={{ y: 0 }}>
               <Link 
                 href="/" 
-                className={`transition-colors px-3 py-2 ${
+                className={`transition-colors px-4 py-2.5 text-base font-medium ${
                   isActive("anasayfa") 
-                    ? "text-[#636EDF] font-medium" 
+                    ? "text-[#636EDF] font-semibold" 
                     : "text-gray-700 hover:text-[#636EDF]"
                 }`}
               >
                 Anasayfa
               </Link>
             </motion.div>
-            <span className="text-gray-400">•</span>
+            <span className="text-gray-400 text-lg">•</span>
             <div
               className="relative"
               onMouseEnter={() => setIsKurumsalOpen(true)}
               onMouseLeave={() => setIsKurumsalOpen(false)}
             >
               <motion.button
-                className={`transition-colors px-3 py-2 ${
+                className={`transition-colors px-4 py-2.5 text-base font-medium ${
                   isActive("ekibimiz") || isActive("hakkimizda") || isActive("degerlerimiz")
-                    ? "text-[#636EDF] font-medium"
+                    ? "text-[#636EDF] font-semibold"
                     : "text-gray-700 hover:text-[#636EDF]"
                 }`}
                 whileHover={{ y: -2 }}
@@ -130,39 +130,39 @@ export default function PageNavbar({ activePage }: PageNavbarProps) {
                 )}
               </AnimatePresence>
             </div>
-            <span className="text-gray-400">•</span>
+            <span className="text-gray-400 text-lg">•</span>
             <motion.div whileHover={{ y: -2 }}>
               <Link 
                 href="/hizmetlerimiz" 
-                className={`transition-colors px-3 py-2 ${
+                className={`transition-colors px-4 py-2.5 text-base font-medium ${
                   isActive("hizmetlerimiz")
-                    ? "text-[#636EDF] font-medium"
+                    ? "text-[#636EDF] font-semibold"
                     : "text-gray-700 hover:text-[#636EDF]"
                 }`}
               >
                 Hizmetlerimiz
               </Link>
             </motion.div>
-            <span className="text-gray-400">•</span>
+            <span className="text-gray-400 text-lg">•</span>
             <motion.div whileHover={{ y: -2 }}>
               <Link 
                 href="/referanslar" 
-                className={`transition-colors px-3 py-2 ${
+                className={`transition-colors px-4 py-2.5 text-base font-medium ${
                   isActive("referanslar")
-                    ? "text-[#636EDF] font-medium"
+                    ? "text-[#636EDF] font-semibold"
                     : "text-gray-700 hover:text-[#636EDF]"
                 }`}
               >
                 Referanslar
               </Link>
             </motion.div>
-            <span className="text-gray-400">•</span>
+            <span className="text-gray-400 text-lg">•</span>
             <motion.div whileHover={{ y: -2 }}>
               <Link 
                 href="/iletisim" 
-                className={`transition-colors px-3 py-2 ${
+                className={`transition-colors px-4 py-2.5 text-base font-medium ${
                   isActive("iletisim")
-                    ? "text-[#636EDF] font-medium"
+                    ? "text-[#636EDF] font-semibold"
                     : "text-gray-700 hover:text-[#636EDF]"
                 }`}
               >
@@ -176,10 +176,10 @@ export default function PageNavbar({ activePage }: PageNavbarProps) {
             >
               <Link
                 href="/seo-analiz"
-                className="bg-[#00b4d8] text-white px-6 py-2 rounded-full hover:bg-[#0096c7] transition-colors inline-flex items-center gap-2"
+                className="bg-[#00b4d8] text-white px-7 py-3 rounded-full hover:bg-[#0096c7] transition-colors inline-flex items-center gap-2 text-base font-medium"
               >
                 <span>Ücretsiz Seo Analiz</span>
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </Link>
