@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const values = [
   {
     title: "Deneyimli Ekip",
-    description: "22 yıllık sektörel bilgi birikimiyle uzman kadromuzla yanınızdayız.",
+    description: "12 yılı aşkın sektörel bilgi birikimiyle uzman kadromuzla yanınızdayız.",
     image: "/images/h6_img-4.jpg",
     icon: (
       <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
@@ -137,8 +137,8 @@ export default function Values() {
                 onClick={() => setActiveIndex(index)}
                 onMouseEnter={() => setActiveIndex(index)}
                 className={`w-full text-left p-4 rounded-lg transition-all ${activeIndex === index
-                    ? "bg-[#636EDF]/10 border-l-4 border-[#636EDF]"
-                    : "hover:bg-gray-50 border-l-4 border-transparent"
+                  ? "bg-[#636EDF]/10 border-l-4 border-[#636EDF]"
+                  : "hover:bg-gray-50 border-l-4 border-transparent"
                   }`}
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}

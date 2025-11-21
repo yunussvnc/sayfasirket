@@ -6,8 +6,8 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 
 const stats = [
-  { value: 22, suffix: "+", label: "Yıllık Tecrübe" },
-  { value: 1.5, suffix: "K", label: "Başarılı Proje" },
+  { value: 12, suffix: "+", label: "Yıllık Tecrübe" },
+  { value: 100, suffix: "+", label: "Tamamlanan Proje" },
   { value: 99, prefix: "%", label: "Memnuniyet" }
 ];
 
@@ -22,13 +22,13 @@ function AnimatedCounter({ value, prefix, suffix, duration = 2 }: { value: numbe
       const animate = (currentTime: number) => {
         if (!startTime) startTime = currentTime;
         const progress = Math.min((currentTime - startTime) / (duration * 1000), 1);
-        
+
         if (suffix === "K") {
           setCount(Number((value * progress).toFixed(1)));
         } else {
           setCount(Math.floor(value * progress));
         }
-        
+
         if (progress < 1) {
           requestAnimationFrame(animate);
         }
@@ -62,7 +62,7 @@ export default function Stats() {
         {/* Dark Overlay for better text readability */}
         <div className="absolute inset-0 bg-black/50"></div>
       </div>
-      
+
       <div className="container mx-auto max-w-6xl relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Side - Text Content */}
@@ -81,9 +81,9 @@ export default function Stats() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="inline-block bg-white/90 text-gray-900 px-4 py-2 rounded-lg font-semibold text-sm mb-4"
             >
-              Secesta Software Solutions
+              NeoKreatif Ajans
             </motion.div>
-            
+
             <motion.h2
               className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight"
               initial={{ opacity: 0, y: 20 }}
@@ -93,7 +93,7 @@ export default function Stats() {
             >
               Başarımızın Temelinde İnsanımız Var
             </motion.h2>
-            
+
             <motion.p
               className="text-lg md:text-xl text-white/90 leading-relaxed"
               initial={{ opacity: 0, y: 20 }}
@@ -101,7 +101,7 @@ export default function Stats() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              İşimizi tutkuyla yapıyor, her projeye kalite ve sorumluluk anlayışıyla yaklaşıyoruz. 22 yıllık tecrübemiz ve uzman kadromuzla müşterilerimize en iyi çözümleri sunmak için çalışıyoruz.
+              İşimizi tutkuyla yapıyor, her projeye kalite ve sorumluluk anlayışıyla yaklaşıyoruz. 12 yılı aşkın tecrübemiz ve uzman kadromuzla müşterilerimize en iyi çözümleri sunmak için çalışıyoruz. Yenilikçi, dinamik ve çözüm odaklı bakış açımızla, işinizi dijital dünyada bir adım öne taşıyoruz.
             </motion.p>
           </motion.div>
 
@@ -149,7 +149,7 @@ export default function Stats() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <Link 
+            <Link
               href="/iletisim"
               className="inline-flex items-center gap-2 bg-[#00b4d8] text-white px-8 py-3 rounded-full hover:bg-[#0096c7] transition-colors font-medium"
             >

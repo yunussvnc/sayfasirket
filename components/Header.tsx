@@ -278,7 +278,7 @@ export default function Header() {
                                         animate={{ scale: [1, 1.5, 1], opacity: [0.6, 1, 0.6] }}
                                         transition={{ duration: 2, repeat: Infinity }}
                                     />
-                                    <span className="text-lg font-medium">Lider Markaların Dijital Çözüm Ortağı</span>
+                                    <span className="text-lg font-medium">12 Yılı Aşkın Deneyimle Dijital Çözüm Ortağınız</span>
                                 </motion.div>
 
                                 <motion.h1
@@ -287,7 +287,7 @@ export default function Header() {
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.7, delay: 0.6 }}
                                 >
-                                    Secesta ile AI, SEO ve Dijital Marketing&apos;de Fark Yaratın
+                                    NeoKreatif ile Web Tasarım, SEO ve Dijital Pazarlama&apos;da Fark Yaratın
                                 </motion.h1>
 
                                 <motion.p
@@ -296,7 +296,7 @@ export default function Header() {
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.7, delay: 0.8 }}
                                 >
-                                    Secesta&apos;nın inovatif AI, SEO ve reklam teknolojileriyle dijitalde sürdürülebilir büyüme şimdi çok daha yakın.
+                                    NeoKreatif&apos;in profesyonel web tasarım, yazılım geliştirme, SEO, Google Ads, Meta Ads ve sosyal medya yönetimi hizmetleriyle dijitalde sürdürülebilir büyüme şimdi çok daha yakın.
                                 </motion.p>
                             </motion.div>
                         </div>

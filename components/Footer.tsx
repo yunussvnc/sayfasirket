@@ -17,16 +17,16 @@ export default function Footer() {
               />
             </Link>
             <p className="text-gray-400 text-sm">
-              Secesta Software Solutions, dijital pazarlama, yazılım geliştirme ve web çözümleri alanında yenilikçi ve güvenilir hizmetler sunan Türkiye merkezli bir teknoloji şirketidir.
+              NeoKreatif Ajans, 12 yılı aşkın tecrübesiyle markaların dijital dünyada güçlü bir şekilde var olmasını sağlayan kreatif bir dijital ajanstır. Web tasarım, yazılım geliştirme, SEO, Google Ads, Meta Ads ve sosyal medya yönetimi alanlarında uzmanlaşmıştır.
             </p>
           </div>
 
           <div>
             <h4 className="font-semibold mb-4">Bize Ulaşın</h4>
             <ul className="space-y-2 text-gray-400 text-sm">
-              <li>+90 553 982 6700</li>
-              <li>info@secesta.com</li>
-              <li className="mt-2">Seba Office Boulevard<br />Ayazağa, Mimar Sinan Sk.<br />No:21 D:2<br />34485 Sarıyer/İstanbul</li>
+              <li><a href="tel:+905441904447" className="hover:text-white transition-colors">+90 544 190 44 47</a></li>
+              <li><a href="mailto:neokreatiff@gmail.com" className="hover:text-white transition-colors">neokreatiff@gmail.com</a></li>
+              <li className="mt-2">19 Mayıs Mah. 19 Mayıs Cad.<br />Golden Plaza No:3 K:9<br />34363 Şişli/İstanbul</li>
             </ul>
           </div>
 

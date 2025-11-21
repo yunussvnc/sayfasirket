@@ -173,7 +173,7 @@ export default function Hakkimizda() {
               <span className="text-[#636EDF] font-medium text-sm uppercase tracking-wide">NeoKreatif Ajans</span>
             </div>
             <h4 className="text-2xl font-semibold text-gray-900 mb-8">NeoKreatif Hakkında</h4>
-            <div className="relative h-64 w-64 mx-auto mb-8">
+            <div className="relative h-64 w-64 mx-auto">
               <Image
                 src="/images/ab-img2.png"
                 alt="Şirket Sunumu"
@@ -181,17 +181,6 @@ export default function Hakkimizda() {
                 className="object-contain"
                 sizes="256px"
               />
-            </div>
-            <div className="text-center">
-              <Link
-                href="#"
-                className="inline-flex items-center gap-2 border-2 border-[#636EDF] text-[#636EDF] px-6 py-3 rounded-lg hover:bg-[#636EDF] hover:text-white transition-colors font-medium"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 32 32" className="w-4 h-4">
-                  <path d="M15.52 4.953c-.47.155-.904.523-1.125.956-.109.213-.128.327-.128.758 0 .43.019.546.131.773.101.206.87 1.009 3.384 3.533l3.253 3.266-7.438.014-7.437.014-.267.141a2.097 2.097 0 0 0-.831.834c-.109.213-.129.328-.129.758 0 .431.02.544.129.759.165.323.523.68.845.845l.253.129 7.437.014 7.438.014-3.253 3.266c-2.514 2.524-3.283 3.327-3.384 3.533-.112.227-.131.343-.131.773 0 .594.104.858.489 1.244.386.386.65.49 1.244.49.429 0 .547-.02.773-.131.391-.191 9.972-9.772 10.163-10.163.111-.226.131-.344.131-.773 0-.429-.02-.547-.131-.773-.103-.211-1.155-1.293-4.986-5.129-5.414-5.42-5.101-5.143-5.87-5.172-.235-.009-.487.003-.56.027" fill="currentColor" />
-                </svg>
-                <span>PDF İndir</span>
-              </Link>
             </div>
           </div>
 

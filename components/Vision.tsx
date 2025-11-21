@@ -133,7 +133,7 @@ export default function Vision() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.6 }}
             >
-              Deneyimli tasarımcılar, geliştiriciler ve dijital pazarlama uzmanlarından oluşan ekibimizle, dijital başarıyı mümkün kılıyoruz. Müşterilerimizin markalarını ileriye taşıyan yaratıcı ve sonuç odaklı çözümler üretiyoruz.
+              NeoKreatif Ajans olarak 12 yılı aşkın tecrübemizle markaların dijital dünyada güçlü bir şekilde var olmasını sağlıyoruz. Web tasarım, yazılım geliştirme, SEO, Google Ads & Meta Reklam Yönetimi, sosyal medya yönetimi, kurumsal kimlik ve grafik tasarım alanlarında yüzlerce projeye imza attık.
             </motion.p>
 
             <motion.p
@@ -143,7 +143,7 @@ export default function Vision() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.8 }}
             >
-              22 Yıllık Tecrübeyle Dijitalde Güven İnşa Ediyoruz
+              12 Yılı Aşkın Tecrübeyle Dijitalde Güven İnşa Ediyoruz
             </motion.p>
           </motion.div>
         </div>
