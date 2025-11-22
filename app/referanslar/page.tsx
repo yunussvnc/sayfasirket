@@ -130,9 +130,9 @@ export default function Referanslar() {
       <PageNavbar activePage="referanslar" />
 
       {/* Hero Section with Cover Image */}
-      <section className="relative pt-32 pb-20 px-4 overflow-hidden">
+      <section className="relative pt-32 pb-20 px-4 overflow-hidden z-10">
         {/* Background Image */}
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-[-1]">
           <Image
             src="/images/testi_bc.jpg"
             alt="Referanslarımız Kapak"

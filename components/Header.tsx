@@ -103,9 +103,6 @@ export default function Header() {
                                             className="absolute top-full left-0 mt-2 w-48 bg-[#040a16] rounded-2xl shadow-lg overflow-hidden border border-white/10"
                                         >
                                             <motion.div whileHover={{ x: 5 }}>
-                                                <Link href="/ekibimiz" className="block px-4 py-2 text-white hover:bg-white/10 transition-colors">Ekibimiz</Link>
-                                            </motion.div>
-                                            <motion.div whileHover={{ x: 5 }}>
                                                 <Link href="/hakkimizda" className="block px-4 py-2 text-white hover:bg-white/10 transition-colors">Hakkımızda</Link>
                                             </motion.div>
                                             <motion.div whileHover={{ x: 5 }}>
@@ -160,7 +157,6 @@ export default function Header() {
                             >
                                 {[
                                     { href: "/", label: "Anasayfa" },
-                                    { href: "/ekibimiz", label: "Ekibimiz" },
                                     { href: "/hakkimizda", label: "Hakkımızda" },
                                     { href: "/hizmetlerimiz", label: "Hizmetlerimiz" },
                                     { href: "/referanslar", label: "Referanslar" },

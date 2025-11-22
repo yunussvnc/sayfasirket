@@ -29,8 +29,8 @@ export default function Iletisim() {
     <main className="min-h-screen">
       <PageNavbar activePage="iletisim" />
 
-      <section className="relative pt-32 pb-20 px-4 overflow-hidden page-hero">
-        <div className="absolute inset-0 z-0">
+      <section className="relative pt-32 pb-20 px-4 overflow-hidden page-hero z-10">
+        <div className="absolute inset-0 z-[-1]">
           <Image
             src="/images/contact-bg.jpg"
             alt="NeoKreatif Ajans iletişim arka planı"

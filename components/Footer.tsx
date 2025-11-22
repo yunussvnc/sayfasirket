@@ -46,7 +46,6 @@ export default function Footer() {
             <ul className="space-y-2 text-gray-400 text-sm">
               <li><Link href="/hakkimizda" className="hover:text-white">Hakkımızda</Link></li>
               <li><Link href="/degerlerimiz" className="hover:text-white">Değerlerimiz</Link></li>
-              <li><Link href="/ekibimiz" className="hover:text-white">Ekibimiz</Link></li>
               <li><Link href="/referanslar" className="hover:text-white">Referanslarımız</Link></li>
               <li><Link href="/iletisim" className="hover:text-white">İletişim</Link></li>
             </ul>

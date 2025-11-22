@@ -79,9 +79,9 @@ export default function Hakkimizda() {
       <PageNavbar activePage="hakkimizda" />
 
       {/* Hero Section with Background */}
-      <section className="relative pt-32 pb-20 px-4 overflow-hidden rounded-b-3xl">
+      <section className="relative pt-32 pb-20 px-4 overflow-hidden rounded-b-3xl z-10">
         {/* Background Image */}
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-[-1]">
           <Image
             src="/images/about_bc.jpg"
             alt="About Background"
