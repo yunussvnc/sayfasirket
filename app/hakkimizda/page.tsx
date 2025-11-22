@@ -166,21 +166,37 @@ export default function Hakkimizda() {
             </div>
           </div>
 
-          {/* Company Presentation Card */}
-          <div className="bg-[#040a16] rounded-lg p-8 md:p-12 relative mb-20 border border-white/10">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-2 h-2 bg-[#636EDF] rounded-full"></div>
-              <span className="text-[#636EDF] font-medium text-sm uppercase tracking-wide">NeoKreatif Ajans</span>
-            </div>
-            <h4 className="text-2xl font-semibold text-white mb-8">NeoKreatif Hakkında</h4>
-            <div className="relative h-64 w-64 mx-auto">
+          {/* Modern Office Showcase */}
+          <div className="relative rounded-2xl overflow-hidden mb-20 border border-white/10 shadow-2xl">
+            <div className="relative h-96 md:h-[500px] w-full">
               <Image
-                src="/images/ab-img2.png"
-                alt="Şirket Sunumu"
+                src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1600&h=900&fit=crop&q=80"
+                alt="Modern Çalışma Ortamı"
                 fill
-                className="object-contain"
-                sizes="256px"
+                className="object-cover"
+                sizes="100vw"
+                priority
               />
+              {/* Gradient Overlay */}
+              <div className="absolute inset-0 bg-linear-to-t from-[#040a16] via-[#040a16]/80 to-transparent"></div>
+
+              {/* Content Overlay */}
+              <div className="absolute inset-0 flex items-end">
+                <div className="w-full p-8 md:p-12">
+                  <div className="max-w-3xl">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-2 h-2 bg-[#636EDF] rounded-full animate-pulse"></div>
+                      <span className="text-[#636EDF] font-medium text-sm uppercase tracking-wide">NeoKreatif Ajans</span>
+                    </div>
+                    <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                      Dijital Dönüşümünüz İçin Modern Çözümler
+                    </h3>
+                    <p className="text-lg text-white/90 leading-relaxed">
+                      Yenilikçi teknolojiler ve yaratıcı yaklaşımlarla markanızı dijital dünyada öne çıkarıyoruz. Profesyonel ekibimiz ve modern ofis ortamımızla size en iyi hizmeti sunuyoruz.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
