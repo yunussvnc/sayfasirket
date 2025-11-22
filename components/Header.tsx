@@ -125,7 +125,6 @@ export default function Header() {
                             <motion.div whileHover={{ y: -2 }}>
                                 <Link href="/iletisim" className="px-4 py-2 rounded-full hover:bg-white/10 transition-colors">İletişim</Link>
                             </motion.div>
-                            <span className="text-white/30">•</span>
                             <motion.div whileHover={{ y: -2 }} whileTap={{ scale: 0.95 }}>
                                 <FreeSEOButton />
                             </motion.div>
@@ -176,6 +175,14 @@ export default function Header() {
                                         <Link href={item.href} className="block text-white hover:text-blue-400 transition-colors">{item.label}</Link>
                                     </motion.div>
                                 ))}
+                                <motion.div
+                                    initial={{ x: -20, opacity: 0 }}
+                                    animate={{ x: 0, opacity: 1 }}
+                                    transition={{ delay: 0.5 }}
+                                    className="mt-4"
+                                >
+                                    <FreeSEOButton />
+                                </motion.div>
                             </motion.div>
                         )}
                     </AnimatePresence>
