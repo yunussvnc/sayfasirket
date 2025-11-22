@@ -10,6 +10,10 @@ const nextConfig: NextConfig = {
         hostname: 'www.neokreatif.com',
         pathname: '/wp-content/uploads/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
     ],
   },
 };

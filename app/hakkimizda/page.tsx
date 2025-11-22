@@ -140,8 +140,8 @@ export default function Hakkimizda() {
               </div>
               <div className="relative h-96 w-full rounded-lg overflow-hidden">
                 <Image
-                  src="/images/image.webp"
-                  alt="Şirket Genel Görünüm"
+                  src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=800&fit=crop&q=80"
+                  alt="Modern Ofis Ortamı"
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
@@ -259,25 +259,13 @@ export default function Hakkimizda() {
             </h2>
           </div>
 
-          {/* Video Background Section (using image as placeholder) */}
-          <div className="relative h-64 md:h-96 w-full rounded-lg overflow-hidden mb-12 bg-gray-900">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-white text-center">
-                <svg className="w-20 h-20 mx-auto mb-4 opacity-50" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-                <p className="text-lg opacity-75">Video İçerik</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Code Image and Quote Section */}
+          {/* Office Image and Quote Section */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-12">
-            {/* Left - Code Image */}
+            {/* Left - Office Image */}
             <div className="relative h-96 w-full rounded-lg overflow-hidden">
               <Image
-                src="/images/image.webp"
-                alt="Code"
+                src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=800&fit=crop&q=80"
+                alt="Modern Ofis Ortamı"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
