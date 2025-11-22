@@ -280,8 +280,8 @@ export default function Hakkimizda() {
             {/* Left - Office Image */}
             <div className="relative h-96 w-full rounded-lg overflow-hidden">
               <Image
-                src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=800&fit=crop&q=80"
-                alt="Modern Ofis Ortamı"
+                src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1200&h=800&fit=crop&q=80"
+                alt="Modern Çalışma Alanı"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
