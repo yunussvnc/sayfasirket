@@ -23,6 +23,25 @@ body {
   background-color: #040a16 !important;
   color: #ffffff !important;
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  position: relative;
+}
+
+/* Background overlay effect - bg-body2.png */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/images/bg-body2.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  opacity: 0.5;
+  z-index: 0;
+  pointer-events: none;
 }
 
 /* Override common gray text colors to be white on dark background */
