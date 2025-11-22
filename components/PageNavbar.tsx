@@ -13,21 +13,19 @@ export default function PageNavbar({ activePage }: PageNavbarProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isKurumsalOpen, setIsKurumsalOpen] = useState(false);
 
-  const isActive = (page: string) => activePage === page;
-
   return (
     <motion.header
-      className="fixed top-0 left-0 right-0 z-50 bg-white backdrop-blur-sm border-b border-gray-200 shadow-sm"
+      className="fixed top-0 left-0 right-0 z-50 bg-[#050a1f] shadow-[0_15px_45px_rgba(2,6,15,0.9)]"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
-      <nav className="container mx-auto px-4 py-5">
-        <div className="flex items-center justify-between">
+      <nav className="container mx-auto px-4 py-4">
+        <div className="flex items-center justify-between bg-[radial-gradient(circle_at_top,#1a2b8a,#0a0f2b)] border border-white/10 rounded-full px-4 py-3 shadow-[0_10px_40px_rgba(4,9,20,0.6)] backdrop-blur">
           <motion.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="flex items-center gap-3"
+            className="logo-container flex items-center gap-3 bg-white px-4 py-2 rounded-full"
           >
             <Link href="/" className="flex items-center gap-3">
               <Image
@@ -35,39 +33,25 @@ export default function PageNavbar({ activePage }: PageNavbarProps) {
                 alt="NeoKreatif Ajans Logo"
                 width={150}
                 height={50}
-                className="h-10 w-auto"
+                className="h-8 w-auto"
                 priority
               />
-              <span className="text-sm font-medium text-gray-600 hidden lg:block">SOFTWARE SOLUTIONS</span>
             </Link>
           </motion.div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden md:flex items-center gap-1 text-white text-sm">
             <motion.div whileHover={{ y: -2 }} whileTap={{ y: 0 }}>
-              <Link 
-                href="/" 
-                className={`transition-colors px-4 py-2.5 text-base font-medium ${
-                  isActive("anasayfa") 
-                    ? "text-[#636EDF] font-semibold" 
-                    : "text-gray-700 hover:text-[#636EDF]"
-                }`}
-              >
-                Anasayfa
-              </Link>
+              <Link href="/" className="px-4 py-2 rounded-full hover:bg-white/10 transition-colors">Anasayfa</Link>
             </motion.div>
-            <span className="text-gray-400 text-lg">•</span>
+            <span className="text-white/30">•</span>
             <div
               className="relative"
               onMouseEnter={() => setIsKurumsalOpen(true)}
               onMouseLeave={() => setIsKurumsalOpen(false)}
             >
               <motion.button
-                className={`transition-colors px-4 py-2.5 text-base font-medium ${
-                  isActive("ekibimiz") || isActive("hakkimizda") || isActive("degerlerimiz")
-                    ? "text-[#636EDF] font-semibold"
-                    : "text-gray-700 hover:text-[#636EDF]"
-                }`}
+                className="px-4 py-2 rounded-full hover:bg-white/10 transition-colors"
                 whileHover={{ y: -2 }}
               >
                 Kurumsal
@@ -79,92 +63,38 @@ export default function PageNavbar({ activePage }: PageNavbarProps) {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg overflow-hidden border border-gray-200"
+                    className="absolute top-full left-0 mt-2 w-48 bg-[#040a16] rounded-2xl shadow-lg overflow-hidden border border-white/10"
                   >
                     <motion.div whileHover={{ x: 5 }}>
-                      <Link 
-                        href="/ekibimiz" 
-                        className={`block px-4 py-2 transition-colors ${
-                          isActive("ekibimiz")
-                            ? "bg-[#636EDF]/10 text-[#636EDF] font-medium"
-                            : "text-gray-700 hover:bg-gray-50"
-                        }`}
-                      >
-                        Ekibimiz
-                      </Link>
+                      <Link href="/ekibimiz" className="block px-4 py-2 text-white hover:bg-white/10 transition-colors">Ekibimiz</Link>
                     </motion.div>
                     <motion.div whileHover={{ x: 5 }}>
-                      <Link 
-                        href="/hakkimizda" 
-                        className={`block px-4 py-2 transition-colors ${
-                          isActive("hakkimizda")
-                            ? "bg-[#636EDF]/10 text-[#636EDF] font-medium"
-                            : "text-gray-700 hover:bg-gray-50"
-                        }`}
-                      >
-                        Hakkımızda
-                      </Link>
+                      <Link href="/hakkimizda" className="block px-4 py-2 text-white hover:bg-white/10 transition-colors">Hakkımızda</Link>
                     </motion.div>
                     <motion.div whileHover={{ x: 5 }}>
-                      <Link 
-                        href="/degerlerimiz" 
-                        className={`block px-4 py-2 transition-colors ${
-                          isActive("degerlerimiz")
-                            ? "bg-[#636EDF]/10 text-[#636EDF] font-medium"
-                            : "text-gray-700 hover:bg-gray-50"
-                        }`}
-                      >
-                        Değerlerimiz
-                      </Link>
+                      <Link href="/degerlerimiz" className="block px-4 py-2 text-white hover:bg-white/10 transition-colors">Değerlerimiz</Link>
                     </motion.div>
                   </motion.div>
                 )}
               </AnimatePresence>
             </div>
-            <span className="text-gray-400 text-lg">•</span>
+            <span className="text-white/30">•</span>
             <motion.div whileHover={{ y: -2 }}>
-              <Link 
-                href="/hizmetlerimiz" 
-                className={`transition-colors px-4 py-2.5 text-base font-medium ${
-                  isActive("hizmetlerimiz")
-                    ? "text-[#636EDF] font-semibold"
-                    : "text-gray-700 hover:text-[#636EDF]"
-                }`}
-              >
-                Hizmetlerimiz
-              </Link>
+              <Link href="/hizmetlerimiz" className="px-4 py-2 rounded-full hover:bg-white/10 transition-colors">Hizmetlerimiz</Link>
             </motion.div>
-            <span className="text-gray-400 text-lg">•</span>
+            <span className="text-white/30">•</span>
             <motion.div whileHover={{ y: -2 }}>
-              <Link 
-                href="/referanslar" 
-                className={`transition-colors px-4 py-2.5 text-base font-medium ${
-                  isActive("referanslar")
-                    ? "text-[#636EDF] font-semibold"
-                    : "text-gray-700 hover:text-[#636EDF]"
-                }`}
-              >
-                Referanslar
-              </Link>
+              <Link href="/referanslar" className="px-4 py-2 rounded-full hover:bg-white/10 transition-colors">Referanslar</Link>
             </motion.div>
-            <span className="text-gray-400 text-lg">•</span>
+            <span className="text-white/30">•</span>
             <motion.div whileHover={{ y: -2 }}>
-              <Link 
-                href="/iletisim" 
-                className={`transition-colors px-4 py-2.5 text-base font-medium ${
-                  isActive("iletisim")
-                    ? "text-[#636EDF] font-semibold"
-                    : "text-gray-700 hover:text-[#636EDF]"
-                }`}
-              >
-                İletişim
-              </Link>
+              <Link href="/iletisim" className="px-4 py-2 rounded-full hover:bg-white/10 transition-colors">İletişim</Link>
             </motion.div>
           </div>
 
           {/* Mobile Menu Button */}
           <motion.button
-            className="md:hidden text-gray-700"
+            className="md:hidden text-white"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             whileTap={{ scale: 0.9 }}
           >
@@ -192,12 +122,12 @@ export default function PageNavbar({ activePage }: PageNavbarProps) {
               className="md:hidden mt-4 space-y-4 pb-4 overflow-hidden"
             >
               {[
-                { href: "/", label: "Anasayfa", page: "anasayfa" },
-                { href: "/ekibimiz", label: "Ekibimiz", page: "ekibimiz" },
-                { href: "/hakkimizda", label: "Hakkımızda", page: "hakkimizda" },
-                { href: "/hizmetlerimiz", label: "Hizmetlerimiz", page: "hizmetlerimiz" },
-                { href: "/referanslar", label: "Referanslar", page: "referanslar" },
-                { href: "/iletisim", label: "İletişim", page: "iletisim" }
+                { href: "/", label: "Anasayfa" },
+                { href: "/ekibimiz", label: "Ekibimiz" },
+                { href: "/hakkimizda", label: "Hakkımızda" },
+                { href: "/hizmetlerimiz", label: "Hizmetlerimiz" },
+                { href: "/referanslar", label: "Referanslar" },
+                { href: "/iletisim", label: "İletişim" }
               ].map((item, index) => (
                 <motion.div
                   key={item.href}
@@ -205,16 +135,7 @@ export default function PageNavbar({ activePage }: PageNavbarProps) {
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <Link 
-                    href={item.href} 
-                    className={`block transition-colors ${
-                      isActive(item.page as any)
-                        ? "text-[#636EDF] font-medium"
-                        : "text-gray-700 hover:text-[#636EDF]"
-                    }`}
-                  >
-                    {item.label}
-                  </Link>
+                  <Link href={item.href} className="block text-white hover:text-blue-400 transition-colors">{item.label}</Link>
                 </motion.div>
               ))}
             </motion.div>

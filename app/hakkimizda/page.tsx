@@ -129,7 +129,7 @@ export default function Hakkimizda() {
       </section>
 
       {/* Main Content Section - Two Column Layout */}
-      <section className="py-20 px-4 bg-white">
+      <section className="py-20 px-4">
         <div className="container mx-auto max-w-6xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
             {/* Left Side - Image with Label */}
@@ -151,28 +151,28 @@ export default function Hakkimizda() {
 
             {/* Right Side - Text Content */}
             <div className="space-y-6">
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+              <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
                 NEOKREATİF HAKKINDA
               </h2>
-              <p className="text-lg text-gray-600 leading-relaxed">
+              <p className="text-lg text-white/80 leading-relaxed">
                 NeoKreatif Ajans, 12 yılı aşkın tecrübesiyle markaların dijital dünyada güçlü bir şekilde var olmasını sağlayan kreatif bir dijital ajanstır. Kurulduğumuz günden bu yana web tasarım, yazılım geliştirme, SEO, Google Ads & Meta Reklam Yönetimi, sosyal medya yönetimi, kurumsal kimlik ve grafik tasarım alanlarında yüzlerce projeye imza attık.
               </p>
-              <p className="text-lg text-gray-600 leading-relaxed">
+              <p className="text-lg text-white/80 leading-relaxed">
                 Amacımız; markaların hedef kitleleriyle doğru stratejilerle buluşmasını sağlamak, dijital dünyada sürdürülebilir başarı elde etmelerine destek olmak ve yenilikçi çözümlerle fark yaratmaktır. 12 yıl boyunca farklı sektörlerde edindiğimiz deneyimle, her markanın kendine özgü ihtiyaçlarını analiz ediyor, modern teknolojiler ve kreatif fikirlerle birleştirerek ölçülebilir sonuçlar üretiyoruz.
               </p>
-              <p className="text-lg text-gray-600 leading-relaxed">
+              <p className="text-lg text-white/80 leading-relaxed">
                 Bizim için başarı; yalnızca estetik tasarımlar ya da tıklanma oranları değil, markalarımızın büyümesine katkı sağlayan kalıcı çözümler üretmektir. NeoKreatif ekibi olarak; yenilikçi, dinamik ve çözüm odaklı bakış açımızla, işinizi dijital dünyada bir adım öne taşıyoruz.
               </p>
             </div>
           </div>
 
           {/* Company Presentation Card */}
-          <div className="bg-gray-50 rounded-lg p-8 md:p-12 relative mb-20">
+          <div className="bg-[#040a16] rounded-lg p-8 md:p-12 relative mb-20 border border-white/10">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-2 h-2 bg-[#636EDF] rounded-full"></div>
               <span className="text-[#636EDF] font-medium text-sm uppercase tracking-wide">NeoKreatif Ajans</span>
             </div>
-            <h4 className="text-2xl font-semibold text-gray-900 mb-8">NeoKreatif Hakkında</h4>
+            <h4 className="text-2xl font-semibold text-white mb-8">NeoKreatif Hakkında</h4>
             <div className="relative h-64 w-64 mx-auto">
               <Image
                 src="/images/ab-img2.png"
@@ -187,7 +187,7 @@ export default function Hakkimizda() {
           {/* Stats Grid */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20">
             {stats.map((stat, index) => (
-              <div key={index} className="bg-white rounded-lg p-6 text-center border border-gray-200">
+              <div key={index} className="bg-[#040a16] rounded-lg p-6 text-center border border-white/10">
                 <div className="flex items-center gap-3 justify-center mb-4">
                   <div className="w-2 h-2 bg-[#636EDF] rounded-full"></div>
                   <span className="text-[#636EDF] font-medium text-sm">{stat.label}</span>
@@ -202,7 +202,7 @@ export default function Hakkimizda() {
       </section>
 
       {/* Principles Section */}
-      <section className="py-20 px-4 bg-gray-50 relative overflow-hidden">
+      <section className="py-20 px-4 relative overflow-hidden">
         <div className="container mx-auto max-w-6xl">
           {/* Decorative Background Element */}
           <div className="absolute top-0 right-0 hidden lg:block opacity-10">
@@ -220,7 +220,7 @@ export default function Hakkimizda() {
               <div className="w-2 h-2 bg-[#636EDF] rounded-full"></div>
               <span className="text-[#636EDF] font-medium text-sm uppercase tracking-wide">NeoKreatif Ajans&apos;ı Keşfet</span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+            <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
               Güvenilir Çözüm Ortağınız
             </h2>
           </div>
@@ -229,8 +229,8 @@ export default function Hakkimizda() {
             {principles.map((principle, index) => (
               <div key={index} className="bg-white rounded-lg p-8 border border-gray-200">
                 <div className="text-2xl font-bold text-[#636EDF] mb-4">{principle.number}</div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">{principle.title}</h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">{principle.description}</p>
+                <h3 className="text-xl font-semibold text-white mb-4">{principle.title}</h3>
+                <p className="text-white/80 mb-6 leading-relaxed">{principle.description}</p>
                 <Link
                   href={principle.link}
                   className="text-[#636EDF] hover:text-[#5963C8] font-medium inline-flex items-center gap-2"
@@ -247,14 +247,14 @@ export default function Hakkimizda() {
       </section>
 
       {/* Code Section */}
-      <section className="py-20 px-4 bg-white relative overflow-hidden">
+      <section className="py-20 px-4 relative overflow-hidden">
         <div className="container mx-auto max-w-6xl">
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-2 h-2 bg-[#636EDF] rounded-full"></div>
               <span className="text-[#636EDF] font-medium text-sm uppercase tracking-wide">Temiz kod, doğru yol haritası</span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-8">
+            <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-8">
               Büyümeniz İçin Tasarlanmış Akıllı Dijital Çözümler
             </h2>
           </div>
@@ -310,7 +310,7 @@ export default function Hakkimizda() {
           {/* Values Icon Boxes */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {values.map((value, index) => (
-              <div key={index} className="bg-gray-50 rounded-lg p-8 border border-gray-200">
+              <div key={index} className="bg-[#040a16] rounded-lg p-8 border border-white/10">
                 <div className="w-16 h-16 rounded-full bg-[#636EDF]/10 flex items-center justify-center mb-6">
                   <svg className="w-8 h-8 text-[#636EDF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
@@ -326,7 +326,7 @@ export default function Hakkimizda() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 px-4 bg-gray-50">
+      <section className="py-20 px-4">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-12">
             <div className="flex items-center gap-3 justify-center mb-4">

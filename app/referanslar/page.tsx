@@ -178,7 +178,7 @@ export default function Referanslar() {
       </section>
 
       {/* Main Content Section */}
-      <section className="py-20 px-4 bg-gray-50 relative overflow-hidden">
+      <section className="py-20 px-4 relative overflow-hidden">
         <div className="container mx-auto max-w-6xl">
           {/* Label */}
           <div className="flex items-center gap-3 mb-4">
@@ -187,12 +187,12 @@ export default function Referanslar() {
           </div>
 
           {/* Heading */}
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
             Sunduğumuz Çözümlerle, Sektörünün Lider Markalarının Büyüme Hikâyelerine Nasıl Katkı Sağladığımızı İnceleyin.
           </h2>
 
           {/* Description */}
-          <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mb-12">
+          <p className="text-xl text-white/80 leading-relaxed max-w-3xl mb-12">
             Her proje, müşterilerimizin dijital varlığını güçlendirmek ve iş hedeflerine ulaşmak için özenle planlanmış ve uygulanmıştır. Aşağıda, farklı sektörlerdeki başarı hikâyelerimizi keşfedebilirsiniz.
           </p>
 
@@ -257,9 +257,9 @@ export default function Referanslar() {
       </section>
 
       {/* Divider */}
-      <section className="py-8 px-4 bg-white">
+      <section className="py-8 px-4">
         <div className="container mx-auto max-w-6xl">
-          <div className="border-t border-gray-200"></div>
+          <div className="border-t border-white/20"></div>
         </div>
       </section>
 

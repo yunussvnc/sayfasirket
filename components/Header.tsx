@@ -61,7 +61,7 @@ export default function Header() {
                         <motion.div
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="flex items-center gap-3 bg-white px-4 py-2 rounded-full"
+                            className="logo-container flex items-center gap-3 bg-white px-4 py-2 rounded-full"
                         >
                             <Link href="/" className="flex items-center gap-3">
                                 <Image
@@ -314,7 +314,7 @@ export default function Header() {
                                 >
                                     <Link
                                         href={service.link}
-                                        className="bg-white/95 backdrop-blur-sm rounded-lg p-6 border border-white/20 hover:shadow-xl group block transition-all"
+                                        className="bg-white rounded-lg p-6 border border-gray-200 hover:shadow-xl group block transition-all"
                                     >
                                         {/* Icon Box */}
                                         <motion.div

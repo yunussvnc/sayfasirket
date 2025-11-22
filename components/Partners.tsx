@@ -28,13 +28,13 @@ const partners = [
 
 export default function Partners() {
   return (
-    <section className="py-20 px-4 bg-white">
+    <section className="py-20 px-4 partners-section">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Dünya Çapındaki Lider İş Ortaklarımızla Dijital Dönüşümünüzü Hızlandırın
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-white/80 max-w-3xl mx-auto">
             En iyi global teknoloji ve pazarlama çözümü sağlayıcılarıyla olan stratejik iş ortaklıklarımız sayesinde markanızı dijital dünyada öne çıkarıyoruz. NeoKreatif Ajans ile işinizi büyütmek ve sonuçlarınızı hızla iyileştirmek şimdi çok daha kolay.
           </p>
         </div>
@@ -43,7 +43,7 @@ export default function Partners() {
           {partners.map((partner, index) => (
             <div
               key={index}
-              className="bg-gray-50 rounded-lg p-4 h-24 flex items-center justify-center border border-gray-200 hover:shadow-md transition-shadow"
+              className="partner-logo bg-white rounded-lg p-4 h-24 flex items-center justify-center border border-gray-200 hover:shadow-md transition-shadow"
             >
               <Image
                 src={partner.logo}

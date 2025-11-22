@@ -2,7 +2,7 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #ffffff;
 }
 
 @theme inline {
@@ -14,25 +14,85 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #040a16;
+    --foreground: #ffffff;
   }
 }
 
 body {
-  background-image:
-    url("/images/puzzle.webp"),
-    url("/images/background.jpg");
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  color: var(--foreground);
+  background-color: #040a16 !important;
+  color: #ffffff !important;
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+/* Override common gray text colors to be white on dark background */
+body p,
+body span,
+body div,
+body h1,
+body h2,
+body h3,
+body h4,
+body h5,
+body h6 {
+  color: #ffffff;
+}
+
+/* Override Tailwind text-gray classes when not in specific colored sections */
+body .text-gray-900:not(.bg-white):not(.bg-gray-50):not(.bg-gray-100),
+body .text-gray-800:not(.bg-white):not(.bg-gray-50):not(.bg-gray-100),
+body .text-gray-700:not(.bg-white):not(.bg-gray-50):not(.bg-gray-100),
+body .text-gray-600:not(.bg-white):not(.bg-gray-50):not(.bg-gray-100) {
+  color: #ffffff !important;
+}
+
+/* Override all white and gray backgrounds to use dark background - except for logo and partner logos */
+body .bg-white:not([class*="icon"]):not([class*="badge"]):not([class*="logo"]):not(.logo-container):not(.partner-logo):not(.partners-section),
+body .bg-gray-50:not(.partner-logo),
+body .bg-gray-100:not(.partner-logo) {
+  background-color: #040a16 !important;
+}
+
+/* Ensure logo container keeps white background */
+body .logo-container.bg-white {
+  background-color: #ffffff !important;
+}
+
+/* Ensure partner logo cards keep white background */
+body .partner-logo.bg-white {
+  background-color: #ffffff !important;
+}
+
+/* Ensure main sections use dark background */
+body main {
+  background-color: #040a16 !important;
+}
+
+/* Override section backgrounds */
+body section.bg-white,
+body section.bg-gray-50,
+body section.bg-gray-100 {
+  background-color: #040a16 !important;
+}
+
+/* Ensure sections without explicit background use dark */
+body section:not([class*="bg-"]):not([class*="hero"]):not([class*="cover"]):not([class*="absolute"]) {
+  background-color: #040a16 !important;
+}
+
+/* Override all gray text colors to white */
+body .text-gray-900,
+body .text-gray-800,
+body .text-gray-700,
+body .text-gray-600,
+body .text-gray-500 {
+  color: #ffffff !important;
 }
 
 html {
   scroll-behavior: smooth;
+  background-color: #040a16 !important;
+  color: #ffffff !important;
 }
 
 .page-hero img {
