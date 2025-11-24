@@ -1,0 +1,7 @@
+{
+  "nodeVersion": "18.x",
+  "startCommand": "npm start",
+  "buildCommand": "npm run build",
+  "installCommand": "npm install"
+}
+

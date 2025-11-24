@@ -34,7 +34,7 @@ export default function ServiceSidebar({ currentService }: ServiceSidebarProps) 
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5 }}
-        className="bg-white/95 backdrop-blur-xl rounded-2xl p-6 sticky top-32 border border-gray-200/50 shadow-xl shadow-gray-900/5"
+        className="sticky top-32 rounded-2xl bg-white/5 backdrop-blur-2xl border border-white/10 p-6 shadow-[0_12px_35px_rgba(0,0,0,0.45)]"
       >
         {/* Services List */}
         <div className="space-y-2 mb-8">
@@ -51,15 +51,16 @@ export default function ServiceSidebar({ currentService }: ServiceSidebarProps) 
               >
                 <Link
                   href={service.link}
-                  className={`relative block p-4 rounded-xl transition-all duration-300 overflow-hidden group ${isCurrent
-                      ? "bg-gradient-to-r from-[#636EDF] to-[#7C87F5] text-white shadow-lg shadow-[#636EDF]/30"
-                      : "text-gray-700 hover:bg-gradient-to-r hover:from-gray-50 hover:to-gray-100 hover:shadow-md"
-                    }`}
+                  className={`relative block p-4 rounded-xl transition-all duration-300 overflow-hidden group border ${
+                    isCurrent
+                      ? "bg-gradient-to-r from-[#636EDF] to-[#7C87F5] text-white border-transparent shadow-lg shadow-[#636EDF]/40"
+                      : "border-white/5 bg-white/5 text-white/70 hover:bg-white/10 hover:border-white/15"
+                  }`}
                 >
                   {/* Animated background gradient for hover */}
                   {!isCurrent && (
                     <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-[#636EDF]/10 to-[#7C87F5]/10 opacity-0 group-hover:opacity-100"
+                      className="absolute inset-0 bg-gradient-to-r from-[#636EDF]/15 to-[#7C87F5]/15 opacity-0 group-hover:opacity-100"
                       initial={{ opacity: 0 }}
                       whileHover={{ opacity: 1 }}
                       transition={{ duration: 0.3 }}
@@ -77,8 +78,11 @@ export default function ServiceSidebar({ currentService }: ServiceSidebarProps) 
                   />
 
                   <div className="relative flex items-center justify-between">
-                    <span className={`font-semibold text-sm transition-all duration-300 ${isCurrent ? "text-white" : "text-gray-800 group-hover:text-[#636EDF]"
-                      }`}>
+                    <span
+                      className={`font-semibold text-sm transition-all duration-300 ${
+                        isCurrent ? "text-white" : "text-white/80 group-hover:text-white"
+                      }`}
+                    >
                       {service.title}
                     </span>
                     <motion.div
@@ -88,10 +92,11 @@ export default function ServiceSidebar({ currentService }: ServiceSidebarProps) 
                       transition={{ duration: 0.2 }}
                     >
                       <FiArrowRight
-                        className={`w-4 h-4 transition-all duration-300 ${isCurrent
+                        className={`w-4 h-4 transition-all duration-300 ${
+                          isCurrent
                             ? "text-white"
-                            : "text-gray-400 group-hover:text-[#636EDF] group-hover:translate-x-1"
-                          }`}
+                            : "text-white/50 group-hover:text-white group-hover:translate-x-1"
+                        }`}
                       />
                     </motion.div>
                   </div>
@@ -116,7 +121,7 @@ export default function ServiceSidebar({ currentService }: ServiceSidebarProps) 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.5 }}
-          className="pt-8 border-t border-gray-200/60"
+          className="pt-8 border-t border-white/10"
         >
           <div className="flex items-center gap-2 mb-4">
             <motion.div
@@ -131,18 +136,18 @@ export default function ServiceSidebar({ currentService }: ServiceSidebarProps) 
                 ease: "easeInOut",
               }}
             />
-            <span className="text-sm text-gray-600 font-medium">
+            <span className="text-sm text-white/70 font-medium">
               Başlangıç aşamasında mısınız?
             </span>
           </div>
 
-          <h4 className="text-xl font-bold text-gray-900 mb-5 bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+          <h4 className="text-xl font-bold text-white mb-5">
             Şirket broşürünü indirin
           </h4>
 
           {/* Brochure Image with hover effect */}
           <motion.div
-            className="relative mb-5 rounded-xl overflow-hidden group"
+            className="relative mb-5 rounded-xl overflow-hidden group bg-[#1A2335] p-4 border border-white/10"
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.3 }}
           >

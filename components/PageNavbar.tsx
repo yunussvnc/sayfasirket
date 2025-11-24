@@ -22,19 +22,19 @@ export default function PageNavbar({ activePage }: PageNavbarProps) {
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
       <nav className="container mx-auto px-4 py-4">
-        <div className="flex items-center justify-between bg-[radial-gradient(circle_at_top,#1a2b8a,#0a0f2b)] border border-white/10 rounded-full px-4 py-3 shadow-[0_10px_40px_rgba(4,9,20,0.6)] backdrop-blur">
+        <div className="flex items-center justify-between bg-[radial-gradient(circle_at_top,#1a2b8a,#0a0f2b)] border border-white/10 rounded-full px-2 py-2 md:px-4 md:py-3 shadow-[0_10px_40px_rgba(4,9,20,0.6)] backdrop-blur">
           <motion.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="logo-container flex items-center gap-3 bg-white px-4 py-2 rounded-full"
+            className="logo-container flex items-center gap-1 md:gap-3 bg-white px-2 py-1 md:px-4 md:py-2 rounded-full flex-shrink-0"
           >
-            <Link href="/" className="flex items-center gap-3">
+            <Link href="/" className="flex items-center gap-1 md:gap-3">
               <Image
                 src="/images/neokreatif-logo.png"
                 alt="NeoKreatif Ajans Logo"
                 width={150}
                 height={50}
-                className="h-8 w-auto"
+                className="h-6 md:h-8 w-auto max-w-[120px] md:max-w-none"
                 priority
               />
             </Link>

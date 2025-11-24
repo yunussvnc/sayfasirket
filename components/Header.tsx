@@ -58,19 +58,19 @@ export default function Header() {
                 transition={{ duration: 0.5, ease: "easeOut" }}
             >
                 <nav className="container mx-auto px-4 py-4">
-                    <div className="flex items-center justify-between bg-[radial-gradient(circle_at_top,#1a2b8a,#0a0f2b)] border border-white/10 rounded-full px-4 py-3 shadow-[0_10px_40px_rgba(4,9,20,0.6)] backdrop-blur">
+                    <div className="flex items-center justify-between bg-[radial-gradient(circle_at_top,#1a2b8a,#0a0f2b)] border border-white/10 rounded-full px-2 py-2 md:px-4 md:py-3 shadow-[0_10px_40px_rgba(4,9,20,0.6)] backdrop-blur">
                         <motion.div
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="logo-container flex items-center gap-3 bg-white px-4 py-2 rounded-full"
+                            className="logo-container flex items-center gap-1 md:gap-3 bg-white px-2 py-1 md:px-4 md:py-2 rounded-full flex-shrink-0"
                         >
-                            <Link href="/" className="flex items-center gap-3">
+                            <Link href="/" className="flex items-center gap-1 md:gap-3">
                                 <Image
                                     src="/images/neokreatif-logo.png"
                                     alt="NeoKreatif Ajans Logo"
                                     width={150}
                                     height={50}
-                                    className="h-8 w-auto"
+                                    className="h-6 md:h-8 w-auto max-w-[120px] md:max-w-none"
                                     priority
                                 />
 
@@ -220,46 +220,10 @@ export default function Header() {
                 </div>
 
                 {/* Hero Section */}
-                <section className="relative z-10 h-[600px] lg:h-[720px] pt-10">
-
-                    {/* Acorn Image - Left Side */}
-                    <div className="absolute left-6 top-1/2 -translate-y-1/2 pointer-events-none z-20">
-                        <motion.div
-                            initial={{ opacity: 0, x: -50, scale: 0.8 }}
-                            animate={{ opacity: 1, x: 0, scale: 1 }}
-                            transition={{ duration: 0.8, delay: 0.3 }}
-                            className="relative w-48 h-48 lg:w-64 lg:h-64"
-                        >
-                            <Image
-                                src="/images/fındık.jpg"
-                                alt=""
-                                fill
-                                className="object-contain drop-shadow-2xl"
-                                sizes="(max-width: 768px) 192px, 256px"
-                            />
-                        </motion.div>
-                    </div>
-
-                    {/* Cube Image - Right Side */}
-                    <div className="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none z-20">
-                        <motion.div
-                            initial={{ opacity: 0, x: 50, rotate: -15 }}
-                            animate={{ opacity: 1, x: 0, rotate: 0 }}
-                            transition={{ duration: 0.8, delay: 0.5 }}
-                            className="relative w-48 h-48 lg:w-64 lg:h-64"
-                        >
-                            <Image
-                                src="/images/küp.jpg"
-                                alt=""
-                                fill
-                                className="object-contain"
-                                sizes="(max-width: 768px) 192px, 256px"
-                            />
-                        </motion.div>
-                    </div>
+                <section className="relative z-10 h-[400px] md:h-[600px] lg:h-[720px] pt-10">
 
                     {/* Hero Text Content */}
-                    <div className="relative z-10 h-full flex items-center justify-center">
+                    <div className="relative z-50 h-full flex items-center justify-center">
                         <div className="container mx-auto px-4">
                             <motion.div
                                 className="text-center max-w-5xl mx-auto text-white"
