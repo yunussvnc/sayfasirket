@@ -3,13 +3,31 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
-const references = [
+type ReferenceCategory = {
+  name: string;
+  link: string;
+};
+
+type ReferenceItem = {
+  title: string;
+  image: string;
+  icon?: string;
+  link: string;
+  categories: ReferenceCategory[];
+};
+
+const FALLBACK_REFERENCE_IMAGE = "/references/fallback-reference.jpg";
+const REMOTE_FALLBACK_REFERENCE_IMAGE =
+  "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80";
+
+const references: ReferenceItem[] = [
   // Web Yazılım Referansları
   {
     title: "Web Yazılım Projesi 1",
-    image: "https://www.neokreatif.com/wp-content/uploads/2022/03/28.png",
-    icon: "https://www.neokreatif.com/wp-content/uploads/2022/03/28.png",
+    image: "/references/28.png",
+    icon: "/references/28.png",
     link: "#",
     categories: [
       { name: "Web Yazılım", link: "/services/web-gelistirme" },
@@ -18,8 +36,8 @@ const references = [
   },
   {
     title: "Web Yazılım Projesi 2",
-    image: "https://www.neokreatif.com/wp-content/uploads/2022/03/27.png",
-    icon: "https://www.neokreatif.com/wp-content/uploads/2022/03/27.png",
+    image: "/references/27.png",
+    icon: "/references/27.png",
     link: "#",
     categories: [
       { name: "Web Yazılım", link: "/services/web-gelistirme" },
@@ -28,8 +46,8 @@ const references = [
   },
   {
     title: "Web Yazılım Projesi 3",
-    image: "https://www.neokreatif.com/wp-content/uploads/2022/03/4-1.png",
-    icon: "https://www.neokreatif.com/wp-content/uploads/2022/03/4-1.png",
+    image: "/references/4-1.png",
+    icon: "/references/4-1.png",
     link: "#",
     categories: [
       { name: "Web Yazılım", link: "/services/web-gelistirme" },
@@ -38,8 +56,8 @@ const references = [
   },
   {
     title: "Web Yazılım Projesi 4",
-    image: "https://www.neokreatif.com/wp-content/uploads/2022/03/16.png",
-    icon: "https://www.neokreatif.com/wp-content/uploads/2022/03/16.png",
+    image: "/references/16.png",
+    icon: "/references/16.png",
     link: "#",
     categories: [
       { name: "Web Yazılım", link: "/services/web-gelistirme" },
@@ -48,8 +66,8 @@ const references = [
   },
   {
     title: "Web Yazılım Projesi 5",
-    image: "https://www.neokreatif.com/wp-content/uploads/2022/03/19.png",
-    icon: "https://www.neokreatif.com/wp-content/uploads/2022/03/19.png",
+    image: "/references/19.png",
+    icon: "/references/19.png",
     link: "#",
     categories: [
       { name: "Web Yazılım", link: "/services/web-gelistirme" },
@@ -58,8 +76,8 @@ const references = [
   },
   {
     title: "Web Yazılım Projesi 6",
-    image: "https://www.neokreatif.com/wp-content/uploads/2022/03/26.png",
-    icon: "https://www.neokreatif.com/wp-content/uploads/2022/03/26.png",
+    image: "/references/26.png",
+    icon: "/references/26.png",
     link: "#",
     categories: [
       { name: "Web Yazılım", link: "/services/web-gelistirme" },
@@ -125,39 +143,7 @@ export default function Projects() {
               whileHover={{ y: -8, scale: 1.03 }}
               transition={{ duration: 0.2 }}
             >
-              <Link 
-                href={project.link}
-                className="bg-white border border-gray-200 rounded-lg overflow-hidden group block"
-              >
-                <motion.div
-                  className="relative h-48 w-full overflow-hidden"
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <Image 
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  />
-                </motion.div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
-                    {project.title}
-                  </h3>
-                  <div className="flex flex-wrap gap-2">
-                    {project.categories.map((category, catIndex) => (
-                      <span
-                        key={catIndex}
-                        className="text-xs px-3 py-1 bg-gray-100 text-gray-700 rounded-full"
-                      >
-                        {category.name}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </Link>
+              <ProjectCard project={project} />
             </motion.div>
           ))}
         </motion.div>
@@ -173,7 +159,7 @@ export default function Projects() {
             whileHover={{ scale: 1.05, x: 5 }}
             whileTap={{ scale: 0.95 }}
           >
-            <Link 
+            <Link
               href="/referanslar"
               className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium"
             >
@@ -194,6 +180,52 @@ export default function Projects() {
         </motion.div>
       </div>
     </section>
+  );
+}
+
+function ProjectCard({ project }: { project: ReferenceItem }) {
+  const [imageSrc, setImageSrc] = useState(project.image || FALLBACK_REFERENCE_IMAGE);
+
+  const handleImageError = () => {
+    setImageSrc((prev) => {
+      if (prev === FALLBACK_REFERENCE_IMAGE) {
+        return REMOTE_FALLBACK_REFERENCE_IMAGE;
+      }
+      if (prev === REMOTE_FALLBACK_REFERENCE_IMAGE) {
+        return prev;
+      }
+      return FALLBACK_REFERENCE_IMAGE;
+    });
+  };
+
+  return (
+    <Link
+      href={project.link}
+      className="bg-white border border-gray-200 rounded-lg overflow-hidden group block"
+    >
+      <motion.div className="relative h-48 w-full overflow-hidden" whileHover={{ scale: 1.1 }} transition={{ duration: 0.3 }}>
+        <Image
+          src={imageSrc}
+          alt={project.title}
+          fill
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          onError={handleImageError}
+        />
+      </motion.div>
+      <div className="p-6">
+        <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+          {project.title}
+        </h3>
+        <div className="flex flex-wrap gap-2">
+          {project.categories.map((category, catIndex) => (
+            <span key={catIndex} className="text-xs px-3 py-1 bg-gray-100 text-gray-700 rounded-full">
+              {category.name}
+            </span>
+          ))}
+        </div>
+      </div>
+    </Link>
   );
 }
 

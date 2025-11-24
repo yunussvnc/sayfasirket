@@ -2,6 +2,8 @@
 
 # dependencies
 /node_modules
+/backend/node_modules
+/backend/.next
 /.pnp
 .pnp.*
 .yarn/*
@@ -16,6 +18,9 @@
 # next.js
 /.next/
 /out/
+/backend/backend.zip
+/node_modules.zip
+/siteyeniyol.zip
 
 # production
 /build
