@@ -4,7 +4,7 @@ generator client {
 }
 
 datasource db {
-  provider  = "mysql"
+  provider  = "postgresql"
   url       = env("DATABASE_URL")
 }
 
@@ -12,7 +12,7 @@ datasource db {
 model Admin {
   id        String   @id @default(uuid())
   username  String   @unique
-  password  String   // Hash'lenmiş şifre
+  password  String
   email     String?  @unique
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -24,13 +24,13 @@ model Page {
   title       String
   path        String   @unique
   slug        String   @unique
-  content     String?  @db.Text
-  type        String   @default("page") // page, service, etc.
+  content     String?
+  type        String   @default("page")
   published   Boolean  @default(true)
   order       Int      @default(0)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
-  
+
   seoData     SEOData?
 }
 
@@ -39,15 +39,15 @@ model SEOData {
   id              String   @id @default(uuid())
   pageId          String   @unique
   metaTitle       String?
-  metaDescription String?  @db.Text
-  metaKeywords    String?  @db.Text
+  metaDescription String?
+  metaKeywords    String?
   ogTitle         String?
-  ogDescription   String?  @db.Text
+  ogDescription   String?
   ogImage         String?
   canonical       String?
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt
-  
+
   page            Page     @relation(fields: [pageId], references: [id], onDelete: Cascade)
 }
 
@@ -56,8 +56,8 @@ model Service {
   id          String   @id @default(uuid())
   title       String
   slug        String   @unique
-  description String   @db.Text
-  content     String?  @db.Text
+  description String
+  content     String?
   icon        String?
   image       String?
   link        String?
@@ -72,8 +72,8 @@ model BlogPost {
   id          String   @id @default(uuid())
   title       String
   slug        String   @unique
-  excerpt     String   @db.Text
-  content     String   @db.Text
+  excerpt     String
+  content     String
   author      String
   category    String
   image       String?
@@ -92,8 +92,8 @@ model MenuItem {
   parentId  String?
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
-  
-  parent    MenuItem? @relation("MenuHierarchy", fields: [parentId], references: [id], onDelete: Cascade)
+
+  parent    MenuItem?  @relation("MenuHierarchy", fields: [parentId], references: [id], onDelete: Cascade)
   children  MenuItem[] @relation("MenuHierarchy")
 }
 
@@ -101,7 +101,7 @@ model MenuItem {
 model SliderItem {
   id          String   @id @default(uuid())
   title       String
-  description String?  @db.Text
+  description String?
   image       String
   link        String?
   order       Int      @default(0)
@@ -117,10 +117,10 @@ model Message {
   email     String
   phone     String?
   subject   String
-  message   String   @db.Text
+  message   String
   read      Boolean  @default(false)
   createdAt DateTime @default(now())
-  
+
   @@index([email])
   @@index([read])
 }
@@ -131,12 +131,12 @@ model Image {
   name       String
   url        String
   path       String?
-  category   String   // slider, service, team, background, icon
-  size       Int?     // bytes
+  category   String
+  size       Int?
   width      Int?
   height     Int?
   uploadedAt DateTime @default(now())
-  
+
   @@index([category])
 }
 
@@ -144,9 +144,8 @@ model Image {
 model SiteSetting {
   id        String   @id @default(uuid())
   key       String   @unique
-  value     String   @db.Text
-  type      String   @default("string") // string, json, number, boolean
+  value     String
+  type      String   @default("string")
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
-
