@@ -2,6 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   output: 'export', // Statik export için açıldı - cPanel hosting için
+  trailingSlash: true, // Static export'ta sayfalar arası geçiş için gerekli
   experimental: {
     turbopackUseSystemTlsCerts: true,
   },
