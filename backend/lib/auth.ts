@@ -1,25 +1,15 @@
 import bcrypt from "bcryptjs";
 import { prisma } from "./prisma";
 
-// Şifreyi hash'le
 export async function hashPassword(password: string): Promise<string> {
     return bcrypt.hash(password, 12);
 }
 
-// Şifreyi doğrula
-export async function verifyPassword(
-    password: string,
-    hashedPassword: string
-): Promise<boolean> {
+export async function verifyPassword(password: string, hashedPassword: string): Promise<boolean> {
     return bcrypt.compare(password, hashedPassword);
 }
 
-// Admin kullanıcı oluştur
-export async function createAdminUser(
-    username: string,
-    password: string,
-    email?: string
-) {
+export async function createAdminUser(username: string, password: string, email?: string, role = "admin") {
     const hashedPassword = await hashPassword(password);
 
     return prisma.admin.create({
@@ -27,23 +17,26 @@ export async function createAdminUser(
             username,
             password: hashedPassword,
             email,
+            role,
         },
     });
 }
 
-// Admin kullanıcı doğrula
-export async function verifyAdminUser(
-    username: string,
-    password: string
-): Promise<boolean> {
+export async function authenticateAdmin(username: string, password: string) {
     const admin = await prisma.admin.findUnique({
         where: { username },
     });
 
     if (!admin) {
-        return false;
+        return null;
     }
 
-    return verifyPassword(password, admin.password);
+    const isValid = await verifyPassword(password, admin.password);
+
+    if (!isValid) {
+        return null;
+    }
+
+    return admin;
 }
 

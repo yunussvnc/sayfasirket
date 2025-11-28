@@ -9,29 +9,45 @@ datasource db {
 }
 
 // Admin Kullanıcıları
+enum ContentStatus {
+  draft
+  review
+  scheduled
+  published
+  archived
+}
+
 model Admin {
   id        String   @id @default(uuid())
   username  String   @unique
   password  String
   email     String?  @unique
+  role      String   @default("admin")
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
 // Sayfalar
 model Page {
-  id          String   @id @default(uuid())
+  id          String         @id @default(uuid())
   title       String
-  path        String   @unique
-  slug        String   @unique
-  content     String?
-  type        String   @default("page")
-  published   Boolean  @default(true)
-  order       Int      @default(0)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  path        String         @unique
+  slug        String         @unique
+  summary     String?
+  blocks      Json?
+  meta        Json?
+  type        String         @default("page")
+  status      ContentStatus  @default(draft)
+  publishedAt DateTime?
+  order       Int            @default(0)
+  createdBy   String?
+  updatedBy   String?
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
 
   seoData     SEOData?
+  @@index([status])
+  @@index([publishedAt])
 }
 
 // SEO Verileri
@@ -69,18 +85,27 @@ model Service {
 
 // Blog/Haber Yazıları
 model BlogPost {
-  id          String   @id @default(uuid())
+  id          String         @id @default(uuid())
   title       String
-  slug        String   @unique
+  slug        String         @unique
   excerpt     String
-  content     String
+  blocks      Json?
+  content     String?
   author      String
   category    String
-  image       String?
-  published   Boolean  @default(false)
-  date        DateTime @default(now())
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  tags        String[]
+  hero        Json?
+  coverImage  String?
+  status      ContentStatus  @default(draft)
+  publishedAt DateTime?
+  meta        Json?
+  createdBy   String?
+  updatedBy   String?
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+
+  @@index([status])
+  @@index([publishedAt])
 }
 
 // Menü Öğeleri
@@ -127,25 +152,71 @@ model Message {
 
 // Görseller
 model Image {
-  id         String   @id @default(uuid())
+  id         String         @id @default(uuid())
   name       String
+  alt        String?
   url        String
   path       String?
   category   String
   size       Int?
   width      Int?
   height     Int?
-  uploadedAt DateTime @default(now())
+  metadata   Json?
+  status     ContentStatus  @default(published)
+  publishedAt DateTime?
+  createdBy  String?
+  uploadedAt DateTime       @default(now())
 
   @@index([category])
+  @@index([status])
+}
+
+model MediaAsset {
+  id          String         @id @default(uuid())
+  title       String
+  slug        String         @unique
+  type        String         @default("image")
+  url         String
+  alt         String?
+  variants    Json?
+  tags        String[]
+  status      ContentStatus  @default(draft)
+  publishedAt DateTime?
+  metadata    Json?
+  createdBy   String?
+  updatedBy   String?
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+
+  @@index([status])
+  @@index([publishedAt])
 }
 
 // Site Ayarları
 model SiteSetting {
   id        String   @id @default(uuid())
   key       String   @unique
-  value     String
+  section   String?
+  value     Json
   type      String   @default("string")
+  status    ContentStatus @default(published)
+  publishedAt DateTime?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  @@index([section])
+  @@index([status])
+}
+
+model ActivityLog {
+  id          String   @id @default(uuid())
+  resource    String
+  action      String
+  recordId    String?
+  diff        Json?
+  meta        Json?
+  performedBy String?
+  ip          String?
+  userAgent   String?
+  createdAt   DateTime @default(now())
 }

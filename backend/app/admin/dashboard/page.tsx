@@ -30,6 +30,12 @@ export default function AdminDashboard() {
 
     const menuItems = [
         {
+            title: "Kontrol Paneli",
+            description: "Yeni kaynak bazlı içerik panelini aç",
+            href: "/admin/panel",
+            icon: "✨",
+        },
+        {
             title: "Sayfa Yönetimi",
             description: "Tüm sayfaları düzenle, oluştur veya sil",
             href: "/admin/pages",

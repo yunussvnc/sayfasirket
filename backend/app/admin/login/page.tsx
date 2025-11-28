@@ -2,23 +2,39 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { persistAdminSession } from "../_lib/call-admin-api";
 
 export default function AdminLogin() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
+    const [loading, setLoading] = useState(false);
     const router = useRouter();
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setError("");
+        setLoading(true);
 
-        // Basit authentication (production'da güvenli bir auth sistemi kullanılmalı)
-        if (username === "admin" && password === "neokreatif3434") {
-            sessionStorage.setItem("adminAuth", "true");
-            router.push("/admin/dashboard");
-        } else {
-            setError("Kullanıcı adı veya şifre hatalı!");
+        try {
+            const response = await fetch("/api/admin/login", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ username, password }),
+            });
+
+            if (!response.ok) {
+                const data = await response.json().catch(() => ({}));
+                throw new Error(data.error || "Giriş başarısız");
+            }
+
+            const data = await response.json();
+            persistAdminSession({ token: data.token, user: data.user });
+            router.push("/admin/panel");
+        } catch (err) {
+            setError(err instanceof Error ? err.message : "Giriş başarısız");
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -69,12 +85,12 @@ export default function AdminLogin() {
 
                     <button
                         type="submit"
-                        className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition-colors"
+                        disabled={loading}
+                        className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition-colors disabled:opacity-60"
                     >
-                        Giriş Yap
+                        {loading ? "Giriş yapılıyor..." : "Giriş Yap"}
                     </button>
                 </form>
-
             </div>
         </div>
     );

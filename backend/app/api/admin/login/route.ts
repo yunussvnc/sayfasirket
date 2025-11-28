@@ -1,38 +1,40 @@
 import { NextRequest, NextResponse } from "next/server";
-import { verifyAdminUser } from "@/lib/auth";
+import { authenticateAdmin } from "@/lib/auth";
+import { createAdminToken } from "@/lib/server-auth";
 
 export async function POST(request: NextRequest) {
     try {
         const { username, password } = await request.json();
 
         if (!username || !password) {
-            return NextResponse.json(
-                { error: "Kullanıcı adı ve şifre gerekli" },
-                { status: 400 }
-            );
+            return NextResponse.json({ error: "Kullanıcı adı ve şifre gerekli" }, { status: 400 });
         }
 
-        // Veritabanından kullanıcıyı doğrula
-        const isValid = await verifyAdminUser(username, password);
+        const admin = await authenticateAdmin(username, password);
 
-        if (!isValid) {
-            return NextResponse.json(
-                { error: "Kullanıcı adı veya şifre hatalı" },
-                { status: 401 }
-            );
+        if (!admin) {
+            return NextResponse.json({ error: "Kullanıcı adı veya şifre hatalı" }, { status: 401 });
         }
 
-        // Başarılı giriş - Session veya JWT token oluşturulabilir
-        return NextResponse.json(
-            { success: true, message: "Giriş başarılı" },
-            { status: 200 }
-        );
+        const token = await createAdminToken({
+            id: admin.id,
+            username: admin.username,
+            role: admin.role,
+        });
+
+        return NextResponse.json({
+            token,
+            expiresIn: 7200,
+            user: {
+                id: admin.id,
+                username: admin.username,
+                email: admin.email,
+                role: admin.role,
+            },
+        });
     } catch (error) {
         console.error("Login error:", error);
-        return NextResponse.json(
-            { error: "Sunucu hatası" },
-            { status: 500 }
-        );
+        return NextResponse.json({ error: "Sunucu hatası" }, { status: 500 });
     }
 }
 
