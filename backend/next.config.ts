@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: 'export', // Statik export için açıldı - cPanel hosting için
+  output: 'standalone', // Node.js sunucusu için standart build
   experimental: {
     turbopackUseSystemTlsCerts: true,
   },
