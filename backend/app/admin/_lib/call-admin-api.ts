@@ -4,7 +4,7 @@ import { AdminResource } from "@/lib/resource-config";
 
 export type ApiMethod = "GET" | "POST" | "PATCH" | "DELETE";
 
-export async function callAdminApi<T>(
+export async function callAdminApi<T = any>(
     resource: AdminResource,
     method: ApiMethod = "GET",
     body?: Record<string, any>,
