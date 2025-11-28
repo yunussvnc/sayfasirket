@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { AdminResource, ResourceField, RESOURCE_CONFIG } from "@/lib/resource-config";
-import { callAdminApi, clearAdminSession, readSessionFromStorage } from "../_lib/call-admin-api";
+import { callAdminApi, clearAdminSession, readSessionFromStorage, type RequestBody } from "../_lib/call-admin-api";
 
 type PanelMode = "desktop" | "mobile";
 
@@ -30,7 +30,7 @@ export default function AdminControlPanel() {
     const config = useMemo(() => RESOURCE_CONFIG[activeResource], [activeResource]);
 
     const fetchResource = useCallback(
-        async (resource: AdminResource, extra?: Record<string, unknown>) => {
+        async (resource: AdminResource, extra?: RequestBody) => {
             if (!session) return;
             setLoading(true);
             setError("");
