@@ -2,9 +2,7 @@
 
 import Link from "next/link";
 
-// TODO: SEO Analiz sayfası linkini buraya ekleyin
-// Örnek: "https://example.com/seo-analiz" veya "/uretsiz-seo-analiz"
-const SEO_ANALIZ_LINK = "";
+const SEO_ANALIZ_LINK = "https://neokreatif.com.tr/";
 
 export default function FreeSEOButton() {
     return (
