@@ -3,13 +3,14 @@
 import { AdminResource } from "@/lib/resource-config";
 
 export type ApiMethod = "GET" | "POST" | "PATCH" | "DELETE";
+type RequestBody = Record<string, string | number | boolean | null | undefined>;
 
-export async function callAdminApi<T = any>(
+export async function callAdminApi<T>(
     resource: AdminResource,
     method: ApiMethod = "GET",
-    body?: Record<string, any>,
+    body?: RequestBody,
     token?: string
-) {
+): Promise<T> {
     const session = typeof window !== "undefined" ? readSessionFromStorage() : null;
     const authToken = token || session?.token;
 
@@ -22,7 +23,7 @@ export async function callAdminApi<T = any>(
                 url.searchParams.set(key, String(value));
             }
         });
-    } else if (method === "DELETE" && body?.id) {
+    } else if (method === "DELETE" && body && typeof body.id === "string") {
         url.searchParams.set("id", body.id);
     }
 

@@ -30,13 +30,17 @@ export default function AdminControlPanel() {
     const config = useMemo(() => RESOURCE_CONFIG[activeResource], [activeResource]);
 
     const fetchResource = useCallback(
-        async (resource: AdminResource, extra?: Record<string, any>) => {
+        async (resource: AdminResource, extra?: Record<string, unknown>) => {
             if (!session) return;
             setLoading(true);
             setError("");
 
             try {
-                const response = await callAdminApi(resource, "GET", extra);
+                const response = await callAdminApi<{ data: unknown[]; stats: Record<string, number> }>(
+                    resource,
+                    "GET",
+                    extra
+                );
                 setRecords(response.data ?? []);
                 setStats(response.stats ?? {});
             } catch (err) {
