@@ -1,11 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     output: 'standalone',
-    experimental: {
-        turbopack: {
-            root: __dirname, // Backend dizinini root olarak belirt
-        },
-    },
     images: {
         unoptimized: true,
         remotePatterns: [
