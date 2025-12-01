@@ -9,13 +9,13 @@ export default function AdminControlPanel() {
     const router = useRouter();
     const [session, setSession] = useState(() => readSessionFromStorage());
     const [activeResource, setActiveResource] = useState<AdminResource | null>(null);
-    const [records, setRecords] = useState<any[]>([]);
+    const [records, setRecords] = useState<Record<string, unknown>[]>([]);
     const [stats, setStats] = useState<Record<string, number>>({});
     const [searchTerm, setSearchTerm] = useState("");
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [formState, setFormState] = useState<Record<string, any>>({});
+    const [formState, setFormState] = useState<Record<string, unknown>>({});
     const [saving, setSaving] = useState(false);
 
     useEffect(() => {
@@ -38,7 +38,7 @@ export default function AdminControlPanel() {
                     "GET",
                     extra
                 );
-                setRecords(response.data ?? []);
+                setRecords((response.data ?? []) as Record<string, unknown>[]);
                 setStats(response.stats ?? {});
             } catch (err) {
                 setError(err instanceof Error ? err.message : "Veriler yüklenemedi");
@@ -66,7 +66,7 @@ export default function AdminControlPanel() {
         setIsModalOpen(true);
     };
 
-    const handleEdit = (record: Record<string, any>) => {
+    const handleEdit = (record: Record<string, unknown>) => {
         setFormState(record);
         setIsModalOpen(true);
     };
@@ -87,7 +87,7 @@ export default function AdminControlPanel() {
         setSaving(true);
         try {
             const method = formState.id ? "PATCH" : "POST";
-            await callAdminApi(activeResource, method, formState);
+            await callAdminApi(activeResource, method, formState as RequestBody);
             setIsModalOpen(false);
             setFormState({});
             await fetchResource(activeResource);
@@ -135,7 +135,7 @@ export default function AdminControlPanel() {
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="flex items-center justify-between h-16">
                             <div className="flex items-center gap-3">
-                                <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center">
+                                <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
                                     <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
                                     </svg>
@@ -166,6 +166,22 @@ export default function AdminControlPanel() {
                     <div className="mb-8">
                         <h2 className="text-3xl font-bold text-gray-900">Yönetim Paneli!</h2>
                         <p className="text-gray-600 mt-2">İçeriklerinizi buradan yönetebilirsiniz</p>
+                    </div>
+
+                    {/* Stats Summary */}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
+                            <p className="text-sm text-gray-600 mb-1">Toplam</p>
+                            <p className="text-2xl font-bold text-gray-900">{stats.total ?? 0}</p>
+                        </div>
+                        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
+                            <p className="text-sm text-gray-600 mb-1">Yayınlanan</p>
+                            <p className="text-2xl font-bold text-green-600">{stats.published ?? 0}</p>
+                        </div>
+                        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
+                            <p className="text-sm text-gray-600 mb-1">Taslak</p>
+                            <p className="text-2xl font-bold text-yellow-600">{stats.draft ?? 0}</p>
+                        </div>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -378,7 +394,7 @@ export default function AdminControlPanel() {
                                     </tr>
                                 ) : (
                                     records.map((record) => (
-                                        <tr key={record.id} className="hover:bg-gray-50 transition-colors">
+                                        <tr key={String(record.id)} className="hover:bg-gray-50 transition-colors">
                                             {config?.tableColumns.map((column) => (
                                                 <td key={column.field} className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                                     {renderCell(column.variant, record[column.field])}
@@ -394,7 +410,7 @@ export default function AdminControlPanel() {
                                                     </button>
                                                     <span className="text-gray-300">|</span>
                                                     <button
-                                                        onClick={() => handleDelete(record.id)}
+                                                        onClick={() => handleDelete(String(record.id))}
                                                         className="text-red-600 hover:text-red-800 font-medium"
                                                     >
                                                         Sil
@@ -471,7 +487,7 @@ export default function AdminControlPanel() {
     );
 }
 
-function renderCell(variant: string | undefined, value: any) {
+function renderCell(variant: string | undefined, value: unknown) {
     if (value === null || value === undefined || value === "") return <span className="text-gray-400">—</span>;
 
     switch (variant) {
@@ -483,13 +499,15 @@ function renderCell(variant: string | undefined, value: any) {
                 scheduled: "bg-purple-100 text-purple-800",
                 archived: "bg-gray-100 text-gray-800",
             };
+            const statusValue = String(value);
             return (
-                <span className={`px-2 py-1 text-xs font-medium rounded-full ${statusColors[value] || statusColors.draft}`}>
-                    {String(value).toUpperCase()}
+                <span className={`px-2 py-1 text-xs font-medium rounded-full ${statusColors[statusValue] || statusColors.draft}`}>
+                    {statusValue.toUpperCase()}
                 </span>
             );
         case "date":
-            return <span className="text-gray-600">{new Date(value).toLocaleString("tr-TR")}</span>;
+            const dateValue = value instanceof Date ? value : new Date(String(value));
+            return <span className="text-gray-600">{dateValue.toLocaleString("tr-TR")}</span>;
         case "badge":
             return (
                 <span className="px-2 py-1 text-xs font-medium bg-blue-100 text-blue-800 rounded-full">
@@ -507,8 +525,8 @@ function FormField({
     onChange,
 }: {
     field: ResourceField;
-    value: any;
-    onChange: (value: any) => void;
+    value: unknown;
+    onChange: (value: unknown) => void;
 }) {
     const baseClass =
         "w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent";
@@ -521,7 +539,7 @@ function FormField({
             </label>
             {field.type === "textarea" ? (
                 <textarea
-                    value={value ?? ""}
+                    value={String(value ?? "")}
                     onChange={(e) => onChange(e.target.value)}
                     rows={4}
                     className={baseClass}
@@ -529,7 +547,7 @@ function FormField({
                 />
             ) : field.type === "json" ? (
                 <textarea
-                    value={typeof value === "string" ? value : JSON.stringify(value ?? {}, null, 2)}
+                    value={typeof value === "string" ? value : JSON.stringify(value ?? null, null, 2)}
                     onChange={(e) => {
                         try {
                             onChange(JSON.parse(e.target.value));
@@ -542,7 +560,7 @@ function FormField({
                     placeholder='Örn: { "title": "Hero" }'
                 />
             ) : field.type === "select" ? (
-                <select value={value ?? ""} onChange={(e) => onChange(e.target.value)} className={baseClass}>
+                <select value={String(value ?? "")} onChange={(e) => onChange(e.target.value)} className={baseClass}>
                     <option value="">Seçiniz</option>
                     {field.options?.map((option) => (
                         <option key={option.value} value={option.value}>
@@ -553,7 +571,7 @@ function FormField({
             ) : field.type === "date" ? (
                 <input
                     type="datetime-local"
-                    value={value ? toDateTimeInputValue(value) : ""}
+                    value={value ? toDateTimeInputValue(value as string | Date) : ""}
                     onChange={(e) => onChange(e.target.value)}
                     className={baseClass}
                 />
@@ -569,7 +587,7 @@ function FormField({
                 </div>
             ) : field.type === "tags" ? (
                 <input
-                    value={Array.isArray(value) ? value.join(", ") : value ?? ""}
+                    value={Array.isArray(value) ? value.join(", ") : String(value ?? "")}
                     onChange={(e) => onChange(e.target.value.split(",").map((tag: string) => tag.trim()).filter(Boolean))}
                     placeholder="etiket1, etiket2"
                     className={baseClass}
@@ -577,7 +595,7 @@ function FormField({
             ) : (
                 <input
                     type="text"
-                    value={value ?? ""}
+                    value={String(value ?? "")}
                     onChange={(e) => onChange(e.target.value)}
                     placeholder={field.placeholder}
                     className={baseClass}
