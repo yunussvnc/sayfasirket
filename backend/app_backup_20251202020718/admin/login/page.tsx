@@ -2,57 +2,6 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-
-export default function AdminLogin() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
-  const router = useRouter();
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    try {
-      const res = await fetch("/api/admin/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, password }),
-      });
-      if (res.ok) {
-        router.push('/admin/panel');
-      } else {
-        alert('Giriş başarısız');
-      }
-    } catch (err) {
-      alert('Sunucu hatası');
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  return (
-    <main className="min-h-screen flex items-center justify-center">
-      <div className="w-full max-w-sm bg-white border rounded shadow p-6">
-        <h2 className="text-xl font-semibold mb-4">Admin Girişi</h2>
-        <form onSubmit={handleSubmit} className="space-y-3">
-          <div>
-            <label className="block text-sm text-gray-700 mb-1">Kullanıcı</label>
-            <input value={username} onChange={(e) => setUsername(e.target.value)} className="w-full px-3 py-2 border rounded" />
-          </div>
-          <div>
-            <label className="block text-sm text-gray-700 mb-1">Şifre</label>
-            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="w-full px-3 py-2 border rounded" />
-          </div>
-          <button className="w-full py-2 bg-blue-600 text-white rounded" disabled={loading}>{loading ? 'Bekle' : 'Giriş'}</button>
-        </form>
-      </div>
-    </main>
-  );
-}
-"use client";
-
-import { useState } from "react";
-import { useRouter } from "next/navigation";
 import { persistAdminSession } from "../_lib/call-admin-api";
 
 export default function AdminLogin() {

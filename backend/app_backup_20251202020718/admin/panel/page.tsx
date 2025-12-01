@@ -1,30 +1,3 @@
-import Link from "next/link";
-
-export default function AdminPanel() {
-  return (
-    <div className="min-h-screen flex">
-      <aside className="sidebar bg-gray-50 border-r">
-        <div className="p-4">
-          <h3 className="font-semibold">Admin</h3>
-        </div>
-        <nav className="p-4">
-          <ul className="space-y-2">
-            <li><Link href="#" className="block px-3 py-2 rounded hover:bg-gray-100">Dashboard</Link></li>
-            <li><Link href="#" className="block px-3 py-2 rounded hover:bg-gray-100">Ürünler</Link></li>
-            <li><Link href="#" className="block px-3 py-2 rounded hover:bg-gray-100">Sayfalar</Link></li>
-          </ul>
-        </nav>
-      </aside>
-
-      <main className="content p-6">
-        <div className="container">
-          <h1 className="text-2xl font-bold mb-4">Admin Panel (Temiz Şablon)</h1>
-          <p className="text-gray-600">Bu panel minimal bir başlangıçtır. İlgili içerikleri buradan yönetin.</p>
-        </div>
-      </main>
-    </div>
-  );
-}
 "use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";

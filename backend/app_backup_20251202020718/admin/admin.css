@@ -49,3 +49,9 @@ body.admin-light .bg-gray-50 { background-color: #f9fafb !important; }
   color: #111827;
   min-height: 100vh;
 }
+
+/* Ensure admin shell is above global background overlay even before client JS runs */
+.admin-shell {
+  position: relative;
+  z-index: 2;
+}

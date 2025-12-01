@@ -2,21 +2,6 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="min-h-screen flex items-center justify-center">
-      <div className="container text-center">
-        <h1 className="text-3xl font-bold mb-4">Backend - Minimal Arayüz</h1>
-        <p className="text-gray-600 mb-6">Bu arayüz temiz, beyaz temalı bir başlangıç şablonudur.</p>
-        <div className="flex items-center justify-center gap-3">
-          <Link href="/admin/login" className="px-4 py-2 bg-blue-600 text-white rounded">Admin Girişi</Link>
-        </div>
-      </div>
-    </main>
-  );
-}
-import Link from "next/link";
-
-export default function Home() {
-  return (
     <main className="min-h-screen bg-gradient-to-b from-slate-900 to-slate-800 text-white flex items-center">
       <div className="container mx-auto px-6 py-16">
         <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
