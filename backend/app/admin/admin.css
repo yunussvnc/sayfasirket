@@ -1,0 +1,51 @@
+/* Admin-specific overrides to cancel globals.css dark forcing */
+
+body.admin-light {
+  background-color: #ffffff !important;
+  color: #111827 !important;
+}
+
+body.admin-light::before {
+  display: none !important;
+}
+
+/* Make sure main content shows white backgrounds correctly inside admin */
+body.admin-light main,
+body.admin-light section,
+body.admin-light div {
+  color: inherit !important;
+}
+
+/* Allow bg-white and gray backgrounds to be white inside admin */
+body.admin-light .bg-white,
+body.admin-light .bg-gray-50,
+body.admin-light .bg-gray-100 {
+  background-color: #ffffff !important;
+}
+
+/* Override text color rules that globals.css forces to white */
+body.admin-light .text-gray-900,
+body.admin-light .text-gray-800,
+body.admin-light .text-gray-700,
+body.admin-light .text-gray-600,
+body.admin-light .text-gray-500,
+body.admin-light p,
+body.admin-light span,
+body.admin-light div,
+body.admin-light h1,
+body.admin-light h2,
+body.admin-light h3,
+body.admin-light h4 {
+  color: #111827 !important;
+}
+
+/* Ensure borders and controls are visible */
+body.admin-light .border-gray-200 { border-color: #e5e7eb !important; }
+body.admin-light .bg-gray-50 { background-color: #f9fafb !important; }
+
+/* Make admin-specific layout full-bleed white */
+.admin-shell {
+  background-color: #ffffff;
+  color: #111827;
+  min-height: 100vh;
+}

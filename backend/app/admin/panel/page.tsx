@@ -254,34 +254,34 @@ export default function AdminControlPanel() {
 
     // Resource management view (active resource selected)
     return (
-        <div className="min-h-screen bg-gray-100">
+        <div className="min-h-screen bg-white text-gray-900">
             <div className="flex">
                 {/* Sidebar */}
-                <aside className="w-64 bg-gray-800 text-gray-100 min-h-screen">
-                    <div className="p-4 border-b border-gray-700">
+                <aside className="w-64 bg-white text-gray-900 min-h-screen border-r border-gray-200">
+                    <div className="p-4 border-b border-gray-100">
                         <h2 className="text-lg font-semibold">Admin Paneli</h2>
-                        <p className="text-xs text-gray-400">NeoKreatif</p>
+                        <p className="text-xs text-gray-500">NeoKreatif</p>
                     </div>
                     <nav className="p-3">
                         <ul className="space-y-1">
                             <li>
-                                <button onClick={() => setActiveResource(null)} className="w-full text-left px-3 py-2 rounded hover:bg-gray-700 flex items-center gap-3">
+                                <button onClick={() => setActiveResource(null)} className="w-full text-left px-3 py-2 rounded hover:bg-gray-100 flex items-center gap-3">
                                     <span className="w-2 h-2 bg-blue-400 rounded-full"></span>
                                     Dashboard
                                 </button>
                             </li>
                             <li>
-                                <button onClick={() => setActiveResource('products' as AdminResource)} className="w-full text-left px-3 py-2 rounded hover:bg-gray-700 flex items-center gap-3">
+                                <button onClick={() => setActiveResource('products' as AdminResource)} className="w-full text-left px-3 py-2 rounded hover:bg-gray-100 flex items-center gap-3">
                                     Ürünler
                                 </button>
                             </li>
                             <li>
-                                <button onClick={() => setActiveResource('pages' as AdminResource)} className="w-full text-left px-3 py-2 rounded hover:bg-gray-700 flex items-center gap-3">
+                                <button onClick={() => setActiveResource('pages' as AdminResource)} className="w-full text-left px-3 py-2 rounded hover:bg-gray-100 flex items-center gap-3">
                                     Sayfalar
                                 </button>
                             </li>
                             <li>
-                                <button onClick={() => setActiveResource('settings' as AdminResource)} className="w-full text-left px-3 py-2 rounded hover:bg-gray-700 flex items-center gap-3">
+                                <button onClick={() => setActiveResource('settings' as AdminResource)} className="w-full text-left px-3 py-2 rounded hover:bg-gray-100 flex items-center gap-3">
                                     Ayarlar
                                 </button>
                             </li>
