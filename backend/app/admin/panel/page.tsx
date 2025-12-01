@@ -5,13 +5,10 @@ import { useRouter } from "next/navigation";
 import { AdminResource, ResourceField, RESOURCE_CONFIG } from "@/lib/resource-config";
 import { callAdminApi, clearAdminSession, readSessionFromStorage, type RequestBody } from "../_lib/call-admin-api";
 
-type PanelMode = "desktop" | "mobile";
-
 export default function AdminControlPanel() {
     const router = useRouter();
     const [session, setSession] = useState(() => readSessionFromStorage());
-    const [panelMode, setPanelMode] = useState<PanelMode>("desktop");
-    const [activeResource, setActiveResource] = useState<AdminResource>("pages");
+    const [activeResource, setActiveResource] = useState<AdminResource | null>(null);
     const [records, setRecords] = useState<any[]>([]);
     const [stats, setStats] = useState<Record<string, number>>({});
     const [searchTerm, setSearchTerm] = useState("");
@@ -27,7 +24,7 @@ export default function AdminControlPanel() {
         }
     }, [session, router]);
 
-    const config = useMemo(() => RESOURCE_CONFIG[activeResource], [activeResource]);
+    const config = useMemo(() => activeResource ? RESOURCE_CONFIG[activeResource] : null, [activeResource]);
 
     const fetchResource = useCallback(
         async (resource: AdminResource, extra?: RequestBody) => {
@@ -53,11 +50,15 @@ export default function AdminControlPanel() {
     );
 
     useEffect(() => {
-        fetchResource(activeResource);
+        if (activeResource) {
+            fetchResource(activeResource);
+        }
     }, [activeResource, fetchResource]);
 
     const handleSearch = async () => {
-        await fetchResource(activeResource, searchTerm ? { search: searchTerm } : undefined);
+        if (activeResource) {
+            await fetchResource(activeResource, searchTerm ? { search: searchTerm } : undefined);
+        }
     };
 
     const handleCreate = () => {
@@ -71,6 +72,7 @@ export default function AdminControlPanel() {
     };
 
     const handleDelete = async (id: string) => {
+        if (!activeResource) return;
         if (!confirm("Bu kaydı silmek istediğinize emin misiniz?")) return;
         try {
             await callAdminApi(activeResource, "DELETE", { id });
@@ -81,6 +83,7 @@ export default function AdminControlPanel() {
     };
 
     const handleSave = async () => {
+        if (!activeResource) return;
         setSaving(true);
         try {
             const method = formState.id ? "PATCH" : "POST";
@@ -103,8 +106,8 @@ export default function AdminControlPanel() {
 
     if (session && session.user?.role !== "admin") {
         return (
-            <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100">
-                <div className="bg-white rounded-2xl shadow-xl p-8 max-w-md w-full mx-4 text-center">
+            <div className="min-h-screen flex items-center justify-center bg-gray-100">
+                <div className="bg-white rounded-lg shadow-lg p-8 max-w-md w-full mx-4 text-center">
                     <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
                         <svg className="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
@@ -114,7 +117,7 @@ export default function AdminControlPanel() {
                     <p className="text-gray-600 mb-6">Bu panele sadece admin rolü erişebilir.</p>
                     <button
                         onClick={handleLogout}
-                        className="w-full px-6 py-3 bg-slate-900 text-white rounded-xl font-medium hover:bg-slate-800 transition-colors"
+                        className="w-full px-6 py-3 bg-gray-900 text-white rounded-lg font-medium hover:bg-gray-800 transition-colors"
                     >
                         Çıkış Yap
                     </button>
@@ -123,21 +126,115 @@ export default function AdminControlPanel() {
         );
     }
 
+    // Dashboard view (no active resource selected)
+    if (!activeResource) {
+        return (
+            <div className="min-h-screen bg-gray-100">
+                {/* Header */}
+                <header className="bg-white border-b border-gray-200 shadow-sm">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div className="flex items-center justify-between h-16">
+                            <div className="flex items-center gap-3">
+                                <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center">
+                                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h1 className="text-xl font-bold text-gray-900">NeoKreatif Admin</h1>
+                                    <p className="text-xs text-gray-500">Yönetim Paneli</p>
+                                </div>
+                            </div>
+                            <div className="flex items-center gap-3">
+                                <div className="hidden sm:flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-lg">
+                                    <span className="text-sm text-gray-600">Hoş geldin,</span>
+                                    <span className="text-sm font-medium text-gray-900">{session?.user?.username}</span>
+                                </div>
+                                <button
+                                    onClick={handleLogout}
+                                    className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors"
+                                >
+                                    Çıkış Yap
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+
+                {/* Main Content */}
+                <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                    <div className="mb-8">
+                        <h2 className="text-3xl font-bold text-gray-900">Yönetim Paneli!</h2>
+                        <p className="text-gray-600 mt-2">İçeriklerinizi buradan yönetebilirsiniz</p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {Object.entries(RESOURCE_CONFIG).map(([key, cfg]) => {
+                            const colors = [
+                                { bg: "bg-orange-100", icon: "bg-orange-500", text: "text-orange-700" },
+                                { bg: "bg-pink-100", icon: "bg-pink-500", text: "text-pink-700" },
+                                { bg: "bg-green-100", icon: "bg-green-500", text: "text-green-700" },
+                                { bg: "bg-blue-100", icon: "bg-blue-500", text: "text-blue-700" },
+                                { bg: "bg-purple-100", icon: "bg-purple-500", text: "text-purple-700" },
+                                { bg: "bg-yellow-100", icon: "bg-yellow-500", text: "text-yellow-700" },
+                            ];
+                            const colorIndex = Object.keys(RESOURCE_CONFIG).indexOf(key) % colors.length;
+                            const color = colors[colorIndex];
+
+                            return (
+                                <div
+                                    key={key}
+                                    className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow cursor-pointer"
+                                    onClick={() => setActiveResource(key as AdminResource)}
+                                >
+                                    <div className="flex items-start justify-between mb-4">
+                                        <div className={`${color.icon} p-3 rounded-lg`}>
+                                            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div className={`inline-block px-3 py-1 rounded-full text-xs font-medium ${color.bg} ${color.text} mb-3`}>
+                                        {cfg.label}
+                                    </div>
+                                    <p className="text-gray-600 text-sm mb-4">{cfg.description}</p>
+                                    <button
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            setActiveResource(key as AdminResource);
+                                        }}
+                                        className="w-full px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors"
+                                    >
+                                        Düzenle
+                                    </button>
+                                </div>
+                            );
+                        })}
+                    </div>
+                </main>
+            </div>
+        );
+    }
+
+    // Resource management view (active resource selected)
     return (
-        <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+        <div className="min-h-screen bg-gray-100">
             {/* Header */}
-            <header className="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+            <header className="bg-white border-b border-gray-200 shadow-sm">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex items-center justify-between h-16">
                         <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center">
-                                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                            <button
+                                onClick={() => setActiveResource(null)}
+                                className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                            >
+                                <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
                                 </svg>
-                            </div>
+                            </button>
                             <div>
-                                <h1 className="text-xl font-bold text-gray-900">NeoKreatif Admin</h1>
-                                <p className="text-xs text-gray-500">İçerik Yönetim Paneli</p>
+                                <h1 className="text-xl font-bold text-gray-900">{config?.label}</h1>
+                                <p className="text-xs text-gray-500">{config?.description}</p>
                             </div>
                         </div>
                         <div className="flex items-center gap-3">
@@ -156,209 +253,165 @@ export default function AdminControlPanel() {
                 </div>
             </header>
 
+            {/* Main Content */}
             <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                <div className="flex flex-col lg:flex-row gap-6">
-                    {/* Sidebar */}
-                    <aside className="lg:w-64 space-y-4 flex-shrink-0">
-                        {/* Stats Cards */}
-                        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4">
-                            <h3 className="text-sm font-semibold text-gray-900 mb-3">İstatistikler</h3>
-                            <div className="space-y-3">
-                                {[
-                                    { label: "Toplam", field: "total", color: "blue" },
-                                    { label: "Yayınlanan", field: "published", color: "green" },
-                                    { label: "Taslak", field: "draft", color: "yellow" },
-                                ].map((stat) => (
-                                    <div key={stat.field} className="flex items-center justify-between">
-                                        <span className="text-sm text-gray-600">{stat.label}</span>
-                                        <span className={`text-lg font-bold text-${stat.color}-600`}>
-                                            {stats[stat.field] ?? 0}
-                                        </span>
-                                    </div>
-                                ))}
+                <div className="bg-white rounded-lg shadow-sm border border-gray-200">
+                    {/* Header */}
+                    <div className="px-6 py-5 border-b border-gray-200">
+                        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                            <div>
+                                <h2 className="text-2xl font-bold text-gray-900">{config?.label}</h2>
+                                <p className="text-sm text-gray-500 mt-1">{config?.description}</p>
                             </div>
-                        </div>
-
-                        {/* Navigation */}
-                        <nav className="bg-white rounded-xl shadow-sm border border-gray-200 p-2">
-                            {Object.entries(RESOURCE_CONFIG).map(([key, cfg]) => (
+                            <div className="flex flex-col sm:flex-row gap-3">
+                                <div className="relative">
+                                    <input
+                                        type="text"
+                                        value={searchTerm}
+                                        onChange={(e) => setSearchTerm(e.target.value)}
+                                        onKeyDown={(e) => e.key === "Enter" && handleSearch()}
+                                        placeholder="Ara..."
+                                        className="w-full sm:w-64 pl-10 pr-4 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                    />
+                                    <svg
+                                        className="absolute left-3 top-2.5 w-5 h-5 text-gray-400"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth={2}
+                                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                                        />
+                                    </svg>
+                                </div>
                                 <button
-                                    key={key}
-                                    onClick={() => setActiveResource(key as AdminResource)}
-                                    className={`w-full text-left px-4 py-3 rounded-lg mb-1 transition-all ${
-                                        activeResource === key
-                                            ? "bg-blue-50 text-blue-700 font-medium shadow-sm"
-                                            : "text-gray-700 hover:bg-gray-50"
-                                    }`}
+                                    onClick={handleCreate}
+                                    className="px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors flex items-center justify-center gap-2"
                                 >
-                                    <div className="font-medium">{cfg.label}</div>
-                                    <div className="text-xs text-gray-500 mt-0.5">{cfg.description}</div>
+                                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth={2}
+                                            d="M12 4v16m8-8H4"
+                                        />
+                                    </svg>
+                                    Yeni Ekle
                                 </button>
-                            ))}
-                        </nav>
-                    </aside>
-
-                    {/* Main Content */}
-                    <section className="flex-1 min-w-0">
-                        <div className="bg-white rounded-xl shadow-sm border border-gray-200">
-                            {/* Header */}
-                            <div className="px-6 py-5 border-b border-gray-200">
-                                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                                    <div>
-                                        <h2 className="text-2xl font-bold text-gray-900">{config.label}</h2>
-                                        <p className="text-sm text-gray-500 mt-1">{config.description}</p>
-                                    </div>
-                                    <div className="flex flex-col sm:flex-row gap-3">
-                                        <div className="relative">
-                                            <input
-                                                type="text"
-                                                value={searchTerm}
-                                                onChange={(e) => setSearchTerm(e.target.value)}
-                                                onKeyDown={(e) => e.key === "Enter" && handleSearch()}
-                                                placeholder="Ara..."
-                                                className="w-full sm:w-64 pl-10 pr-4 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                                            />
-                                            <svg
-                                                className="absolute left-3 top-2.5 w-5 h-5 text-gray-400"
-                                                fill="none"
-                                                stroke="currentColor"
-                                                viewBox="0 0 24 24"
-                                            >
-                                                <path
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                    strokeWidth={2}
-                                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                                                />
-                                            </svg>
-                                        </div>
-                                        <button
-                                            onClick={handleCreate}
-                                            className="px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors flex items-center justify-center gap-2"
-                                        >
-                                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                    strokeWidth={2}
-                                                    d="M12 4v16m8-8H4"
-                                                />
-                                            </svg>
-                                            Yeni Ekle
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Error Message */}
-                            {error && (
-                                <div className="mx-6 mt-4 p-4 bg-red-50 border border-red-200 rounded-lg">
-                                    <div className="flex items-center gap-2">
-                                        <svg className="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                strokeWidth={2}
-                                                d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                                            />
-                                        </svg>
-                                        <p className="text-sm text-red-800">{error}</p>
-                                    </div>
-                                </div>
-                            )}
-
-                            {/* Table */}
-                            <div className="overflow-x-auto">
-                                <table className="w-full">
-                                    <thead className="bg-gray-50">
-                                        <tr>
-                                            {config.tableColumns.map((column) => (
-                                                <th
-                                                    key={column.field}
-                                                    className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider"
-                                                >
-                                                    {column.label}
-                                                </th>
-                                            ))}
-                                            <th className="px-6 py-3 text-right text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                                İşlemler
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody className="bg-white divide-y divide-gray-200">
-                                        {loading ? (
-                                            <tr>
-                                                <td colSpan={config.tableColumns.length + 1} className="px-6 py-12 text-center">
-                                                    <div className="flex flex-col items-center gap-3">
-                                                        <div className="w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
-                                                        <p className="text-sm text-gray-500">Yükleniyor...</p>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        ) : records.length === 0 ? (
-                                            <tr>
-                                                <td colSpan={config.tableColumns.length + 1} className="px-6 py-12 text-center">
-                                                    <div className="flex flex-col items-center gap-3">
-                                                        <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center">
-                                                            <svg
-                                                                className="w-8 h-8 text-gray-400"
-                                                                fill="none"
-                                                                stroke="currentColor"
-                                                                viewBox="0 0 24 24"
-                                                            >
-                                                                <path
-                                                                    strokeLinecap="round"
-                                                                    strokeLinejoin="round"
-                                                                    strokeWidth={2}
-                                                                    d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"
-                                                                />
-                                                            </svg>
-                                                        </div>
-                                                        <div>
-                                                            <p className="text-sm font-medium text-gray-900">Kayıt bulunamadı</p>
-                                                            <p className="text-sm text-gray-500 mt-1">Yeni bir kayıt oluşturmak için yukarıdaki butona tıklayın</p>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        ) : (
-                                            records.map((record) => (
-                                                <tr key={record.id} className="hover:bg-gray-50 transition-colors">
-                                                    {config.tableColumns.map((column) => (
-                                                        <td key={column.field} className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                                            {renderCell(column.variant, record[column.field])}
-                                                        </td>
-                                                    ))}
-                                                    <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                        <div className="flex items-center justify-end gap-2">
-                                                            <button
-                                                                onClick={() => handleEdit(record)}
-                                                                className="text-blue-600 hover:text-blue-800 font-medium"
-                                                            >
-                                                                Düzenle
-                                                            </button>
-                                                            <span className="text-gray-300">|</span>
-                                                            <button
-                                                                onClick={() => handleDelete(record.id)}
-                                                                className="text-red-600 hover:text-red-800 font-medium"
-                                                            >
-                                                                Sil
-                                                            </button>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            ))
-                                        )}
-                                    </tbody>
-                                </table>
                             </div>
                         </div>
-                    </section>
+                    </div>
+
+                    {/* Error Message */}
+                    {error && (
+                        <div className="mx-6 mt-4 p-4 bg-red-50 border border-red-200 rounded-lg">
+                            <div className="flex items-center gap-2">
+                                <svg className="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth={2}
+                                        d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                                    />
+                                </svg>
+                                <p className="text-sm text-red-800">{error}</p>
+                            </div>
+                        </div>
+                    )}
+
+                    {/* Table */}
+                    <div className="overflow-x-auto">
+                        <table className="w-full">
+                            <thead className="bg-gray-50">
+                                <tr>
+                                    {config?.tableColumns.map((column) => (
+                                        <th
+                                            key={column.field}
+                                            className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider"
+                                        >
+                                            {column.label}
+                                        </th>
+                                    ))}
+                                    <th className="px-6 py-3 text-right text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                        İşlemler
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody className="bg-white divide-y divide-gray-200">
+                                {loading ? (
+                                    <tr>
+                                        <td colSpan={(config?.tableColumns.length || 0) + 1} className="px-6 py-12 text-center">
+                                            <div className="flex flex-col items-center gap-3">
+                                                <div className="w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+                                                <p className="text-sm text-gray-500">Yükleniyor...</p>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                ) : records.length === 0 ? (
+                                    <tr>
+                                        <td colSpan={(config?.tableColumns.length || 0) + 1} className="px-6 py-12 text-center">
+                                            <div className="flex flex-col items-center gap-3">
+                                                <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center">
+                                                    <svg
+                                                        className="w-8 h-8 text-gray-400"
+                                                        fill="none"
+                                                        stroke="currentColor"
+                                                        viewBox="0 0 24 24"
+                                                    >
+                                                        <path
+                                                            strokeLinecap="round"
+                                                            strokeLinejoin="round"
+                                                            strokeWidth={2}
+                                                            d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"
+                                                        />
+                                                    </svg>
+                                                </div>
+                                                <div>
+                                                    <p className="text-sm font-medium text-gray-900">Kayıt bulunamadı</p>
+                                                    <p className="text-sm text-gray-500 mt-1">Yeni bir kayıt oluşturmak için yukarıdaki butona tıklayın</p>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                ) : (
+                                    records.map((record) => (
+                                        <tr key={record.id} className="hover:bg-gray-50 transition-colors">
+                                            {config?.tableColumns.map((column) => (
+                                                <td key={column.field} className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                                    {renderCell(column.variant, record[column.field])}
+                                                </td>
+                                            ))}
+                                            <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                                <div className="flex items-center justify-end gap-2">
+                                                    <button
+                                                        onClick={() => handleEdit(record)}
+                                                        className="text-blue-600 hover:text-blue-800 font-medium"
+                                                    >
+                                                        Düzenle
+                                                    </button>
+                                                    <span className="text-gray-300">|</span>
+                                                    <button
+                                                        onClick={() => handleDelete(record.id)}
+                                                        className="text-red-600 hover:text-red-800 font-medium"
+                                                    >
+                                                        Sil
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    ))
+                                )}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </main>
 
             {/* Modal */}
-            {isModalOpen && (
+            {isModalOpen && config && (
                 <div className="fixed inset-0 z-50 overflow-y-auto">
                     <div className="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
                         <div className="fixed inset-0 transition-opacity bg-gray-500 bg-opacity-75" onClick={() => setIsModalOpen(false)}></div>
