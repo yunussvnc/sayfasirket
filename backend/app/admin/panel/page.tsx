@@ -98,6 +98,26 @@ export default function AdminControlPanel() {
         }
     };
 
+    const handleToggleActive = async (id: string, current: boolean) => {
+        if (!activeResource) return;
+        try {
+            await callAdminApi(activeResource, "PATCH", { id, active: !current });
+            await fetchResource(activeResource);
+        } catch (err) {
+            alert(err instanceof Error ? err.message : "Durum güncellenemedi");
+        }
+    };
+
+    const handleChangeOrder = async (id: string, order: number) => {
+        if (!activeResource) return;
+        try {
+            await callAdminApi(activeResource, "PATCH", { id, order });
+            await fetchResource(activeResource);
+        } catch (err) {
+            alert(err instanceof Error ? err.message : "Sıra güncellenemedi");
+        }
+    };
+
     const handleLogout = () => {
         clearAdminSession();
         setSession(null);
@@ -235,196 +255,201 @@ export default function AdminControlPanel() {
     // Resource management view (active resource selected)
     return (
         <div className="min-h-screen bg-gray-100">
-            {/* Header */}
-            <header className="bg-white border-b border-gray-200 shadow-sm">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex items-center justify-between h-16">
-                        <div className="flex items-center gap-3">
-                            <button
-                                onClick={() => setActiveResource(null)}
-                                className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
-                            >
-                                <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-                                </svg>
-                            </button>
-                            <div>
-                                <h1 className="text-xl font-bold text-gray-900">{config?.label}</h1>
-                                <p className="text-xs text-gray-500">{config?.description}</p>
-                            </div>
-                        </div>
-                        <div className="flex items-center gap-3">
-                            <div className="hidden sm:flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-lg">
-                                <span className="text-sm text-gray-600">Hoş geldin,</span>
-                                <span className="text-sm font-medium text-gray-900">{session?.user?.username}</span>
-                            </div>
-                            <button
-                                onClick={handleLogout}
-                                className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors"
-                            >
-                                Çıkış Yap
-                            </button>
-                        </div>
+            <div className="flex">
+                {/* Sidebar */}
+                <aside className="w-64 bg-gray-800 text-gray-100 min-h-screen">
+                    <div className="p-4 border-b border-gray-700">
+                        <h2 className="text-lg font-semibold">Admin Paneli</h2>
+                        <p className="text-xs text-gray-400">NeoKreatif</p>
                     </div>
-                </div>
-            </header>
-
-            {/* Main Content */}
-            <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                <div className="bg-white rounded-lg shadow-sm border border-gray-200">
-                    {/* Header */}
-                    <div className="px-6 py-5 border-b border-gray-200">
-                        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                            <div>
-                                <h2 className="text-2xl font-bold text-gray-900">{config?.label}</h2>
-                                <p className="text-sm text-gray-500 mt-1">{config?.description}</p>
-                            </div>
-                            <div className="flex flex-col sm:flex-row gap-3">
-                                <div className="relative">
-                                    <input
-                                        type="text"
-                                        value={searchTerm}
-                                        onChange={(e) => setSearchTerm(e.target.value)}
-                                        onKeyDown={(e) => e.key === "Enter" && handleSearch()}
-                                        placeholder="Ara..."
-                                        className="w-full sm:w-64 pl-10 pr-4 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                                    />
-                                    <svg
-                                        className="absolute left-3 top-2.5 w-5 h-5 text-gray-400"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth={2}
-                                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                                        />
-                                    </svg>
-                                </div>
-                                <button
-                                    onClick={handleCreate}
-                                    className="px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors flex items-center justify-center gap-2"
-                                >
-                                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth={2}
-                                            d="M12 4v16m8-8H4"
-                                        />
-                                    </svg>
-                                    Yeni Ekle
+                    <nav className="p-3">
+                        <ul className="space-y-1">
+                            <li>
+                                <button onClick={() => setActiveResource(null)} className="w-full text-left px-3 py-2 rounded hover:bg-gray-700 flex items-center gap-3">
+                                    <span className="w-2 h-2 bg-blue-400 rounded-full"></span>
+                                    Dashboard
                                 </button>
+                            </li>
+                            <li>
+                                <button onClick={() => setActiveResource('products' as AdminResource)} className="w-full text-left px-3 py-2 rounded hover:bg-gray-700 flex items-center gap-3">
+                                    Ürünler
+                                </button>
+                            </li>
+                            <li>
+                                <button onClick={() => setActiveResource('pages' as AdminResource)} className="w-full text-left px-3 py-2 rounded hover:bg-gray-700 flex items-center gap-3">
+                                    Sayfalar
+                                </button>
+                            </li>
+                            <li>
+                                <button onClick={() => setActiveResource('settings' as AdminResource)} className="w-full text-left px-3 py-2 rounded hover:bg-gray-700 flex items-center gap-3">
+                                    Ayarlar
+                                </button>
+                            </li>
+                        </ul>
+                    </nav>
+                </aside>
+
+                <div className="flex-1">
+                    {/* Header */}
+                    <header className="bg-white border-b border-gray-200 shadow-sm">
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div className="flex items-center justify-between h-16">
+                                <div className="flex items-center gap-3">
+                                    <button
+                                        onClick={() => setActiveResource(null)}
+                                        className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                                    >
+                                        <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                                        </svg>
+                                    </button>
+                                    <div>
+                                        <h1 className="text-xl font-bold text-gray-900">{config?.label}</h1>
+                                        <p className="text-xs text-gray-500">{config?.description}</p>
+                                    </div>
+                                </div>
+                                <div className="flex items-center gap-3">
+                                    <div className="hidden sm:flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-lg">
+                                        <span className="text-sm text-gray-600">Hoş geldin,</span>
+                                        <span className="text-sm font-medium text-gray-900">{session?.user?.username}</span>
+                                    </div>
+                                    <button
+                                        onClick={handleLogout}
+                                        className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors"
+                                    >
+                                        Çıkış Yap
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </header>
 
-                    {/* Error Message */}
-                    {error && (
-                        <div className="mx-6 mt-4 p-4 bg-red-50 border border-red-200 rounded-lg">
-                            <div className="flex items-center gap-2">
-                                <svg className="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth={2}
-                                        d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                                    />
-                                </svg>
-                                <p className="text-sm text-red-800">{error}</p>
-                            </div>
-                        </div>
-                    )}
-
-                    {/* Table */}
-                    <div className="overflow-x-auto">
-                        <table className="w-full">
-                            <thead className="bg-gray-50">
-                                <tr>
-                                    {config?.tableColumns.map((column) => (
-                                        <th
-                                            key={column.field}
-                                            className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider"
+                    {/* Main Content */}
+                    <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                        <div className="bg-white rounded-lg shadow-sm border border-gray-200">
+                            {/* Header */}
+                            <div className="px-6 py-5 border-b border-gray-200">
+                                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                                    <div>
+                                        <h2 className="text-2xl font-bold text-gray-900">{config?.label}</h2>
+                                        <p className="text-sm text-gray-500 mt-1">{config?.description}</p>
+                                    </div>
+                                    <div className="flex flex-col sm:flex-row gap-3">
+                                        <div className="relative">
+                                            <input
+                                                type="text"
+                                                value={searchTerm}
+                                                onChange={(e) => setSearchTerm(e.target.value)}
+                                                onKeyDown={(e) => e.key === "Enter" && handleSearch()}
+                                                placeholder="Ara..."
+                                                className="w-full sm:w-64 pl-10 pr-4 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                            />
+                                            <svg
+                                                className="absolute left-3 top-2.5 w-5 h-5 text-gray-400"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                viewBox="0 0 24 24"
+                                            >
+                                                <path
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                    strokeWidth={2}
+                                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                                                />
+                                            </svg>
+                                        </div>
+                                        <button
+                                            onClick={handleCreate}
+                                            className="px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors flex items-center justify-center gap-2"
                                         >
-                                            {column.label}
-                                        </th>
-                                    ))}
-                                    <th className="px-6 py-3 text-right text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                        İşlemler
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody className="bg-white divide-y divide-gray-200">
-                                {loading ? (
-                                    <tr>
-                                        <td colSpan={(config?.tableColumns.length || 0) + 1} className="px-6 py-12 text-center">
-                                            <div className="flex flex-col items-center gap-3">
-                                                <div className="w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
-                                                <p className="text-sm text-gray-500">Yükleniyor...</p>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                ) : records.length === 0 ? (
-                                    <tr>
-                                        <td colSpan={(config?.tableColumns.length || 0) + 1} className="px-6 py-12 text-center">
-                                            <div className="flex flex-col items-center gap-3">
-                                                <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center">
-                                                    <svg
-                                                        className="w-8 h-8 text-gray-400"
-                                                        fill="none"
-                                                        stroke="currentColor"
-                                                        viewBox="0 0 24 24"
-                                                    >
-                                                        <path
-                                                            strokeLinecap="round"
-                                                            strokeLinejoin="round"
-                                                            strokeWidth={2}
-                                                            d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"
-                                                        />
-                                                    </svg>
-                                                </div>
-                                                <div>
-                                                    <p className="text-sm font-medium text-gray-900">Kayıt bulunamadı</p>
-                                                    <p className="text-sm text-gray-500 mt-1">Yeni bir kayıt oluşturmak için yukarıdaki butona tıklayın</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                ) : (
-                                    records.map((record) => (
-                                        <tr key={String(record.id)} className="hover:bg-gray-50 transition-colors">
-                                            {config?.tableColumns.map((column) => (
-                                                <td key={column.field} className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                                    {renderCell(column.variant, record[column.field])}
-                                                </td>
-                                            ))}
-                                            <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                <div className="flex items-center justify-end gap-2">
-                                                    <button
-                                                        onClick={() => handleEdit(record)}
-                                                        className="text-blue-600 hover:text-blue-800 font-medium"
-                                                    >
-                                                        Düzenle
-                                                    </button>
-                                                    <span className="text-gray-300">|</span>
-                                                    <button
-                                                        onClick={() => handleDelete(String(record.id))}
-                                                        className="text-red-600 hover:text-red-800 font-medium"
-                                                    >
-                                                        Sil
-                                                    </button>
-                                                </div>
-                                            </td>
+                                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                    strokeWidth={2}
+                                                    d="M12 4v16m8-8H4"
+                                                />
+                                            </svg>
+                                            Yeni Ekle
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Table */}
+                            <div className="overflow-x-auto">
+                                <table className="w-full">
+                                    <thead className="bg-gray-50">
+                                        <tr>
+                                            <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Foto</th>
+                                            <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Üst Başlık</th>
+                                            <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Başlık</th>
+                                            <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">İçerik</th>
+                                            <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Aktif</th>
+                                            <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Sıra</th>
+                                            <th className="px-6 py-3 text-right text-xs font-semibold text-gray-600 uppercase tracking-wider">Güncelle</th>
+                                            <th className="px-6 py-3 text-right text-xs font-semibold text-gray-600 uppercase tracking-wider">Sil</th>
                                         </tr>
-                                    ))
-                                )}
-                            </tbody>
-                        </table>
-                    </div>
+                                    </thead>
+                                    <tbody className="bg-white divide-y divide-gray-200">
+                                        {loading ? (
+                                            <tr>
+                                                <td colSpan={8} className="px-6 py-12 text-center">
+                                                    <div className="flex flex-col items-center gap-3">
+                                                        <div className="w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+                                                        <p className="text-sm text-gray-500">Yükleniyor...</p>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        ) : records.length === 0 ? (
+                                            <tr>
+                                                <td colSpan={8} className="px-6 py-12 text-center">
+                                                    <div className="flex flex-col items-center gap-3">
+                                                        <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center">
+                                                            <svg className="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+                                                            </svg>
+                                                        </div>
+                                                        <div>
+                                                            <p className="text-sm font-medium text-gray-900">Kayıt bulunamadı</p>
+                                                            <p className="text-sm text-gray-500 mt-1">Yeni bir kayıt oluşturmak için yukarıdaki butona tıklayın</p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        ) : (
+                                            records.map((record) => (
+                                                <tr key={String(record.id)} className="hover:bg-gray-50 transition-colors">
+                                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                                        <img src={String(record.image ?? record.photo ?? record.cover ?? '/images/placeholder.png')} alt="thumb" className="w-20 h-12 object-cover rounded" />
+                                                    </td>
+                                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{String(record.subtitle ?? record.subTitle ?? record.topTitle ?? '-')}</td>
+                                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{String(record.title ?? record.name ?? '-')}</td>
+                                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                                        <button onClick={() => handleEdit(record)} className="px-3 py-1 bg-blue-500 text-white rounded text-sm">İçeriği Oku</button>
+                                                    </td>
+                                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                                        <input type="checkbox" checked={Boolean(record.active)} onChange={() => handleToggleActive(String(record.id), Boolean(record.active))} className="h-4 w-4" />
+                                                    </td>
+                                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                                        <input type="number" defaultValue={Number(record.order ?? record.sira ?? 0)} onBlur={(e) => handleChangeOrder(String(record.id), Number(e.currentTarget.value))} className="w-20 px-2 py-1 border rounded" />
+                                                    </td>
+                                                    <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                                        <button onClick={() => handleEdit(record)} className="px-3 py-1 bg-green-500 text-white rounded text-sm">Güncelle</button>
+                                                    </td>
+                                                    <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                                        <button onClick={() => handleDelete(String(record.id))} className="px-3 py-1 bg-red-500 text-white rounded text-sm">Sil</button>
+                                                    </td>
+                                                </tr>
+                                            ))
+                                        )}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </main>
                 </div>
-            </main>
+            </div>
 
             {/* Modal */}
             {isModalOpen && config && (

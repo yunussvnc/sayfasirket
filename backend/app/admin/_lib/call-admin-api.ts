@@ -49,7 +49,7 @@ interface AdminSessionStorage {
     user: { id: string; username: string; role: string };
 }
 
-export function persistAdminSession(session: AdminSessionStorage) {
+export function persistAdminSession(session: AdminSessionStorage, remember: boolean) {
     if (typeof window === "undefined") return;
     localStorage.setItem("adminSession", JSON.stringify(session));
     sessionStorage.setItem("adminAuth", "true"); // eski sayfalar için geriye dönük destek

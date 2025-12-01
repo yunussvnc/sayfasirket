@@ -30,7 +30,8 @@ export default function LoginForm() {
       }
 
       const data = await response.json();
-      persistAdminSession({ token: data.token, user: data.user, remember });
+      const session = { token: data.token, user: data.user };
+      persistAdminSession(session, remember);
       router.push("/admin/panel");
     } catch (err) {
       setError(err instanceof Error ? err.message : "Giriş başarısız");
